@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KYC Verification Hub · Check Live Status Across All 5 KRAs | Vikas Agarwal</title>
+<meta name="description" content="Check and resolve your mutual fund KYC status online. Verify across CVL KRA, CAMS KRA, KFintech KRA, NSE KRA, NDML KRA, CKYC, and PAN-Aadhaar linkage with step-by-step guidance.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#031744;
+  --navy-mid:#06286E;
+  --ink:#0B1B3D;
+  --mut:#4E6180;
+  --soft:#F4F7FB;
+  --card-bg:#FFFFFF;
+  --line:#D6E0EE;
+  --green:#068A42;
+  --g2:#056832;
+  --mint:#9BE8B8;
+  --accent:#E7F6EE;
+  --amber:#D97706;
+  --amber-bg:#FEF3C7;
+  --red:#DC2626;
+  --red-bg:#FEE2E2;
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+.brand img{height:38px;width:auto}
+.bn{font:700 18px 'Montserrat',sans-serif;letter-spacing:-.01em;color:var(--navy);line-height:1.1}
+.bt{font:700 9.5px 'DM Sans',sans-serif;letter-spacing:1.5px;color:var(--green);text-transform:uppercase}
+nav{display:flex;align-items:center;gap:22px}
+nav a{text-decoration:none;color:var(--mut);font-weight:600;font-size:15px;transition:color .2s}
+nav a:hover,nav a.active{color:var(--navy)}
+
+/* Luxury Dropdown */
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:5px}
+.nav-item svg.arr{width:9px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s}
+.nav-item:hover svg.arr{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:275px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 16px 36px -10px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;display:grid;gap:2px}
+.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
+.drop-menu a:hover{background:var(--soft)}
+.drop-menu a.active{background:var(--accent)}
+.drop-menu a b{display:block;font-size:13.5px;color:var(--navy);line-height:1.2}
+.drop-menu a small{display:block;font-size:11.5px;color:var(--mut);font-weight:400}
+.drop-ico{width:28px;height:28px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.drop-ico svg{width:15px;height:15px;stroke:var(--g2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;border:1px solid transparent;cursor:pointer}
+.btn.sm{padding:8px 16px;font-size:13.5px}
+.btn.pri{background:var(--green);color:#fff}
+.btn.pri:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(6,138,66,.25)}
+.btn.sec{background:var(--soft);color:var(--navy);border-color:var(--line)}
+.btn.sec:hover{background:#E9F0FA;border-color:var(--navy)}
+.btn.wa{background:#25D366;color:#fff}
+.btn.wa:hover{background:#1EBE5D;transform:translateY(-1px);box-shadow:0 6px 16px rgba(37,211,102,.3)}
+
+/* Architectural Hero */
+.kyc-hero{position:relative;overflow:hidden;padding:52px 0 42px;background:linear-gradient(180deg,#F3F7FD 0%,#FFFFFF 100%);border-bottom:1px solid var(--line)}
+.hero-contours{position:absolute;right:-60px;top:-80px;width:520px;height:520px;opacity:.4;pointer-events:none}
+.hero-contours path{fill:none;stroke:#C5D5ED;stroke-width:1}
+.kyc-hero .w{position:relative;z-index:2}
+.hero-top-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.crumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--mut);margin-bottom:12px}
+.crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:var(--navy)}
+.crumb span{color:var(--navy)}
+.eb{font:700 11.5px 'DM Sans',sans-serif;letter-spacing:2.4px;color:var(--green);text-transform:uppercase;margin-bottom:10px}
+.kyc-hero h1{font:600 clamp(32px,4.4vw,52px)/1.08 'Fraunces',Georgia,serif;letter-spacing:-.025em;color:var(--navy);max-width:780px;margin-bottom:12px}
+.kyc-hero p.lead{font-size:17px;line-height:1.58;color:var(--mut);max-width:680px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 16px;box-shadow:0 6px 20px -8px rgba(6,40,110,.12);font-size:13px;color:var(--navy);font-weight:600}
+.hero-badge i{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 0 4px rgba(6,138,66,.15)}
+
+/* Direct KRA Portals Grid */
+.kra-section{padding:36px 0 24px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap}
+.section-head h2{font:600 clamp(24px,3vw,34px)/1.15 'Fraunces',serif;color:var(--navy)}
+.section-head p{font-size:15px;color:var(--mut);max-width:540px}
+
+.kra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kra-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,border-color .2s,box-shadow .2s;text-decoration:none;color:inherit}
+.kra-card:hover{transform:translateY(-3px);border-color:var(--navy);box-shadow:0 14px 32px -12px rgba(6,40,110,.15)}
+.kra-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.kra-badge{font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--g2);text-transform:uppercase}
+.kra-ico{width:42px;height:42px;border-radius:12px;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center}
+.kra-ico svg{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.kra-card h3{font:700 17px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:6px}
+.kra-card p{font-size:13px;color:var(--mut);line-height:1.48;margin-bottom:18px;flex:1}
+.kra-link{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--green)}
+.kra-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;transition:transform .15s}
+.kra-card:hover .kra-link svg{transform:translateX(3px)}
+
+/* Interactive Status Diagnostic Engine */
+.diagnostic-section{padding:36px 0 54px}
+.diag-shell{background:linear-gradient(145deg,#041E56 0%,#031338 100%);color:#fff;border-radius:26px;padding:36px;box-shadow:0 24px 50px -18px rgba(3,23,68,.4);position:relative;overflow:hidden}
+.diag-shell::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 100% 0%,transparent 0 28px,rgba(255,255,255,.03) 28px 29px);pointer-events:none}
+.diag-top{position:relative;z-index:2;margin-bottom:26px}
+.diag-sub{font:700 11.5px 'DM Sans',sans-serif;letter-spacing:2px;color:var(--mint);text-transform:uppercase;margin-bottom:8px}
+.diag-top h2{font:600 clamp(24px,3vw,34px)/1.15 'Fraunces',serif;color:#fff;margin-bottom:8px}
+.diag-top p{font-size:15px;color:rgba(255,255,255,.75);max-width:620px}
+
+/* Status Selector Pills */
+.status-nav{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;margin-bottom:28px;position:relative;z-index:2;scrollbar-width:none}
+.status-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 18px;font:700 13.5px 'DM Sans',sans-serif;color:#fff;cursor:pointer;white-space:nowrap;transition:all .2s}
+.status-pill:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+.status-pill.active{background:#fff;color:var(--navy);border-color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.status-pill.active .status-dot{box-shadow:0 0 0 3px rgba(3,23,68,.15)}
+
+/* Diagnostic Dynamic Display Card */
+.diag-card{position:relative;z-index:2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:30px}
+.diag-card-hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:24px}
+.diag-title-group{display:flex;align-items:center;gap:12px}
+.diag-title-group h3{font:600 22px 'Fraunces',serif;color:#fff}
+.diag-state-badge{padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+
+.diag-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.diag-col h4{font:700 13px 'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.diag-col h4 svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5}
+.impact-list{list-style:none;display:grid;gap:10px}
+.impact-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 16px;display:flex;align-items:flex-start;gap:12px;font-size:13.5px}
+.impact-item svg{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.impact-item b{display:block;color:#fff;margin-bottom:2px}
+.impact-item span{color:rgba(255,255,255,.75);line-height:1.45}
+
+.action-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:20px}
+.action-box p{font-size:14px;color:rgba(255,255,255,.88);line-height:1.55;margin-bottom:16px}
+.action-steps{list-style:none;display:grid;gap:9px;margin-bottom:20px}
+.action-steps li{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#fff}
+.action-steps li svg{width:15px;height:15px;stroke:var(--mint);fill:none;stroke-width:2.5;flex-shrink:0}
+.diag-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* 4-Step e-KYC Visual Journey */
+.journey-section{padding:36px 0 54px;background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.journey-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:32px}
+.journey-step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;position:relative}
+.journey-num{font:600 36px/1 'Fraunces',serif;color:var(--navy);opacity:.2;margin-bottom:12px}
+.journey-ico{width:44px;height:44px;border-radius:12px;background:var(--accent);display:grid;place-items:center;margin-bottom:16px}
+.journey-ico svg{width:22px;height:22px;stroke:var(--g2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.journey-step h4{font:700 16px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:8px}
+.journey-step p{font-size:13px;color:var(--mut);line-height:1.5}
+
+/* Download Repository Section */
+.forms-section{padding:48px 0 64px}
+.forms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.form-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .2s}
+.form-card:hover{border-color:var(--navy)}
+.form-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.form-type{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--mut);text-transform:uppercase}
+.form-card h4{font:700 15.5px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:6px}
+.form-card p{font-size:13px;color:var(--mut);line-height:1.45;margin-bottom:18px}
+.form-foot{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mut)}
+.form-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green);text-decoration:none}
+.form-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5}
+
+/* Direct Advisory Concierge Card */
+.concierge-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:32px;box-shadow:0 12px 36px -14px rgba(6,40,110,.12);margin-top:36px;flex-wrap:wrap}
+.concierge-body{max-width:680px}
+.concierge-body h3{font:600 24px/1.2 'Fraunces',serif;color:var(--navy);margin-bottom:8px}
+.concierge-body p{font-size:15px;color:var(--mut);line-height:1.55}
+.concierge-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Footer & Disclosures */
+footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40px;font-size:14px;color:var(--mut)}
+.ft{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.fbr{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.fbr img{height:38px;width:auto}
+.fbr b{font:700 18px 'Montserrat',sans-serif;color:var(--navy)}
+.ft h4{font:700 13px 'DM Sans',sans-serif;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy);margin-bottom:16px}
+.ft ul{list-style:none;display:grid;gap:10px}
+.ft a{color:var(--mut);text-decoration:none;transition:color .2s}
+.ft a:hover{color:var(--navy)}
+.dis{border-top:1px solid var(--line);padding-top:28px;font-size:12.5px;line-height:1.65;color:var(--mut)}
+.dis a{color:var(--navy);font-weight:600;text-decoration:underline}
+.rk{font-weight:700;color:var(--navy);margin-top:12px}
+.cp{margin-top:24px;font-size:12.5px;color:var(--mut)}
+
+/* WhatsApp Floating Action */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:40;display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.35);transition:transform .2s}
+.wa-float:hover{transform:translateY(-2px)}
+.wa-float svg{width:18px;height:18px;fill:currentColor}
+
+@media(max-width:960px){
+  .kra-grid{grid-template-columns:1fr 1fr}
+  .diag-grid{grid-template-columns:1fr;gap:24px}
+  .journey-grid{grid-template-columns:1fr 1fr}
+  .forms-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  header .w{padding:0 16px}
+  nav{display:none}
+  .kra-grid{grid-template-columns:1fr}
+  .journey-grid{grid-template-columns:1fr}
+  .forms-grid{grid-template-columns:1fr}
+  .diag-shell{padding:22px 18px}
+  .diag-card{padding:20px 16px}
+  .concierge-card{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<header><div class="w">
+  <a class="brand" href="index.html">
+    <img alt="Vikas Agarwal" src="logo.png">
+    <div>
+      <div class="bn">Vikas Agarwal</div>
+      <div class="bt">MUTUAL FUND DISTRIBUTOR</div>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html#goals">Goals</a>
+    <a href="index.html#how">How it works</a>
+    <div class="nav-item">
+      <a href="kyc.html" class="active">Investor Zone <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+      <div class="drop-menu">
+        <a href="calculators.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
+        <a href="kyc.html" class="active"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
+        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><div><b>MF Forms &amp; Downloads</b><small>Common Transaction &amp; Service Slips</small></div></a>
+        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><div><b>MF Tools &amp; Research</b><small>NAV, Factsheets &amp; Performance</small></div></a>
+        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
+      </div>
+    </div>
+    <a href="index.html#about">About</a>
+    <a href="how-i-earn.html">Disclosures</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn sm pri" href="tel:+919967129977">Call now</a>
+</div></header>
+
+<!-- Hero Section -->
+<div class="kyc-hero">
+  <svg class="hero-contours" viewBox="0 0 400 400" aria-hidden="true">
+    <circle cx="260" cy="180" r="50"/><circle cx="260" cy="180" r="85"/><circle cx="260" cy="180" r="120"/><circle cx="260" cy="180" r="155"/><circle cx="260" cy="180" r="190"/>
+  </svg>
+  <div class="w">
+    <div class="hero-top-row">
+      <div>
+        <div class="crumb"><a href="index.html">Home</a> / <span>Investor Zone</span> / <span>KYC Verification Hub</span></div>
+        <div class="eb">SEBI &amp; PMLA COMPLIANCE INFRASTRUCTURE</div>
+        <h1>Mutual Fund KYC Verification Hub</h1>
+        <p class="lead">Under SEBI regulations, an active and validated KYC record is required before investing in mutual funds. Check live status across all 5 official KRAs, verify PAN-Aadhaar linking, and diagnose status discrepancies.</p>
+      </div>
+      <div class="hero-badge"><i></i><span>All 5 SEBI KRAs · ARN-40434</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: Direct 5 KRA Status Portals -->
+<section class="kra-section"><div class="w">
+  <div class="section-head">
+    <div>
+      <div class="eb">CENTRAL REGISTRIES</div>
+      <h2>Check Your Live KRA Status Online</h2>
+    </div>
+    <p>Every Indian mutual fund KYC record is registered with one of these 5 SEBI-approved agencies. Enter your 10-digit PAN on the agency portal to verify your current standing.</p>
+  </div>
+
+  <div class="kra-grid">
+    <!-- 1. CVL KRA -->
+    <a class="kra-card" href="https://www.cvlkra.com" target="_blank" rel="noopener">
+      <div>
+        <div class="kra-top">
+          <div class="kra-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="kra-badge">Primary KRA</span>
+        </div>
+        <h3>CVL KRA (CDSL Ventures)</h3>
+        <p>The largest repository in India, maintaining over 65% of Indian capital market KYC records. Ideal starting point for most mutual fund investors.</p>
+      </div>
+      <span class="kra-link">Verify on CVL Portal <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- 2. CAMS KRA -->
+    <a class="kra-card" href="https://www.camskra.com" target="_blank" rel="noopener">
+      <div>
+        <div class="kra-top">
+          <div class="kra-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="13" y2="16"/></svg></div>
+          <span class="kra-badge">Registrar KRA</span>
+        </div>
+        <h3>CAMS KRA</h3>
+        <p>Managed by Computer Age Management Services, the official registrar for HDFC, SBI, ICICI Prudential, Kotak, and Aditya Birla Sun Life.</p>
+      </div>
+      <span class="kra-link">Verify on CAMS Portal <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- 3. KFintech KRA -->
+    <a class="kra-card" href="https://kra.kfintech.com" target="_blank" rel="noopener">
+      <div>
+        <div class="kra-top">
+          <div class="kra-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <span class="kra-badge">Registrar KRA</span>
+        </div>
+        <h3>KFintech KRA (Karvy)</h3>
+        <p>Managed by KFin Technologies, registrar for Nippon India, Axis, UTI, Mirae Asset, DSP, and Tata Mutual Fund houses.</p>
+      </div>
+      <span class="kra-link">Verify on KFintech Portal <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- 4. NSE KRA -->
+    <a class="kra-card" href="https://www.nsekra.com" target="_blank" rel="noopener">
+      <div>
+        <div class="kra-top">
+          <div class="kra-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <span class="kra-badge">Exchange KRA</span>
+        </div>
+        <h3>NSE KRA (DotEx)</h3>
+        <p>Managed by the National Stock Exchange of India. Commonly used by broking platforms and institutional trading accounts.</p>
+      </div>
+      <span class="kra-link">Verify on NSE Portal <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- 5. NDML KRA -->
+    <a class="kra-card" href="https://kra.ndml.in" target="_blank" rel="noopener">
+      <div>
+        <div class="kra-top">
+          <div class="kra-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg></div>
+          <span class="kra-badge">Depository KRA</span>
+        </div>
+        <h3>NDML KRA (NSDL)</h3>
+        <p>Managed by NSDL Database Management Limited. Verifies depository participants, bank KYC, and equity demat accounts.</p>
+      </div>
+      <span class="kra-link">Verify on NDML Portal <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <!-- 6. Income Tax PAN-Aadhaar Link Status -->
+    <a class="kra-card" href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" rel="noopener" style="border-color:#CBD8EC;background:#F8FAFE">
+      <div>
+        <div class="kra-top">
+          <div class="kra-ico"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+          <span class="kra-badge" style="background:#FEF3C7;color:#92400E">Mandatory Link</span>
+        </div>
+        <h3>PAN-Aadhaar Link Status</h3>
+        <p>Check if your PAN is operative with Aadhaar on the Income Tax Portal. An unlinked PAN turns your mutual fund KYC "On Hold" immediately.</p>
+      </div>
+      <span class="kra-link">Check Link Status on ITD <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+</div></section>
+
+<!-- Section 2: Interactive KYC Status Decoder & Action Engine -->
+<section class="diagnostic-section"><div class="w">
+  <div class="diag-shell">
+    <div class="diag-top">
+      <div class="diag-sub">INTERACTIVE DIAGNOSTIC ENGINE</div>
+      <h2>KYC Status Decoder &amp; Action Plan</h2>
+      <p>Under SEBI's updated framework, your KRA status determines whether your SIPs process smoothly or get halted. Select your current status below to inspect your exact transaction permissions and step-by-step remediation plan.</p>
+    </div>
+
+    <!-- Selector Pills -->
+    <div class="status-nav" role="tablist">
+      <button type="button" class="status-pill active" data-mode="validated"><span class="status-dot" style="background:#10B981"></span>KYC Validated</button>
+      <button type="button" class="status-pill" data-mode="registered"><span class="status-dot" style="background:#F59E0B"></span>KYC Registered</button>
+      <button type="button" class="status-pill" data-mode="onhold"><span class="status-dot" style="background:#EF4444"></span>KYC On Hold / Rejected</button>
+      <button type="button" class="status-pill" data-mode="unlinked"><span class="status-dot" style="background:#F97316"></span>PAN-Aadhaar Not Linked</button>
+      <button type="button" class="status-pill" data-mode="new"><span class="status-dot" style="background:#94A3B8"></span>New to Mutual Funds</button>
+    </div>
+
+    <!-- Dynamic Output Card -->
+    <div class="diag-card" id="diag-output-box">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+</div></section>
+
+<!-- Section 3: The 4-Step Paperless e-KYC Journey -->
+<section class="journey-section"><div class="w">
+  <div class="section-head">
+    <div>
+      <div class="eb">100% DIGITAL ONBOARDING</div>
+      <h2>The 5-Minute Paperless e-KYC Process</h2>
+    </div>
+    <p>New investors can complete verification completely online via Aadhaar OTP and DigiLocker without submitting physical photocopies or visiting a branch.</p>
+  </div>
+
+  <div class="journey-grid">
+    <div class="journey-step">
+      <div class="journey-num">01</div>
+      <div class="journey-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><line x1="15" y1="8" x2="17" y2="8"/><line x1="15" y1="12" x2="17" y2="12"/><path d="M7 16h10"/></svg></div>
+      <h4>PAN &amp; Demographics</h4>
+      <p>Provide your 10-digit PAN and Date of Birth. The system cross-verifies your name against Income Tax Department (ITD) records in real time.</p>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-num">02</div>
+      <div class="journey-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h4>Aadhaar via DigiLocker</h4>
+      <p>Authenticate through Government DigiLocker or UIDAI Aadhaar OTP. Your officially valid document (OVD) is validated immediately.</p>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-num">03</div>
+      <div class="journey-ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+      <h4>Penny-Drop Bank Check</h4>
+      <p>Enter your IFSC and Bank Account Number. A ₹1 micro-deposit confirms account holder name matching before your SIP mandate activates.</p>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-num">04</div>
+      <div class="journey-ico"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+      <h4>5-Sec Video IPV</h4>
+      <p>A fast 5-second In-Person Verification (IPV) selfie video verifies liveness as required by SEBI anti-money laundering mandates.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- Section 4: Downloads & Physical Slips Repository -->
+<section class="forms-section"><div class="w">
+  <div class="section-head">
+    <div>
+      <div class="eb">DOCUMENT REPOSITORY</div>
+      <h2>KYC Application &amp; Modification Forms</h2>
+    </div>
+    <p>For non-individual entities, minors, HUF, or offline modification requests, download official standard forms compliant with SEBI and CERSAI guidelines.</p>
+  </div>
+
+  <div class="forms-grid">
+    <!-- Form 1 -->
+    <div class="form-card">
+      <div>
+        <div class="form-top"><span class="form-type">Individual Investor</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h4>CKYC Individual Application Form</h4>
+        <p>Standard Central KYC application for individual Indian residents and NRI investors looking to register fresh with CERSAI.</p>
+      </div>
+      <div class="form-foot">
+        <span>Standard Form · PDF</span>
+        <a class="form-btn" href="https://www.cvlkra.com/downloads/KYC-Individual.pdf" target="_blank" rel="noopener">Download PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Form 2 -->
+    <div class="form-card">
+      <div>
+        <div class="form-top"><span class="form-type">Modification / Update</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <h4>KYC Details Modification Slip</h4>
+        <p>Required to update mobile number, email address, marital status, or residential address across all mutual fund folios simultaneously.</p>
+      </div>
+      <div class="form-foot">
+        <span>KRA Modification · PDF</span>
+        <a class="form-btn" href="https://www.cvlkra.com/downloads/KYC-Individual.pdf" target="_blank" rel="noopener">Download PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Form 3 -->
+    <div class="form-card">
+      <div>
+        <div class="form-top"><span class="form-type">Corporate / Non-Individual</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <h4>Non-Individual CKYC Form</h4>
+        <p>For Private Limited companies, Partnership firms, LLPs, Trusts, Societies, and HUF entities investing in mutual funds.</p>
+      </div>
+      <div class="form-foot">
+        <span>Corporate CKYC · PDF</span>
+        <a class="form-btn" href="https://www.cvlkra.com/downloads/KYC-Non-Individual.pdf" target="_blank" rel="noopener">Download PDF <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advisory Concierge Card -->
+  <div class="concierge-card">
+    <div class="concierge-body">
+      <div class="eb">PERSONAL RESOLUTION CONCIERGE</div>
+      <h3>Stuck with a KYC On-Hold or Name Mismatch?</h3>
+      <p>KRA status rejections frequently occur due to minor spelling variations between your PAN card and Aadhaar, or unverified contact details. Vikas Agarwal helps clients navigate KRA resolution and digital re-validation without administrative frustration.</p>
+    </div>
+    <div class="concierge-actions">
+      <a class="btn wa" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20my%20mutual%20fund%20KYC%20is%20showing%20issues.%20Please%20guide%20me%20on%20re-validation." target="_blank" rel="noopener">Connect with Vikas on WhatsApp</a>
+      <a class="btn sec" href="tel:+919967129977">Call +91 99671 29977</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- Footer -->
+<footer><div class="w">
+  <div class="ft">
+    <div>
+      <div class="fbr"><img alt="Vikas Agarwal" src="logo.png"><b>Vikas Agarwal</b></div>
+      <p>AMFI-registered Mutual Fund Distributor (ARN-40434, EUIN E375656), Goregaon East, Mumbai. Providing structured financial guidance chosen around your long-term life goals.</p>
+    </div>
+    <div>
+      <h4>Investor Zone</h4>
+      <ul>
+        <li><a href="calculators.html">Financial Calculators</a></li>
+        <li><a href="kyc.html" style="color:var(--g2);font-weight:700">KYC Verification Hub</a></li>
+        <li><a href="index.html#investor-zone">MF Forms &amp; Downloads</a></li>
+        <li><a href="index.html#investor-zone">MF Tools &amp; Research</a></li>
+        <li><a href="index.html#investor-zone">Client Login Portals</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Disclosures &amp; Policy</h4>
+      <ul>
+        <li><a href="how-i-earn.html">Commission Disclosures</a></li>
+        <li><a href="disclosures.html">Disclosures &amp; Grievance</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="index.html#contact">Contact &amp; Office</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dis">
+    <p>Vikas Agarwal is an AMFI-registered Mutual Fund Distributor (ARN-40434, valid till 07 August 2027; EUIN E375656) and is not a SEBI-registered investment adviser. He distributes Regular Plans only, which include distributor trail commission paid by the respective fund house. <a href="how-i-earn.html">View commission details</a>. Investors have the option to invest in Direct Plans of mutual fund schemes directly without intermediary commission.</p>
+    <p style="margin-top:8px">KYC guidelines, KRA verification portals, and CKYC procedures are governed by SEBI Master Circular on KYC and PMLA rules. Vikas Agarwal assists clients in compliance and distributor registration services.</p>
+    <p style="margin-top:8px">For grievance redressal, contact Vikas Agarwal at <a href="mailto:info@investwithvikas.in">info@investwithvikas.in</a> or escalate to SEBI via <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">SCORES 2.0</a> and <a href="https://smartodr.in" target="_blank" rel="noopener">SMART ODR Portal</a>. <a href="disclosures.html">View full escalation matrix</a>.</p>
+    <p class="rk">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+  </div>
+  <div class="cp">© 2026 Vikas Agarwal · ARN-40434 · Goregaon East, Mumbai · investwithvikas.in</div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20have%20a%20question%20regarding%20my%20KYC%20verification." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+// Dynamic Diagnostic Data Store
+var diagData = {
+  validated: {
+    title: "KYC Validated",
+    badge: "100% Fully Compliant",
+    badgeBg: "rgba(16, 185, 129, 0.2)",
+    badgeColor: "#6EE7B7",
+    color: "#10B981",
+    desc: "Your PAN, name, and address have been independently verified against official databases (Aadhaar XML / DigiLocker), and your mobile number & email have been authenticated.",
+    existing: "All existing SIPs, lumpsum purchases, switches, and redemptions execute without any restriction.",
+    newAmc: "Zero friction. You can invest in any new fund house (AMC) immediately without resubmitting paperwork.",
+    actionTitle: "No Remediation Required",
+    actionDesc: "Your KYC is in the highest compliance tier. You do not need to take any action.",
+    steps: [
+      "No paperwork or modification needed",
+      "Valid across all 44+ mutual fund houses in India",
+      "Seamless online redemptions and SIP execution"
+    ],
+    waMsg: "Hi Vikas, my KYC status is showing 'Validated'. I am ready to start my investment portfolio."
+  },
+  registered: {
+    title: "KYC Registered",
+    badge: "Action Advised (Legacy KYC)",
+    badgeBg: "rgba(245, 158, 11, 0.2)",
+    badgeColor: "#FCD34D",
+    color: "#F59E0B",
+    desc: "Your KYC was registered previously using non-Aadhaar Officially Valid Documents (Passport, Voter ID, Driving License) or before online Aadhaar XML validation rules came into effect.",
+    existing: "Existing SIPs, redemptions, and fresh purchases with fund houses where you ALREADY hold active folios continue as normal.",
+    newAmc: "Restricted. If you attempt to start a SIP or invest in a NEW fund house where you have no prior folio, your transaction may be rejected.",
+    actionTitle: "Recommended Action: Upgrade to Validated",
+    actionDesc: "To ensure you are free to invest across all mutual fund houses without roadblocks, complete a 3-minute online Re-KYC using Aadhaar OTP / DigiLocker.",
+    steps: [
+      "Open your respective KRA portal (e.g. CVL KRA or CAMS KRA)",
+      "Select 'KYC Modification / Re-KYC'",
+      "Authenticate via DigiLocker / Aadhaar OTP",
+      "Status upgrades to 'KYC Validated' within 48 to 72 business hours"
+    ],
+    waMsg: "Hi Vikas, my KYC status is showing 'Registered'. How can I upgrade it to 'Validated' so my new investments don't get blocked?"
+  },
+  onhold: {
+    title: "KYC On Hold / Rejected",
+    badge: "Critical · Action Required",
+    badgeBg: "rgba(239, 68, 68, 0.2)",
+    badgeColor: "#FCA5A5",
+    color: "#EF4444",
+    desc: "Your KYC verification has been paused by the KRA. Typical causes: PAN not linked with Aadhaar, name spelling mismatch between PAN and Aadhaar, or unverified contact details.",
+    existing: "Severely restricted. All fresh purchases and new SIPs are BLOCKED across all fund houses. In some cases, redemptions are also stalled.",
+    newAmc: "Completely blocked. No new investments can be initiated until the hold is resolved.",
+    actionTitle: "Immediate Action Required to Clear Hold",
+    actionDesc: "Check the exact rejection remark on your KRA portal (CVL, CAMS, or KFintech) and execute targeted remediation.",
+    steps: [
+      "Verify PAN-Aadhaar linking on the Income Tax Portal",
+      "Check for name discrepancies between Aadhaar and PAN records",
+      "Complete online contact re-validation (OTP verification for mobile & email)",
+      "Submit Aadhaar XML / DigiLocker proof to clear KRA discrepancy"
+    ],
+    waMsg: "Hi Vikas, my mutual fund KYC is showing 'On Hold' and my transactions are stuck. Please help me resolve the KRA discrepancy."
+  },
+  unlinked: {
+    title: "PAN-Aadhaar Not Seeded",
+    badge: "PAN Inoperative",
+    badgeBg: "rgba(249, 115, 22, 0.2)",
+    badgeColor: "#FDBA74",
+    color: "#F97316",
+    desc: "Under Section 139AA of the Income Tax Act, non-linking of PAN with Aadhaar renders the PAN inoperative. KRAs automatically put mutual fund accounts into 'On Hold' status.",
+    existing: "All ongoing SIPs will be suspended and fresh investments will fail.",
+    newAmc: "Completely prohibited until PAN is operational again on Income Tax records.",
+    actionTitle: "Step-by-Step Remediation",
+    actionDesc: "You must link PAN with Aadhaar on the Income Tax Portal, pay any statutory late fee, and notify the KRA once seeding is confirmed.",
+    steps: [
+      "Visit eportal.incometax.gov.in and click 'Link Aadhaar'",
+      "Pay the prescribed late linking challan fee",
+      "Submit the linkage request on the ITD portal",
+      "Once ITD updates (2-4 days), update your KRA portal to restore KYC"
+    ],
+    waMsg: "Hi Vikas, my PAN was not linked to Aadhaar and my mutual fund account is on hold. Can you assist me in restoring compliance?"
+  },
+  new: {
+    title: "New to Mutual Funds",
+    badge: "First-Time Investor",
+    badgeBg: "rgba(148, 163, 184, 0.2)",
+    badgeColor: "#CBD5E1",
+    color: "#94A3B8",
+    desc: "You have never invested in Indian mutual funds or stock markets previously and do not possess an active KRA registration number.",
+    existing: "No existing folios or investment history.",
+    newAmc: "Requires a 5-minute initial paperless e-KYC before your first purchase or SIP can be activated.",
+    actionTitle: "Start Your Seamless 100% Digital e-KYC",
+    actionDesc: "You can complete your entire onboarding online using Aadhaar OTP and a bank account cheque copy. No branch visits required.",
+    steps: [
+      "Have your PAN card, Aadhaar-linked mobile, and cheque copy ready",
+      "Complete DigiLocker verification in 2 minutes",
+      "Authorize penny-drop bank verification",
+      "Start investing immediately once e-KYC generates your KIN"
+    ],
+    waMsg: "Hi Vikas, I am a first-time investor and need to complete my mutual fund KYC. Please guide me through the paperless onboarding."
+  }
+};
+
+function renderDiagnostic(mode){
+  var d = diagData[mode] || diagData.validated;
+  var box = document.getElementById('diag-output-box');
+  if(!box) return;
+
+  var stepsHtml = d.steps.map(function(s){
+    return '<li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>' + s + '</span></li>';
+  }).join('');
+
+  box.innerHTML = 
+    '<div class="diag-card-hdr">' +
+      '<div class="diag-title-group">' +
+        '<span class="status-dot" style="background:' + d.color + ';width:14px;height:14px"></span>' +
+        '<h3>' + d.title + '</h3>' +
+      '</div>' +
+      '<span class="diag-state-badge" style="background:' + d.badgeBg + ';color:' + d.badgeColor + '">' + d.badge + '</span>' +
+    '</div>' +
+    '<p style="font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.6;margin-bottom:24px">' + d.desc + '</p>' +
+    '<div class="diag-grid">' +
+      '<div class="diag-col">' +
+        '<h4><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Transaction Permissions</h4>' +
+        '<div class="impact-list">' +
+          '<div class="impact-item">' +
+            '<svg viewBox="0 0 24 24" stroke="' + (mode === 'validated' || mode === 'registered' ? '#10B981' : '#EF4444') + '" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="' + (mode === 'validated' || mode === 'registered' ? 'M8 12l3 3 5-5' : 'M15 9l-6 6M9 9l6 6') + '"/></svg>' +
+            '<div><b>Existing Folios &amp; Ongoing SIPs</b><span>' + d.existing + '</span></div>' +
+          '</div>' +
+          '<div class="impact-item">' +
+            '<svg viewBox="0 0 24 24" stroke="' + (mode === 'validated' ? '#10B981' : (mode === 'registered' ? '#F59E0B' : '#EF4444')) + '" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="' + (mode === 'validated' ? 'M8 12l3 3 5-5' : (mode === 'registered' ? 'M12 8v4M12 16h.01' : 'M15 9l-6 6M9 9l6 6')) + '"/></svg>' +
+            '<div><b>Investments in New Mutual Fund Houses</b><span>' + d.newAmc + '</span></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="diag-col">' +
+        '<h4><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>' + d.actionTitle + '</h4>' +
+        '<div class="action-box">' +
+          '<p>' + d.actionDesc + '</p>' +
+          '<ul class="action-steps">' + stepsHtml + '</ul>' +
+          '<div class="diag-actions">' +
+            '<a class="btn pri sm wa" href="https://wa.me/919967129977?text=' + encodeURIComponent(d.waMsg) + '" target="_blank" rel="noopener">Resolve on WhatsApp</a>' +
+            '<a class="btn sec sm" href="#forms">Download Form</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+document.querySelectorAll('.status-pill').forEach(function(pill){
+  pill.addEventListener('click', function(){
+    document.querySelectorAll('.status-pill').forEach(function(p){ p.classList.remove('active'); });
+    pill.classList.add('active');
+    renderDiagnostic(pill.dataset.mode);
+  });
+});
+
+// Initial Render
+renderDiagnostic('validated');
+</script>
+</body>
+</html>
