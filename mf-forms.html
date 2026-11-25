@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mutual Fund Forms &amp; Downloads Hub · Official Transaction Slips &amp; KYC Forms | Vikas Agarwal</title>
+<meta name="description" content="Download official SEBI and AMFI compliant mutual fund forms: Common Transaction Slips, CKYC Individual and Corporate forms, NACH Mandate, Bank Change, Nomination, and Transmission forms. Preview in-browser or generate fund-specific slips.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#031744;
+  --navy-mid:#06286E;
+  --ink:#0B1B3D;
+  --mut:#4E6180;
+  --soft:#F4F7FB;
+  --card-bg:#FFFFFF;
+  --line:#D6E0EE;
+  --green:#068A42;
+  --g2:#056832;
+  --mint:#9BE8B8;
+  --accent:#E7F6EE;
+  --amber:#D97706;
+  --amber-bg:#FEF3C7;
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+.brand img{height:38px;width:auto}
+.bn{font:700 18px 'Montserrat',sans-serif;letter-spacing:-.01em;color:var(--navy);line-height:1.1}
+.bt{font:700 9.5px 'DM Sans',sans-serif;letter-spacing:1.5px;color:var(--green);text-transform:uppercase}
+nav{display:flex;align-items:center;gap:22px}
+nav a{text-decoration:none;color:var(--mut);font-weight:600;font-size:15px;transition:color .2s}
+nav a:hover,nav a.active{color:var(--navy)}
+
+/* Luxury Dropdown */
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:5px}
+.nav-item svg.arr{width:9px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s}
+.nav-item:hover svg.arr{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:275px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 16px 36px -10px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;display:grid;gap:2px}
+.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
+.drop-menu a:hover{background:var(--soft)}
+.drop-menu a.active{background:var(--accent)}
+.drop-menu a b{display:block;font-size:13.5px;color:var(--navy);line-height:1.2}
+.drop-menu a small{display:block;font-size:11.5px;color:var(--mut);font-weight:400}
+.drop-ico{width:28px;height:28px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.drop-ico svg{width:15px;height:15px;stroke:var(--g2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;border:1px solid transparent;cursor:pointer}
+.btn.sm{padding:8px 16px;font-size:13px}
+.btn.pri{background:var(--green);color:#fff}
+.btn.pri:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(6,138,66,.25)}
+.btn.sec{background:var(--soft);color:var(--navy);border-color:var(--line)}
+.btn.sec:hover{background:#E9F0FA;border-color:var(--navy)}
+.btn.wa{background:#25D366;color:#fff}
+.btn.wa:hover{background:#1EBE5D;transform:translateY(-1px);box-shadow:0 6px 16px rgba(37,211,102,.3)}
+
+/* Hero Section */
+.forms-hero{position:relative;overflow:hidden;padding:52px 0 44px;background:linear-gradient(180deg,#F3F7FD 0%,#FFFFFF 100%);border-bottom:1px solid var(--line)}
+.hero-contours{position:absolute;right:-60px;top:-80px;width:520px;height:520px;opacity:.4;pointer-events:none}
+.hero-contours path{fill:none;stroke:#C5D5ED;stroke-width:1}
+.forms-hero .w{position:relative;z-index:2}
+.crumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--mut);margin-bottom:12px}
+.crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:var(--navy)}
+.crumb span{color:var(--navy)}
+.eb{font:700 11.5px 'DM Sans',sans-serif;letter-spacing:2.4px;color:var(--green);text-transform:uppercase;margin-bottom:10px}
+.hero-top-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.forms-hero h1{font:600 clamp(32px,4.4vw,50px)/1.1 'Fraunces',Georgia,serif;letter-spacing:-.025em;color:var(--navy);max-width:760px;margin-bottom:12px}
+.forms-hero p.lead{font-size:16.5px;line-height:1.58;color:var(--mut);max-width:680px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 16px;box-shadow:0 6px 20px -8px rgba(6,40,110,.12);font-size:13px;color:var(--navy);font-weight:600}
+.hero-badge i{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 0 4px rgba(6,138,66,.15)}
+
+/* Search & Filter Toolbar */
+.toolbar-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 24px;box-shadow:0 12px 32px -12px rgba(6,40,110,.08);margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.search-box{display:flex;align-items:center;gap:12px;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 16px;flex:1;min-width:280px;transition:border-color .2s,background .2s}
+.search-box:focus-within{border-color:var(--navy);background:#fff}
+.search-box svg{width:18px;height:18px;stroke:var(--mut);fill:none;stroke-width:2.2;flex-shrink:0}
+.search-box input{border:none;background:transparent;outline:none;font:500 14.5px 'DM Sans',sans-serif;color:var(--ink);width:100%}
+.search-box input::placeholder{color:var(--mut);opacity:.8}
+
+.filter-pills{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none}
+.filter-btn{padding:8px 16px;border-radius:999px;font:700 13px 'DM Sans',sans-serif;background:var(--soft);color:var(--mut);border:1px solid var(--line);cursor:pointer;white-space:nowrap;transition:all .18s}
+.filter-btn:hover{color:var(--navy);border-color:var(--navy)}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 4px 12px rgba(3,23,68,.18)}
+.counter-badge{font-size:12px;font-weight:600;color:var(--mut);white-space:nowrap}
+
+/* Forms Grid */
+.forms-section{padding:48px 0 64px}
+.forms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:22px}
+.form-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative}
+.form-card:hover{transform:translateY(-3px);border-color:var(--navy);box-shadow:0 16px 36px -12px rgba(6,40,110,.14)}
+
+.fc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.fc-cat{font-size:10.5px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--g2);text-transform:uppercase}
+.fc-cat.compliance{background:rgba(217,119,6,.1);color:var(--amber)}
+.fc-cat.banking{background:rgba(6,40,110,.08);color:var(--navy)}
+.fc-cat.legal{background:rgba(107,33,168,.1);color:#6B21A8}
+
+.fc-meta{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--mut)}
+.fc-meta svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+
+.form-card h3{font:700 17.5px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:8px;line-height:1.35}
+.form-card p.desc{font-size:13.5px;color:var(--mut);line-height:1.5;margin-bottom:18px;flex:1}
+
+/* Document Checklist */
+.req-box{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:20px}
+.req-lbl{font:700 11px 'DM Sans',sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.req-lbl svg{width:12px;height:12px;stroke:var(--green);fill:none;stroke-width:2.5}
+.req-list{list-style:none;display:grid;gap:4px}
+.req-list li{font-size:12px;color:var(--mut);display:flex;align-items:center;gap:6px}
+.req-list li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--mut);opacity:.6}
+
+/* Card Actions */
+.fc-actions{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
+.fc-actions .btn{flex:1}
+
+/* Empty State */
+.no-results{display:none;grid-column:1/-1;text-align:center;padding:60px 20px;background:var(--soft);border-radius:20px;border:1px dashed var(--line)}
+.no-results svg{width:48px;height:48px;stroke:var(--mut);fill:none;stroke-width:1.5;margin-bottom:12px}
+.no-results h4{font:700 18px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:6px}
+.no-results p{font-size:14px;color:var(--mut)}
+
+/* Generator Container (Competitor Feature Elevation) */
+.generator-section{padding:20px 0 64px}
+.generator-box{background:linear-gradient(145deg,#041E56 0%,#031338 100%);border-radius:26px;padding:36px;color:#fff;box-shadow:0 24px 50px -18px rgba(3,23,68,.35);position:relative;overflow:hidden}
+.generator-box::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 100% 0%,transparent 0 28px,rgba(255,255,255,.03) 28px 29px);pointer-events:none}
+.gen-top{position:relative;z-index:2;margin-bottom:24px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.gen-top h2{font:600 clamp(24px,3vw,32px)/1.2 'Fraunces',serif;color:#fff;margin-bottom:8px}
+.gen-top p{font-size:15px;color:rgba(255,255,255,.78);max-width:680px}
+.gen-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--mint);text-transform:uppercase}
+
+.gen-frame-wrap{position:relative;z-index:2;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.3);min-height:680px}
+.gen-frame-wrap iframe{width:100%;height:720px;border:none;display:block}
+.gen-frame-bar{display:flex;align-items:center;justify-content:space-between;background:#0d2354;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);font-size:12.5px}
+.gen-frame-bar a{color:var(--mint);text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.gen-frame-bar a:hover{text-decoration:underline}
+
+/* Modal PDF Previewer */
+.modal-overlay{position:fixed;inset:0;background:rgba(3,23,68,.75);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .2s}
+.modal-overlay.active{display:flex;opacity:1}
+.modal-window{background:#fff;border-radius:20px;width:100%;max-width:1020px;height:90vh;max-height:860px;display:flex;flex-direction:column;box-shadow:0 28px 60px -15px rgba(0,0,0,.45);overflow:hidden;animation:modalZoom .25s ease-out}
+@keyframes modalZoom{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--line);background:#fff}
+.modal-title-wrap{display:flex;align-items:center;gap:12px;overflow:hidden}
+.modal-title-wrap svg{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:2;flex-shrink:0}
+.modal-title-wrap h3{font:700 17px 'DM Sans',sans-serif;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.modal-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+
+.modal-close-btn{width:34px;height:34px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;color:var(--mut);transition:all .15s}
+.modal-close-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.modal-close-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5}
+
+.modal-body{flex:1;position:relative;background:#525659}
+.modal-body iframe{width:100%;height:100%;border:none}
+.modal-loading{position:absolute;inset:0;display:grid;place-items:center;background:#fff;font-size:14px;color:var(--mut);font-weight:600}
+
+/* Concierge Card */
+.concierge-wrap{padding:24px 0 64px}
+.concierge-card{background:linear-gradient(135deg,#F4F9F5 0%,#EAF5EE 100%);border:1px solid #C4E9D1;border-radius:24px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.concierge-left{max-width:660px}
+.concierge-left .eb{color:var(--g2);margin-bottom:6px}
+.concierge-left h3{font:600 24px 'Fraunces',serif;color:var(--navy);margin-bottom:8px}
+.concierge-left p{font-size:14.5px;color:var(--mut);line-height:1.55}
+.concierge-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* Footer & Disclosures */
+footer{background:var(--navy);color:#fff;padding:64px 0 32px;font-size:14px}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.fg h4{font:700 13px 'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:14px}
+.fg ul{list-style:none;display:grid;gap:9px}
+.fg a{color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s}
+.fg a:hover{color:#fff}
+.dis{padding:28px 0;font-size:12px;line-height:1.65;color:rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.1)}
+.dis a{color:var(--mint);text-decoration:underline}
+.rk{color:#fff;font-weight:700;margin-top:12px;padding:10px 14px;background:rgba(255,255,255,.06);border-radius:8px;border-left:3px solid var(--mint)}
+.cp{padding-top:24px;text-align:center;font-size:12px;color:rgba(255,255,255,.5)}
+
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:40;background:#25D366;color:#fff;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 24px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,211,102,.45)}
+.wa-float svg{width:18px;height:18px;fill:currentColor}
+
+@media(max-width:900px){
+  .forms-grid{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr;gap:32px}
+  .toolbar-wrap{flex-direction:column;align-items:stretch}
+  .filter-pills{width:100%;overflow-x:auto}
+  .gen-frame-wrap{min-height:550px}
+  .gen-frame-wrap iframe{height:550px}
+  .modal-window{height:96vh;max-height:none;border-radius:14px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header><div class="w">
+  <a class="brand" href="index.html">
+    <img src="logo.png" alt="Vikas Agarwal Logo">
+    <div>
+      <div class="bn">Vikas Agarwal</div>
+      <div class="bt">AMFI Registered MFD</div>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <div class="nav-item">
+      <a class="active" href="javascript:void(0)">Investor Zone <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+      <div class="drop-menu">
+        <a class="active" href="mf-forms.html">
+          <div class="drop-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div><b>MF Forms &amp; Slips</b><small>Standardized AMFI &amp; AMC PDFs</small></div>
+        </a>
+        <a href="calculators.html">
+          <div class="drop-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg></div>
+          <div><b>Financial Calculators</b><small>SIP, Step-Up, Lumpsum &amp; Delay</small></div>
+        </a>
+        <a href="kyc.html">
+          <div class="drop-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><b>KYC Verification Hub</b><small>Verify Across All 5 KRAs</small></div>
+        </a>
+        <a href="index.html#investor-zone">
+          <div class="drop-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div><b>Investor Dashboard</b><small>Portfolio Tracker &amp; CAS Login</small></div>
+        </a>
+      </div>
+    </div>
+    <a href="index.html#contact">Contact</a>
+    <a class="btn pri sm" href="index.html#contact">Get in Touch</a>
+  </nav>
+</div></header>
+
+<!-- Hero Section -->
+<section class="forms-hero">
+  <svg class="hero-contours" viewBox="0 0 520 520">
+    <circle cx="260" cy="260" r="240"/>
+    <circle cx="260" cy="260" r="180"/>
+    <circle cx="260" cy="260" r="120"/>
+    <circle cx="260" cy="260" r="60"/>
+  </svg>
+  <div class="w">
+    <div class="crumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" fill="none" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <a href="index.html#investor-zone">Investor Zone</a>
+      <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" fill="none" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>MF Forms &amp; Downloads</span>
+    </div>
+
+    <div class="hero-top-row">
+      <div>
+        <div class="eb">Official Document Repository</div>
+        <h1>Standard Mutual Fund Forms &amp; Servicing Slips</h1>
+        <p class="lead">Access verified SEBI and AMFI-compliant physical forms, registrar transaction slips, CKYC applications, and mandates. Preview any document instantly in-browser or download the official PDF.</p>
+      </div>
+      <div class="hero-badge">
+        <i></i>
+        <span>SEBI &amp; AMFI Standardized Form Library</span>
+      </div>
+    </div>
+
+    <!-- Search & Filter Toolbar -->
+    <div class="toolbar-wrap">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="formSearchInput" placeholder="Search forms by keyword (e.g., 'Nomination', 'NACH', 'KYC', 'Redemption', 'Bank')...">
+      </div>
+      <div class="filter-pills">
+        <button class="filter-btn active" data-category="all">All Documents</button>
+        <button class="filter-btn" data-category="transaction">Transaction Slips</button>
+        <button class="filter-btn" data-category="kyc">KYC &amp; Compliance</button>
+        <button class="filter-btn" data-category="banking">Bank &amp; Mandates</button>
+        <button class="filter-btn" data-category="transmission">Nomination &amp; Transmission</button>
+      </div>
+      <div class="counter-badge" id="formCounter">Showing 11 Forms</div>
+    </div>
+  </div>
+</section>
+
+<!-- Forms Grid Section -->
+<section class="forms-section">
+  <div class="w">
+    <div class="forms-grid" id="formsGrid">
+
+      <!-- Form 1: HDFC Common Transaction Slip -->
+      <div class="form-card" data-category="transaction" data-title="common transaction slip purchase switch redemption stp swp" data-file="forms/HDFC_Common_Transaction_Slip.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat">Transaction</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 524 KB · 2 Pgs</span>
+          </div>
+          <h3>Common Transaction Slip (Purchase / Switch / Redemption)</h3>
+          <p class="desc">Standard physical transaction slip for executing additional investments, switching units between mutual fund schemes, or initiating partial/full redemptions and systematic transfers.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Existing Folio Number and Scheme / Plan / Option</li>
+              <li>Bank cheque leaf or pay-in slip for additional purchase</li>
+              <li>Signatures of all joint unitholders (as per folio holding mode)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/HDFC_Common_Transaction_Slip.pdf" data-name="Common Transaction Slip">Preview PDF</button>
+          <a class="btn pri sm" href="forms/HDFC_Common_Transaction_Slip.pdf" download="Common_Transaction_Slip.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 2: KFintech Universal Transaction Form -->
+      <div class="form-card" data-category="transaction" data-title="kfintech universal multi folio transaction form purchase switch redemption" data-file="forms/KFintech_Common_Transaction_Form.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat">Transaction</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 32.7 MB · Booklet</span>
+          </div>
+          <h3>KFintech Multi-Folio Transaction Booklet</h3>
+          <p class="desc">Comprehensive multi-fund transaction format for investor service centers covering Nippon India, Mirae Asset, UTI, Axis, and other KFintech-serviced mutual fund houses.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Valid Folio number registered with KFintech registrar</li>
+              <li>Self-attested PAN card copy of primary holder</li>
+              <li>Pre-printed account holder cheque for new purchases</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/KFintech_Common_Transaction_Form.pdf" data-name="KFintech Multi-Folio Transaction Booklet">Preview PDF</button>
+          <a class="btn pri sm" href="forms/KFintech_Common_Transaction_Form.pdf" download="KFintech_Common_Transaction_Form.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 3: CKYC Individual Application Form -->
+      <div class="form-card" data-category="kyc" data-title="ckyc individual application form kyc registration cersai" data-file="forms/CKYC_Individual_Application_Form.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat compliance">KYC Registry</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 620 KB · 4 Pgs</span>
+          </div>
+          <h3>Central KYC (CKYC) Application Form · Individual</h3>
+          <p class="desc">Standardized application for individual resident Indians and NRI investors to create or update their 14-digit Central KYC Identification Number (KIN) with CERSAI.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Recent passport-size photograph with signature across</li>
+              <li>Self-attested PAN card copy and Officially Valid Document (OVD)</li>
+              <li>In-Person Verification (IPV) stamp by registered MFD or AMC</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/CKYC_Individual_Application_Form.pdf" data-name="CKYC Individual Application Form">Preview PDF</button>
+          <a class="btn pri sm" href="forms/CKYC_Individual_Application_Form.pdf" download="CKYC_Individual_Application_Form.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 4: Non-Individual CKYC Application Form -->
+      <div class="form-card" data-category="kyc" data-title="non-individual corporate ckyc form private limited partnership llp trust huf legal entity" data-file="forms/CKYC_Non_Individual_Application_Form.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat compliance">Corporate KYC</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 614 KB · 6 Pgs</span>
+          </div>
+          <h3>Non-Individual (Corporate &amp; Entity) CKYC Form</h3>
+          <p class="desc">Uniform KYC application for corporate bodies, Private Limited companies, Partnership firms, LLPs, Trusts, Societies, and HUFs investing in mutual fund folios.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Certificate of Incorporation, MOA &amp; AOA or Partnership Deed</li>
+              <li>Board Resolution / Authority Letter with Authorized Signatory List</li>
+              <li>Ultimate Beneficial Ownership (UBO) declaration &amp; Annexure</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/CKYC_Non_Individual_Application_Form.pdf" data-name="Corporate Non-Individual CKYC Form">Preview PDF</button>
+          <a class="btn pri sm" href="forms/CKYC_Non_Individual_Application_Form.pdf" download="CKYC_Non_Individual_Application_Form.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 5: FATCA / CRS Declaration -->
+      <div class="form-card" data-category="kyc" data-title="fatca crs individual declaration tax residency foreign account" data-file="forms/KFintech_FATCA_Declaration.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat compliance">Tax Compliance</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 214 KB · 2 Pgs</span>
+          </div>
+          <h3>FATCA &amp; CRS Self-Certification Declaration</h3>
+          <p class="desc">Mandatory regulatory self-certification under the Foreign Account Tax Compliance Act and Common Reporting Standard for declaring tax residency in or outside India.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Country of Tax Residence and Place of Birth</li>
+              <li>Tax Identification Number (TIN) or functional equivalent</li>
+              <li>Signature of individual investor or authorized entity signatory</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/KFintech_FATCA_Declaration.pdf" data-name="FATCA & CRS Declaration Form">Preview PDF</button>
+          <a class="btn pri sm" href="forms/KFintech_FATCA_Declaration.pdf" download="FATCA_Declaration_Form.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 6: NACH Mandate / OTM Form -->
+      <div class="form-card" data-category="banking" data-title="nach mandate otm one time mandate sip auto debit form banking" data-file="forms/KFintech_NACH_Mandate_Form.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat banking">Banking &amp; Auto-Debit</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 196 KB · 1 Pg</span>
+          </div>
+          <h3>One-Time Mandate (OTM) / NACH Registration Form</h3>
+          <p class="desc">National Automated Clearing House (NACH) mandate slip to register automated SIP debits directly from your savings or current bank account across mutual fund folios.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Bank Account Number, Bank Name, Branch, and 11-digit IFSC</li>
+              <li>Exact signature matching bank branch signature records</li>
+              <li>Specified maximum daily debit limit (typically Rs 1 Lakh or 5 Lakh)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/KFintech_NACH_Mandate_Form.pdf" data-name="NACH One-Time Mandate (OTM) Form">Preview PDF</button>
+          <a class="btn pri sm" href="forms/KFintech_NACH_Mandate_Form.pdf" download="NACH_Mandate_Form.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 7: Change of Bank Mandate Form -->
+      <div class="form-card" data-category="banking" data-title="change of bank mandate multiple bank accounts registration update ifsc" data-file="forms/Change_of_Bank_Mandate_Form.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat banking">Bank Change</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 72 KB · 2 Pgs</span>
+          </div>
+          <h3>Change of Bank Mandate &amp; Multiple Banks Registration</h3>
+          <p class="desc">Used to modify your registered payout bank account or register up to 5 individual bank accounts per folio for seamless payout routing and core-banking IFSC migration.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Original cancelled cheque of new bank with pre-printed investor name</li>
+              <li>Proof of existing/old bank account (cancelled cheque or passbook copy)</li>
+              <li>Signatures of all joint unitholders as per folio records</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/Change_of_Bank_Mandate_Form.pdf" data-name="Change of Bank Mandate Form">Preview PDF</button>
+          <a class="btn pri sm" href="forms/Change_of_Bank_Mandate_Form.pdf" download="Change_of_Bank_Mandate_Form.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 8: Nomination Registration / Cancellation -->
+      <div class="form-card" data-category="transmission" data-title="nomination registration cancellation form amfi sebi nominee change" data-file="forms/AMFI_Nomination_Registration_Cancellation.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat legal">Nomination</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 128 KB · 2 Pgs</span>
+          </div>
+          <h3>Nomination Registration, Modification &amp; Cancellation</h3>
+          <p class="desc">Official SEBI/AMFI standardized form to register up to three nominees with percentage allocation, modify existing nominees, or submit formal opt-out declaration.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Full Name, PAN / Aadhaar / Relationship of each Nominee</li>
+              <li>Guardian details &amp; proof of date of birth if nominee is a minor</li>
+              <li>Mandatory signatures of ALL folio unitholders</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/AMFI_Nomination_Registration_Cancellation.pdf" data-name="Nomination Registration & Cancellation Form">Preview PDF</button>
+          <a class="btn pri sm" href="forms/AMFI_Nomination_Registration_Cancellation.pdf" download="Nomination_Form.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 9: Transmission Form T3 (With Nominee) -->
+      <div class="form-card" data-category="transmission" data-title="transmission request form t3 nominee claim death of unit holder" data-file="forms/AMFI_Form_T3_Transmission.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat legal">Transmission (Nominee)</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 1.01 MB · 4 Pgs</span>
+          </div>
+          <h3>Mutual Fund Transmission Form · Form T3 (Registered Nominee)</h3>
+          <p class="desc">Standardized application for transmitting mutual fund units to the registered nominee upon the unfortunate demise of the sole unitholder or all joint holders.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Original Death Certificate or copy duly attested by Gazetted Officer/Notary</li>
+              <li>Completed KYC of the claimant/nominee (Aadhaar, PAN)</li>
+              <li>Cancelled cheque of nominee's bank account with pre-printed name</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/AMFI_Form_T3_Transmission.pdf" data-name="Transmission Form T3 (Nominee Claim)">Preview PDF</button>
+          <a class="btn pri sm" href="forms/AMFI_Form_T3_Transmission.pdf" download="Form_T3_Transmission_Nominee.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 10: Transmission Form T1 (Without Nominee) -->
+      <div class="form-card" data-category="transmission" data-title="transmission form t1 without nominee legal heir threshold claim" data-file="forms/AMFI_Form_T1_Transmission.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat legal">Transmission (Legal Heir)</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 178 KB · 3 Pgs</span>
+          </div>
+          <h3>Transmission Form · Form T1 (Where No Nominee is Registered)</h3>
+          <p class="desc">Application for legal heirs to claim transmission of mutual fund units where the deceased unitholder did not register a nominee, within statutory threshold limits.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Attested Death Certificate and Legal Heirship Certificate / Succession Deed</li>
+              <li>Indemnity Bond and No Objection Certificate (NOC) from all legal heirs</li>
+              <li>KYC of claimant legal heir with bank account proofs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/AMFI_Form_T1_Transmission.pdf" data-name="Transmission Form T1 (No Nominee)">Preview PDF</button>
+          <a class="btn pri sm" href="forms/AMFI_Form_T1_Transmission.pdf" download="Form_T1_Transmission_Legal_Heir.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Form 11: Transmission Form 3 (Indemnity & Affidavits) -->
+      <div class="form-card" data-category="transmission" data-title="transmission indemnity bond affidavit noc form 3 legal documents" data-file="forms/AMFI_Form_3_Transmission.pdf">
+        <div>
+          <div class="fc-head">
+            <span class="fc-cat legal">Legal Drafts</span>
+            <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 681 KB · 5 Pgs</span>
+          </div>
+          <h3>Transmission Indemnity Bond, Affidavits &amp; NOC (Form 3)</h3>
+          <p class="desc">Standardized legal formats required by mutual fund registrars: Non-judicial stamp paper affidavit, Indemnity Bond, and No Objection Certificates for legal heir settlements.</p>
+          <div class="req-box">
+            <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
+            <ul class="req-list">
+              <li>Execution on appropriate non-judicial Stamp Paper (as per state stamp duty)</li>
+              <li>Notarization by an authorized Notary Public with registration seal</li>
+              <li>Two independent witnesses who are not legal heirs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fc-actions">
+          <button class="btn sec sm preview-btn" data-pdf="forms/AMFI_Form_3_Transmission.pdf" data-name="Transmission Indemnity Bond & Affidavits">Preview PDF</button>
+          <a class="btn pri sm" href="forms/AMFI_Form_3_Transmission.pdf" download="Form_3_Transmission_Indemnity_Bond.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="no-results" id="noResults">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <h4>No matching forms found</h4>
+        <p>Try searching with another keyword like "KYC", "Nomination", "Bank", or "Transaction".</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AMC-Specific Dynamic Form Generator (Competitor Feature + Elevation) -->
+<section class="generator-section" id="amc-generator">
+  <div class="w">
+    <div class="generator-box">
+      <div class="gen-top">
+        <div>
+          <span class="gen-badge">Fund House Form Printer</span>
+          <h2 style="margin-top:10px">Need an AMC-Specific Form for a Particular Fund House?</h2>
+          <p>Generate customized pre-formatted application forms for specific Mutual Fund Houses (HDFC, SBI, ICICI Prudential, Nippon India, UTI, Kotak, Axis, etc.) with distributor ARN-40434 pre-configured.</p>
+        </div>
+        <a class="btn wa" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20need%20a%20custom%20mutual%20fund%20application%20form%20for%20a%20specific%20AMC." target="_blank" rel="noopener">Request Form on WhatsApp</a>
+      </div>
+
+      <div class="gen-frame-wrap">
+        <div class="gen-frame-bar">
+          <span>Official AMC Form Print Utility · Powered by Investwell</span>
+          <a href="https://formprint.printwellonline.com/formprintpage.aspx?zp0k34=0D4A28A9-303C-40CE-AD73-E8F7B82B212A" target="_blank" rel="noopener">
+            Open in Full Window
+            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" fill="none" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+        <iframe src="https://formprint.printwellonline.com/formprintpage.aspx?zp0k34=0D4A28A9-303C-40CE-AD73-E8F7B82B212A" title="AMC Form Print Utility" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Advisory & Doorstep Assistance Concierge -->
+<section class="concierge-wrap">
+  <div class="w">
+    <div class="concierge-card">
+      <div class="concierge-left">
+        <div class="eb">Distributor Advisory Assistance</div>
+        <h3>Need Help Completing or Verifying Your Forms?</h3>
+        <p>Mutual fund documentation and transmission claims require exact precision to avoid rejection by registrars. As an AMFI-registered distributor, Vikas Agarwal provides document pre-scrutiny, filling assistance, and submission coordination.</p>
+      </div>
+      <div class="concierge-right">
+        <a class="btn wa" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20need%20assistance%20with%20filling%20and%20submitting%20a%20mutual%20fund%20form." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a class="btn sec" href="tel:+919967129977">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Call +91 99671 29977
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- In-Browser Modal PDF Previewer -->
+<div class="modal-overlay" id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-window">
+    <div class="modal-hdr">
+      <div class="modal-title-wrap">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <h3 id="modalTitle">Form Document Preview</h3>
+      </div>
+      <div class="modal-actions">
+        <a class="btn sec sm" id="modalOpenTab" href="#" target="_blank" rel="noopener">Open in New Tab</a>
+        <a class="btn pri sm" id="modalDownload" href="#" download>Download PDF</a>
+        <button class="modal-close-btn" id="modalClose" aria-label="Close Preview">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-loading" id="modalLoading">Loading PDF Preview...</div>
+      <iframe id="pdfFrame" src="" title="PDF Preview"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer><div class="w">
+  <div class="fg">
+    <div>
+      <div class="brand" style="margin-bottom:14px">
+        <img src="logo.png" alt="Vikas Agarwal Logo" style="filter:brightness(0) invert(1)">
+        <div>
+          <div class="bn" style="color:#fff">Vikas Agarwal</div>
+          <div class="bt" style="color:var(--mint)">AMFI Registered MFD</div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,.7);font-size:13.5px;max-width:380px;line-height:1.6">Empowering long-term wealth creation with personalized asset allocation, goal planning, and institutional-grade portfolio oversight.</p>
+      <div style="margin-top:14px;font-size:12.5px;color:rgba(255,255,255,.6)">
+        <div>ARN-40434 · EUIN: E375656</div>
+        <div>AMFI Valid Till: 07-Aug-2027</div>
+      </div>
+    </div>
+    <div>
+      <h4>Investor Zone</h4>
+      <ul>
+        <li><a href="mf-forms.html">MF Forms &amp; Slips</a></li>
+        <li><a href="calculators.html">Financial Calculators</a></li>
+        <li><a href="kyc.html">KYC Verification Hub</a></li>
+        <li><a href="index.html#investor-zone">Investor Dashboard</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Disclosures &amp; Policy</h4>
+      <ul>
+        <li><a href="how-i-earn.html">Commission Disclosures</a></li>
+        <li><a href="disclosures.html">Disclosures &amp; Grievance</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="index.html#contact">Contact &amp; Office</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dis">
+    <p>Vikas Agarwal is an AMFI-registered Mutual Fund Distributor (ARN-40434, valid till 07 August 2027; EUIN E375656) and is not a SEBI-registered investment adviser. He distributes Regular Plans only, which include distributor trail commission paid by the respective fund house. <a href="how-i-earn.html">View commission details</a>. Investors have the option to invest in Direct Plans of mutual fund schemes directly without intermediary commission.</p>
+    <p style="margin-top:8px">Forms, slips, and downloadable documents hosted on this repository are standardized formats issued by AMFI, CERSAI, and respective Mutual Fund Registrars &amp; Transfer Agents (RTAs). Vikas Agarwal assists investors in accurate completion and document processing.</p>
+    <p style="margin-top:8px">For grievance redressal, contact Vikas Agarwal at <a href="mailto:info@investwithvikas.in">info@investwithvikas.in</a> or escalate to SEBI via <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">SCORES 2.0</a> and <a href="https://smartodr.in" target="_blank" rel="noopener">SMART ODR Portal</a>. <a href="disclosures.html">View full escalation matrix</a>.</p>
+    <p class="rk">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+  </div>
+  <div class="cp">© 2026 Vikas Agarwal · ARN-40434 · Goregaon East, Mumbai · investwithvikas.in</div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20have%20a%20question%20regarding%20mutual%20fund%20forms." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+  WhatsApp
+</a>
+
+<!-- JavaScript: Real-time Search, Category Filter, and In-Browser Modal PDF Previewer -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var searchInput = document.getElementById('formSearchInput');
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var formCards = document.querySelectorAll('.form-card');
+  var counterEl = document.getElementById('formCounter');
+  var noResults = document.getElementById('noResults');
+
+  var currentCategory = 'all';
+
+  function applyFilters(){
+    var query = (searchInput.value || '').trim().toLowerCase();
+    var visibleCount = 0;
+
+    formCards.forEach(function(card){
+      var category = card.dataset.category;
+      var titleText = (card.dataset.title || '').toLowerCase();
+      var cardText = card.innerText.toLowerCase();
+
+      var matchCat = (currentCategory === 'all' || category === currentCategory);
+      var matchQuery = !query || titleText.indexOf(query) !== -1 || cardText.indexOf(query) !== -1;
+
+      if(matchCat && matchQuery){
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    counterEl.innerText = 'Showing ' + visibleCount + (visibleCount === 1 ? ' Form' : ' Forms');
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  // Filter Pill Click
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentCategory = btn.dataset.category;
+      applyFilters();
+    });
+  });
+
+  // Search Input Keyup/Input
+  searchInput.addEventListener('input', applyFilters);
+
+  // Modal PDF Preview Logic
+  var modal = document.getElementById('pdfModal');
+  var modalClose = document.getElementById('modalClose');
+  var pdfFrame = document.getElementById('pdfFrame');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalDownload = document.getElementById('modalDownload');
+  var modalOpenTab = document.getElementById('modalOpenTab');
+  var modalLoading = document.getElementById('modalLoading');
+
+  function openPreview(pdfPath, title){
+    modalTitle.innerText = title || 'Document Preview';
+    modalDownload.href = pdfPath;
+    modalDownload.setAttribute('download', pdfPath.split('/').pop());
+    modalOpenTab.href = pdfPath;
+    modalLoading.style.display = 'grid';
+
+    pdfFrame.onload = function(){
+      modalLoading.style.display = 'none';
+    };
+
+    // Load PDF
+    pdfFrame.src = pdfPath + '#toolbar=1&navpanes=0';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePreview(){
+    modal.classList.remove('active');
+    pdfFrame.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.preview-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var pdf = btn.dataset.pdf;
+      var name = btn.dataset.name;
+      openPreview(pdf, name);
+    });
+  });
+
+  modalClose.addEventListener('click', closePreview);
+
+  modal.addEventListener('click', function(e){
+    if(e.target === modal){
+      closePreview();
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('active')){
+      closePreview();
+    }
+  });
+});
+</script>
+</body>
+</html>
