@@ -1579,31 +1579,5 @@ document.addEventListener('DOMContentLoaded', function(){
   updateTax();
 });
 </script>
-<!-- Cookie & Privacy Notice -->
-<div id="cookieNotice" role="region" aria-label="Privacy & Cookie Notice" style="display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);width:min(92vw,580px);background:#FFFFFF;border:1px solid #DCE5F2;box-shadow:0 18px 40px -10px rgba(3,23,68,.25);border-radius:18px;padding:18px 22px;z-index:998;align-items:center;justify-content:space-between;gap:16px;box-sizing:border-box">
-  <div style="font:500 13.5px/1.45 'DM Sans',-apple-system,sans-serif;color:#334155;flex:1">
-    We use essential storage and fonts to ensure security and proper site functionality. Review our <a href="privacy.html" style="color:#068A42;font-weight:700;text-decoration:underline">Privacy Policy</a> and <a href="terms.html" style="color:#068A42;font-weight:700;text-decoration:underline">Terms</a>.
-  </div>
-  <div style="display:flex;gap:8px;flex-shrink:0">
-    <button type="button" id="cookieAccept" style="background:#068A42;color:#FFFFFF;border:none;padding:8px 18px;border-radius:999px;font:700 13px 'DM Sans',sans-serif;cursor:pointer;transition:background .15s">Accept All</button>
-  </div>
-</div>
-<script>
-(function(){
-  try {
-    var b = document.getElementById('cookieNotice');
-    var btn = document.getElementById('cookieAccept');
-    if (!localStorage.getItem('mf_cookie_consent') && b && btn) {
-      b.style.display = 'flex';
-      btn.addEventListener('click', function(){
-        localStorage.setItem('mf_cookie_consent', 'accepted');
-        b.style.opacity = '0';
-        b.style.transition = 'opacity .25s ease';
-        setTimeout(function(){ b.remove(); }, 260);
-      });
-    }
-  } catch(e){}
-})();
-</script>
 </body>
 </html>
