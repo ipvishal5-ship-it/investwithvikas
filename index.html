@@ -266,6 +266,9 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
   .iz-calc-widget{padding:22px 18px}
   .iz-calc-result .res-val{font-size:28px}
 }
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:99;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 12px 30px rgba(37,211,102,.5)}
+.wa-float svg{width:30px;height:30px;fill:currentColor}
 </style></head><body>
 <header><div class="w"><a class="brand" href="index.html"><img alt="Vikas Agarwal" src="logo.png"><div><div class="bn">Vikas Agarwal</div><div class="bt">MUTUAL FUND DISTRIBUTOR</div></div></a>
 <nav>
@@ -277,7 +280,7 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 <a href="calculators.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
 <a href="kyc.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
 <a href="mf-forms.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><div><b>MF Forms &amp; Downloads</b><small>Common Transaction &amp; Service Slips</small></div></a>
-<a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><div><b>MF Tools &amp; Research</b><small>NAV, Factsheets &amp; Performance</small></div></a>
+<a href="mf-tools.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><div><b>MF Tools &amp; Research</b><small>NAV, Factsheets &amp; Performance</small></div></a>
 <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
 </div>
 </div>
@@ -403,11 +406,11 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
           <span class="iz-hub-link">Download Forms <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
-        <a class="iz-hub-card" href="index.html#investor-zone">
-          <div class="iz-hub-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-          <h4>Client Login Portals</h4>
-          <p>Fast login access to MF Central, myCAMS, KFinKart, and MF Utility consolidated portals.</p>
-          <span class="iz-hub-link">Access Portals <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <a class="iz-hub-card" href="mf-tools.html">
+          <div class="iz-hub-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h4>MF Tools &amp; Research</h4>
+          <p>Live AMFI daily NAVs, Past SIP compounding analyzer &amp; Budget 2024 tax reckoner.</p>
+          <span class="iz-hub-link">Launch Tools <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
       </div>
 
@@ -596,4 +599,7 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en
   yr.addEventListener('input', calcWiz);
   calcWiz();
 })();</script>
+<a class="wa-float" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20am%20interested%20in%20mutual%20fund%20investment%20advisory." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.04 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.79 8.12 19.09L7.84 18.92L4.72 19.74L5.56 16.7L5.37 16.4C4.6 15.17 4.19 13.56 4.19 11.91C4.19 7.37 7.89 3.67 12.04 3.67M9.06 6.89C8.84 6.89 8.48 6.97 8.19 7.29C7.9 7.6 7.07 8.38 7.07 9.96C7.07 11.54 8.22 13.06 8.38 13.28C8.54 13.5 10.6 16.67 13.76 18.03C14.51 18.36 15.1 18.55 15.55 18.7C16.31 18.94 17 18.9 17.55 18.82C18.16 18.73 19.42 18.06 19.68 17.32C19.94 16.59 19.94 15.96 19.86 15.83C19.79 15.7 19.59 15.63 19.29 15.48C18.99 15.33 17.53 14.61 17.26 14.51C16.99 14.41 16.79 14.36 16.59 14.66C16.39 14.96 15.82 15.63 15.64 15.83C15.47 16.03 15.3 16.05 15 15.9C14.7 15.75 13.76 15.44 12.64 14.44C11.77 13.66 11.18 12.7 11.01 12.4C10.84 12.1 11 11.94 11.15 11.79C11.28 11.66 11.45 11.44 11.6 11.27C11.75 11.1 11.8 10.97 11.9 10.77C12 10.57 11.95 10.4 11.87 10.25C11.8 10.1 11.2 8.63 10.96 8.04C10.71 7.47 10.47 7.55 10.29 7.54C10.12 7.53 9.92 7.53 9.72 7.53C9.52 7.53 9.2 7.6 8.97 7.85L9.06 6.89Z"/></svg>
+</a>
 </body></html>
