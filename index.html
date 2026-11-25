@@ -31,7 +31,10 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["FinancialService", "LocalBusiness"],
+      "@type": [
+        "FinancialService",
+        "LocalBusiness"
+      ],
       "@id": "https://investwithvikas.in/#organization",
       "name": "Vikas Agarwal - AMFI Registered Mutual Fund Distributor",
       "alternateName": "Invest With Vikas",
@@ -62,7 +65,14 @@
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
         "opens": "09:00",
         "closes": "19:00"
       },
@@ -70,13 +80,97 @@
         "@type": "OfferCatalog",
         "name": "Mutual Fund Services",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Systematic Investment Plan (SIP) Planning"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Lumpsum Mutual Fund Investments"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retirement Corpus & Pension Planning"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ELSS Section 80C Tax-Saving Portfolios"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Children Higher Education & Marriage Fund"}}
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Systematic Investment Plan (SIP) Planning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lumpsum Mutual Fund Investments"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Retirement Corpus & Pension Planning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "ELSS Section 80C Tax-Saving Portfolios"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Children Higher Education & Marriage Fund"
+            }
+          }
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://investwithvikas.in/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a SIP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Systematic Investment Plan (SIP) allows you to invest a fixed amount at regular intervals—typically monthly—into a mutual fund scheme. It instills disciplined investing and benefits from rupee cost averaging across market cycles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum amount to start investing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many equity and hybrid mutual fund schemes allow SIP investments starting from as low as ₹500 or ₹1,000 per month. You can select an amount that comfortably fits your monthly surplus and long-term financial goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is ELSS, and what is the lock-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ELSS (Equity Linked Savings Scheme) is an equity-oriented mutual fund eligible for tax deduction of up to ₹1.5 Lakh under Section 80C of the Income Tax Act (under the Old Tax Regime). Every investment or SIP installment has a mandatory statutory lock-in period of 3 years from the date of allotment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are mutual funds safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mutual fund investments are subject to market risks, and returns are neither guaranteed nor fixed. Capital fluctuates with underlying market movements. Mutual funds in India are strictly regulated by SEBI, and assets are held in trust by independent custodians. Scheme selection should align with your specific investment horizon, financial goals, and risk tolerance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does distributor remuneration work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Investments facilitated through Vikas Agarwal are in Regular Plans, where the Asset Management Company (AMC) pays an ongoing trail commission out of the scheme Total Expense Ratio (TER). No upfront commission is charged to the investor. Investors also have the option to invest directly in Direct Plans with fund houses without intermediary commissions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What documents are needed to start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard SEBI KYC documents are required: Permanent Account Number (PAN), proof of identity and address (such as Aadhaar), and bank account details (cancelled cheque or statement) for automated investment mandates. Complete facilitation is provided throughout registration."
+          }
+        }
+      ]
     }
   ]
 }
@@ -619,12 +713,12 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 
 <section id="faq"><div class="w fw"><div class="fl rv"><div class="eb">FAQ</div><h2>Questions people ask first.</h2><p class="gsub">Straight answers, in plain language.</p><div class="ask"><b>Still have a question?</b><p>Connect directly on WhatsApp.</p><a class="btn" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20have%20a%20question." target="_blank" rel="noopener">Ask on WhatsApp</a></div></div>
 <div class="fq" id="fq">
-<details open><summary>What is a SIP?</summary><p>A Systematic Investment Plan lets you invest a fixed amount at regular intervals, usually every month.</p></details>
-<details><summary>How much do I need to start?</summary><p>Many schemes let you start with a small monthly amount. We will decide an amount that fits your budget and your goal.</p></details>
-<details><summary>What is ELSS, and what is the lock-in?</summary><p>ELSS is a tax-saving equity fund. Each investment is locked in for 3 years. The Section 80C deduction applies under the old tax regime.</p></details>
-<details><summary>Are mutual funds safe?</summary><p>Mutual fund investments are subject to market risks, and values can go up and down. We choose by your goal and your comfort with risk.</p></details>
-<details><summary>How does distributor remuneration work?</summary><p>Investments are in Regular Plans, where the fund house pays trail commission as part of the scheme’s Total Expense Ratio (TER). <a href="how-i-earn.html">See full details</a>.</p></details>
-<details><summary>What documents are needed to start?</summary><p>Standard KYC documents (PAN and Aadhaar) along with your bank account details. Complete guidance is provided through every step of registration.</p></details>
+<details open><summary>What is a SIP?</summary><p>A Systematic Investment Plan (SIP) allows you to invest a fixed amount at regular intervals—typically monthly—into a mutual fund scheme. It instills disciplined investing and benefits from rupee cost averaging across market cycles.</p></details>
+<details><summary>What is the minimum amount to start investing?</summary><p>Many equity and hybrid mutual fund schemes allow SIP investments starting from as low as ₹500 or ₹1,000 per month. You can select an amount that comfortably fits your monthly surplus and long-term financial goals.</p></details>
+<details><summary>What is ELSS, and what is the lock-in?</summary><p>ELSS (Equity Linked Savings Scheme) is an equity-oriented mutual fund eligible for tax deduction of up to ₹1.5 Lakh under Section 80C of the Income Tax Act (under the Old Tax Regime). Every investment or SIP installment has a mandatory statutory lock-in period of 3 years from the date of allotment.</p></details>
+<details><summary>Are mutual funds safe?</summary><p>Mutual fund investments are subject to market risks, and returns are neither guaranteed nor fixed. Capital fluctuates with underlying market movements. Mutual funds in India are strictly regulated by SEBI, and assets are held in trust by independent custodians. Scheme selection should align with your specific investment horizon, financial goals, and risk tolerance.</p></details>
+<details><summary>How does distributor remuneration work?</summary><p>Investments facilitated through Vikas Agarwal are in Regular Plans, where the Asset Management Company (AMC) pays an ongoing trail commission out of the scheme Total Expense Ratio (TER). No upfront commission is charged to the investor. Investors also have the option to invest directly in Direct Plans with fund houses without intermediary commissions. <a href="how-i-earn.html">View full commission disclosure</a>.</p></details>
+<details><summary>What documents are needed to start?</summary><p>Standard SEBI KYC documents are required: Permanent Account Number (PAN), proof of identity and address (such as Aadhaar), and bank account details (cancelled cheque or statement) for automated investment mandates. Complete facilitation is provided throughout registration. You can verify your status on the <a href="kyc.html">KYC Verification Hub</a>.</p></details>
 </div></div></section>
 <section id="contact"><div class="w cg rv"><div><div class="ceb">GET IN TOUCH</div><h2>Let’s plan your first goal.</h2><a class="cph" href="tel:+919967129977">+91 99671 29977</a><p class="csub">Call or WhatsApp. Start with a portfolio review.</p><div class="cbt"><a class="btn wh" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%27d%20like%20a%20portfolio%20review." target="_blank" rel="noopener">Message on WhatsApp</a><a class="btn ow" href="tel:+919967129977">Call now</a></div></div>
 <div class="ci"><div><small>EMAIL</small><a href="mailto:info@investwithvikas.in">info@investwithvikas.in</a></div><div><small>OFFICE</small>504 Atlanta Estate, Opp. Oberoi Mall,<br>Goregaon East, Mumbai 400063<br><a class="mp" href="https://www.google.com/maps/search/?api=1&query=504+Atlanta+Estate+Opp+Oberoi+Mall+Goregaon+East+Mumbai+400063" target="_blank" rel="noopener">Open in Maps</a></div><div><small>REGISTRATION</small>AMFI-registered Mutual Fund Distributor<br>ARN-40434</div></div></div></section>
