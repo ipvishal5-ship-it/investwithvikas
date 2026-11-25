@@ -10,6 +10,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 <style>
+/* Standardized Luxury Sticky Header & Nav */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.brand img{height:40px;width:auto;display:block}
+.bn{font:700 19px/1.1 'Montserrat',sans-serif;letter-spacing:-.01em;color:var(--navy)}
+.bt{font:700 9.5px 'DM Sans',sans-serif;letter-spacing:1.5px;color:var(--green);text-transform:uppercase;margin-top:3px}
+
+nav{display:flex;align-items:center;gap:18px;flex-shrink:0}
+nav a{text-decoration:none;color:var(--mut);font-weight:600;font-size:14.5px;white-space:nowrap;transition:color .2s}
+nav a:hover,nav a.active{color:var(--navy)}
+
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.nav-item svg.arr{width:9px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s}
+.nav-item:hover svg.arr{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:275px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 16px 36px -10px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:70;display:grid;gap:2px}
+.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
+.drop-menu a:hover{background:var(--soft)}
+.drop-menu a.active{background:var(--accent)}
+.drop-menu a b{display:block;font-size:13.5px;color:var(--navy);line-height:1.2;white-space:nowrap}
+.drop-menu a small{display:block;font-size:11.5px;color:var(--mut);font-weight:400;white-space:nowrap}
+.drop-ico{width:28px;height:28px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.drop-ico svg{width:15px;height:15px;stroke:var(--g2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;border:1px solid transparent;cursor:pointer}
+.btn.sm{padding:8px 18px;font-size:13.5px}
+.btn.pri{background:var(--green);color:#fff;border-color:var(--green)}
+.btn.pri:hover{background:var(--g2);border-color:var(--g2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(6,138,66,.25)}
+
 :root{
   --navy:#031744;
   --navy-mid:#06286E;
@@ -250,7 +281,6 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="index.html#goals">Goals</a>
     <a href="index.html#how">How It Works</a>
     
     <!-- Investor Zone Dropdown -->
@@ -299,9 +329,9 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
       </div>
     </div>
 
-    <a href="index.html#about">About</a>
     <a href="how-i-earn.html">How I Earn</a>
     <a href="disclosures.html">Disclosures</a>
+    <a href="index.html#about">About</a>
     <a href="index.html#faq">FAQ</a>
     <a class="btn pri sm" href="index.html#contact">Get in Touch</a>
   </nav>
