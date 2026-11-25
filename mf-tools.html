@@ -371,6 +371,158 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
   .sh-cta{padding:9px 15px;font-size:13px}
 }
 </style>
+<style id="iz-hero-css">
+/* Signature Deep-Navy Atmospheric Hero System for Investor Zone Pages */
+.tools-hero,.calc-hero,.kyc-hero,.forms-hero{
+  position:relative;overflow:hidden;padding:52px 0 44px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(6,138,66,.28) 0%, transparent 44%),
+    radial-gradient(circle at 8% 88%, rgba(37,99,235,.26) 0%, transparent 48%),
+    linear-gradient(135deg, #020F2E 0%, #031744 52%, #072668 100%)!important;
+  border-bottom:1px solid rgba(255,255,255,.12)!important;
+  color:#FFFFFF;
+}
+.tools-hero::before,.calc-hero::before,.kyc-hero::before,.forms-hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(255,255,255,.09) 1px, transparent 1px);
+  background-size:26px 26px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.15) 100%);
+  -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.15) 100%);
+}
+.tools-hero .hero-contours,.calc-hero .hero-contours,.kyc-hero .hero-contours,.forms-hero .hero-contours{
+  opacity:.12!important;stroke:#9BE8B8!important;
+}
+.iz-hero-grid{
+  display:grid;grid-template-columns:1.18fr .82fr;gap:36px;align-items:center;
+}
+.iz-hero-left .crumb{
+  display:inline-flex;align-items:center;gap:8px;font:500 13px 'DM Sans',sans-serif;
+  color:rgba(226,232,240,.68);margin-bottom:16px;
+}
+.iz-hero-left .crumb a{color:rgba(226,232,240,.78);text-decoration:none;transition:color .15s}
+.iz-hero-left .crumb a:hover{color:#FFFFFF;text-decoration:underline}
+.iz-kicker{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;
+  background:rgba(6,138,66,.22);border:1px solid rgba(110,231,183,.35);
+  font:700 11px/1 'DM Sans',sans-serif;letter-spacing:1.5px;text-transform:uppercase;
+  color:#6EE7B7;margin-bottom:14px;
+}
+.iz-kicker i{
+  width:7px;height:7px;border-radius:50%;background:#34D399;
+  box-shadow:0 0 0 3px rgba(52,211,153,.25);display:inline-block;
+}
+.iz-hero-left h1{
+  font:600 clamp(30px,4vw,48px)/1.1 'Fraunces',Georgia,serif!important;
+  letter-spacing:-.025em;color:#FFFFFF!important;margin:0 0 14px!important;max-width:680px!important;
+}
+.iz-hl{color:#6EE7B7}
+.iz-hero-left p.lead,.iz-hero-left p.hero-desc{
+  font:400 16.5px/1.6 'DM Sans',sans-serif!important;
+  color:rgba(226,232,240,.88)!important;max-width:620px!important;margin:0 0 22px!important;
+}
+.iz-hero-pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.iz-pill-cta{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;
+  background:#068A42;color:#FFFFFF!important;font:700 13.5px/1 'DM Sans',sans-serif;
+  text-decoration:none!important;box-shadow:0 8px 20px -4px rgba(6,138,66,.5);
+  transition:background .18s,transform .18s;
+}
+.iz-pill-cta:hover{background:#059648;transform:translateY(-1px)}
+.iz-pill-sec{
+  display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:999px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  color:#E2E8F0!important;font:600 13px/1 'DM Sans',sans-serif;text-decoration:none!important;
+  transition:background .18s,border-color .18s;
+}
+.iz-pill-sec:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.35);color:#FFFFFF!important}
+
+/* Right Column Glassmorphic Showcase Card */
+.iz-glass{
+  background:rgba(255,255,255,.07);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:22px 24px;
+  box-shadow:0 24px 50px -12px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.iz-g-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12);
+}
+.iz-g-title{
+  display:inline-flex;align-items:center;gap:8px;
+  font:700 12px/1 'DM Sans',sans-serif;letter-spacing:1.1px;text-transform:uppercase;color:#9BE8B8;
+}
+.iz-g-badge{
+  font:600 11px/1 'DM Sans',sans-serif;color:rgba(226,232,240,.85);
+  background:rgba(255,255,255,.1);padding:5px 10px;border-radius:999px;
+}
+.iz-g-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.iz-g-stat{
+  background:rgba(2,15,46,.48);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:12px 12px;
+}
+.iz-g-stat b{display:block;font:700 18px/1.15 'Fraunces',Georgia,serif;color:#FFFFFF;margin-bottom:4px}
+.iz-g-stat span{display:block;font:500 11px/1.25 'DM Sans',sans-serif;color:rgba(203,213,225,.82)}
+.iz-g-chart{
+  margin-bottom:14px;background:rgba(2,15,46,.4);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:12px 14px;
+}
+.iz-kra-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.iz-kra-chip{
+  display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:10px;
+  background:rgba(2,15,46,.5);border:1px solid rgba(255,255,255,.1);
+  font:600 12.5px/1 'DM Sans',sans-serif;color:#F8FAFC;
+}
+.iz-kra-chip svg{width:14px;height:14px;stroke:#34D399;fill:none;stroke-width:2.5;flex-shrink:0}
+.iz-kra-chip:last-child{grid-column:1/-1}
+
+/* Calculators Dark-Hero Tab Strip Overrides */
+.calc-hero .c-nav{margin-top:32px!important}
+.calc-hero .c-tab{
+  background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.16)!important;
+  color:#FFFFFF!important;
+}
+.calc-hero .c-tab:hover{
+  background:rgba(255,255,255,.15)!important;border-color:rgba(255,255,255,.35)!important;
+}
+.calc-hero .c-tab svg{stroke:#6EE7B7!important}
+.calc-hero .c-tab-num{color:rgba(255,255,255,.55)!important}
+.calc-hero .c-tab small{color:rgba(226,232,240,.78)!important}
+.calc-hero .c-tab.on{
+  background:#FFFFFF!important;border-color:#FFFFFF!important;color:#031744!important;
+  box-shadow:0 14px 30px rgba(0,0,0,.32)!important;
+}
+.calc-hero .c-tab.on svg{stroke:#068A42!important}
+.calc-hero .c-tab.on .c-tab-num{color:#068A42!important}
+.calc-hero .c-tab.on small{color:#4E6180!important}
+
+/* MF-Tools Metrics Strip Dark Overrides */
+.tools-hero .hero-metrics-strip{margin-top:30px!important}
+.tools-hero .hm-box{
+  background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14)!important;
+  backdrop-filter:blur(10px);
+}
+.tools-hero .hm-icon{background:rgba(6,138,66,.25)!important}
+.tools-hero .hm-icon svg{stroke:#6EE7B7!important}
+.tools-hero .hm-text b{color:#FFFFFF!important}
+.tools-hero .hm-text small{color:rgba(226,232,240,.78)!important}
+
+/* MF-Forms Floating Command Toolbar Override */
+.forms-hero .toolbar-wrap{
+  margin-top:30px!important;background:rgba(255,255,255,.98)!important;
+  border-radius:18px!important;padding:14px 16px!important;
+  box-shadow:0 18px 40px -10px rgba(0,0,0,.35)!important;
+}
+
+@media(max-width:940px){
+  .iz-hero-grid{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:600px){
+  .tools-hero,.calc-hero,.kyc-hero,.forms-hero{padding:36px 0 32px!important}
+  .iz-g-stats{grid-template-columns:1fr}
+  .iz-kra-grid{grid-template-columns:1fr}
+  .iz-kra-chip:last-child{grid-column:auto}
+}
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -511,28 +663,48 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
 <!-- Hero Section -->
 <section class="tools-hero" id="main-content">
   <div class="hero-contours">
-    <svg viewBox="0 0 500 500"><path d="M 50,0 Q 150,180 500,120 M 0,150 Q 220,320 500,260 M 0,300 Q 260,420 500,400"/></svg>
+    <svg viewBox="0 0 500 500" aria-hidden="true"><path d="M 50,0 Q 150,180 500,120 M 0,150 Q 220,320 500,260 M 0,300 Q 260,420 500,400"/></svg>
   </div>
   <div class="w">
-    <div class="crumb">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <a href="index.html#investor-zone">Investor Zone</a>
-      <span>/</span>
-      <span>Mutual Fund Tools &amp; Research</span>
-    </div>
-
-    <div class="hero-top-row">
-      <div class="hero-title-col">
-        <div class="eb">AMFI-Grade Investor Intelligence</div>
-        <h1>Mutual Fund Tools &amp; Research Hub</h1>
-        <p class="hero-desc">Institutional research utilities designed for long-term investors: Backtest realized SIP compounding over market cycles, query official AMFI Daily NAVs with live vector curves, calculate revised Budget 2024 capital gains taxes, and evaluate risk across SEBI fund categories.</p>
+    <div class="iz-hero-grid">
+      <div class="iz-hero-left">
+        <div class="crumb">
+          <a href="index.html">Home</a> <span>/</span>
+          <a href="index.html#investor-zone">Investor Zone</a> <span>/</span>
+          <span>MF Tools &amp; Research</span>
+        </div>
+        <div class="iz-kicker"><i></i><span>AMFI-Grade Investor Intelligence</span></div>
+        <h1>Mutual Fund Tools &amp; <span class="iz-hl">Research Hub</span></h1>
+        <p class="hero-desc">Backtest realized SIP compounding across historical cycles, query official AMFI Daily NAVs with live charts, calculate Budget 2024-25 capital gains taxes, and compare SEBI fund categories.</p>
+        <div class="iz-hero-pills">
+          <a class="iz-pill-cta" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20would%20like%20guidance%20on%20mutual%20fund%20research%20and%20portfolio%20selection." target="_blank" rel="noopener">Discuss Portfolio Strategy</a>
+          <a class="iz-pill-sec" href="#amfi-nav">Live AMFI NAV Lookup</a>
+        </div>
       </div>
 
-      <div>
-        <a class="btn wa" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20would%20like%20guidance%20on%20mutual%20fund%20research%20and%20portfolio%20selection." target="_blank" rel="noopener">
-          <span>Discuss Portfolio Strategy</span>
-        </a>
+      <div class="iz-glass" aria-hidden="true">
+        <div class="iz-g-head">
+          <span class="iz-g-title">Live AMFI Data Feed</span>
+          <span class="iz-g-badge">Budget 2024 Ready</span>
+        </div>
+        <div class="iz-g-chart">
+          <svg viewBox="0 0 320 72" style="width:100%;height:68px;display:block">
+            <defs>
+              <linearGradient id="izSpark" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#34D399" stop-opacity="0.38"/>
+                <stop offset="100%" stop-color="#34D399" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M4 62 Q48 56 82 48 T162 34 T242 22 T316 8 L316 70 L4 70 Z" fill="url(#izSpark)"/>
+            <path d="M4 62 Q48 56 82 48 T162 34 T242 22 T316 8" fill="none" stroke="#6EE7B7" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="316" cy="8" r="4" fill="#34D399"/>
+          </svg>
+        </div>
+        <div class="iz-g-stats">
+          <div class="iz-g-stat"><b>2,500+</b><span>AMFI Schemes</span></div>
+          <div class="iz-g-stat"><b>12.5%</b><span>Equity LTCG</span></div>
+          <div class="iz-g-stat"><b>&#8377;1.25L</b><span>Tax Exemption</span></div>
+        </div>
       </div>
     </div>
 
@@ -549,20 +721,20 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
       </div>
       <div class="hm-box">
         <div class="hm-icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <div class="hm-text">
-          <b>Official AMFI Live NAVs</b>
-          <small>38,000+ schemes direct feed</small>
+          <b>Live AMFI NAV API</b>
+          <small>Real-Time Historical Curves</small>
         </div>
       </div>
       <div class="hm-box">
         <div class="hm-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
         <div class="hm-text">
-          <b>Finance Act 2024 Rules</b>
-          <small>12.5% LTCG &amp; 20% STCG</small>
+          <b>Budget 2024 Tax Engine</b>
+          <small>LTCG 12.5% &amp; STCG 20%</small>
         </div>
       </div>
       <div class="hm-box">
@@ -570,8 +742,8 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
           <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
         <div class="hm-text">
-          <b>Central CAS Portals</b>
-          <small>MFCentral &amp; CAMS Hub</small>
+          <b>CAS Statement Hub</b>
+          <small>CAMS, KFintech &amp; NSDL</small>
         </div>
       </div>
     </div>
