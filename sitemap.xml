@@ -41,6 +41,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://investwithvikas.in/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://investwithvikas.in/forms/AMFI_CKYC_Individual_Form.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

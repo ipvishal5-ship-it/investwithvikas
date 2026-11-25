@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://www.investwell.in https://formprint.printwellonline.com; connect-src 'self' https://api.mfapi.in;">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Commission & Distribution Disclosures | Vikas Agarwal (ARN-40434)</title>
 <meta name="description" content="Transparent commission disclosures for Vikas Agarwal, AMFI-registered Mutual Fund Distributor (ARN-40434). Regular Plans and trail commission schedule breakdown.">
@@ -38,6 +39,10 @@
   "description": "Statutory commission disclosures and AMC trail commission structure for Vikas Agarwal (ARN-40434)."
 }
 </script>
+<!-- Geographic & Local SEO (Mumbai, Goregaon East) -->
+<!-- Open Graph / Social Media Sharing -->
+<!-- Twitter Card -->
+<!-- Structured Data (JSON-LD) -->
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,6 +161,10 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 .site-header.scrolled{box-shadow:0 8px 30px -10px rgba(3,23,68,.12)}
 .sh-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-sizing:border-box}
 
+/* WCAG 2.1 AA Skip to Content */
+.skip-link{position:absolute;top:-100px;left:16px;z-index:9999;padding:12px 20px;background:#031744;color:#FFFFFF!important;font:700 14px 'DM Sans',sans-serif;border-radius:8px;box-shadow:0 8px 24px rgba(3,23,68,.3);text-decoration:none;transition:top .2s ease}
+.skip-link:focus{top:16px;outline:3px solid #068A42;outline-offset:2px}
+
 /* Brand Signature (Minimalist - ARN removed per request) */
 .sh-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
 .sh-brand img{height:38px;width:auto;display:block;border:none!important;border-radius:0!important;object-fit:contain!important;background:transparent!important}
@@ -168,32 +177,33 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 .sh-link{display:inline-flex;align-items:center;gap:6px;padding:8px 22px;border-radius:999px;font:600 14.5px/1.2 'DM Sans',-apple-system,sans-serif;color:#475569;text-decoration:none;white-space:nowrap;transition:color .18s ease,background .18s ease,box-shadow .18s ease;cursor:pointer;border:none;background:transparent}
 .sh-link:hover{color:#031744;background:rgba(255,255,255,.75)}
 .sh-link.is-active{color:#031744;background:#FFFFFF;font-weight:700;box-shadow:0 2px 8px rgba(3,23,68,.08)}
+.sh-link:focus-visible{outline:2px solid #068A42;outline-offset:2px}
 
 /* Investor Zone Vertical Dropdown */
 .sh-drop-wrap{position:relative;display:inline-flex}
 .sh-drop-wrap::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px;background:transparent}
 .sh-dot{width:6px;height:6px;border-radius:50%;background:#068A42;display:inline-block;flex-shrink:0}
 .sh-arr{width:10px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease;flex-shrink:0}
-.sh-drop-wrap:hover .sh-arr,.sh-drop-wrap:focus-within .sh-arr{transform:rotate(180deg)}
-.sh-drop-wrap:hover>.sh-link{color:#031744;background:#FFFFFF;box-shadow:0 2px 8px rgba(3,23,68,.08)}
+.sh-drop-wrap:hover .sh-arr,.sh-drop-wrap:focus-within .sh-arr,.sh-drop-wrap.is-open .sh-arr{transform:rotate(180deg)}
+.sh-drop-wrap:hover>.sh-link,.sh-drop-wrap:focus-within>.sh-link,.sh-drop-wrap.is-open>.sh-link{color:#031744;background:#FFFFFF;box-shadow:0 2px 8px rgba(3,23,68,.08)}
 
 .sh-drop-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);width:316px;background:#FFFFFF;border:1px solid #DCE5F2;border-radius:18px;padding:8px;box-shadow:0 22px 46px -12px rgba(3,23,68,.2),0 4px 14px rgba(3,23,68,.05);opacity:0;pointer-events:none;transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1);z-index:130;display:grid;gap:2px}
 .sh-drop-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:11px;height:11px;background:#FFFFFF;border-left:1px solid #DCE5F2;border-top:1px solid #DCE5F2;z-index:-1}
-.sh-drop-wrap:hover .sh-drop-menu,.sh-drop-wrap:focus-within .sh-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.sh-drop-wrap:hover .sh-drop-menu,.sh-drop-wrap:focus-within .sh-drop-menu,.sh-drop-wrap.is-open .sh-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 
 .sh-drop-lbl{font:700 10px/1 'DM Sans',-apple-system,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#64748B;padding:6px 12px 6px}
 .sh-drop-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;text-decoration:none;color:#0B1B3D;transition:background .16s ease,transform .16s ease}
-.sh-drop-item:hover{background:#F4F7FB}
+.sh-drop-item:hover,.sh-drop-item:focus{background:#F4F7FB;outline:none}
 .sh-drop-item.is-active{background:#E7F6EE}
 .sh-drop-ico{width:34px;height:34px;border-radius:10px;background:#E7F6EE;display:grid;place-items:center;flex-shrink:0;transition:background .16s ease}
 .sh-drop-ico svg{width:16px;height:16px;stroke:#056832;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .16s ease}
-.sh-drop-item:hover .sh-drop-ico{background:#031744}
-.sh-drop-item:hover .sh-drop-ico svg{stroke:#9BE8B8}
+.sh-drop-item:hover .sh-drop-ico,.sh-drop-item:focus .sh-drop-ico{background:#031744}
+.sh-drop-item:hover .sh-drop-ico svg,.sh-drop-item:focus .sh-drop-ico svg{stroke:#9BE8B8}
 .sh-drop-txt{flex:1;min-width:0}
 .sh-drop-txt b{display:block;font:700 13.5px/1.25 'DM Sans',-apple-system,sans-serif;color:#031744;white-space:nowrap}
 .sh-drop-txt small{display:block;font:500 11.5px/1.3 'DM Sans',-apple-system,sans-serif;color:#4E6180;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sh-drop-chev{width:14px;height:14px;stroke:#94A3B8;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:translateX(-4px);transition:opacity .16s ease,transform .16s ease;flex-shrink:0}
-.sh-drop-item:hover .sh-drop-chev{opacity:1;transform:translateX(0);stroke:#031744}
+.sh-drop-item:hover .sh-drop-chev,.sh-drop-item:focus .sh-drop-chev{opacity:1;transform:translateX(0);stroke:#031744}
 
 /* Right Actions Cluster */
 .sh-actions{display:inline-flex;align-items:center;gap:10px;flex-shrink:0}
@@ -236,6 +246,7 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <!-- Header -->
 <header class="site-header" id="siteHeader">
   <div class="sh-inner">
@@ -250,12 +261,12 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
     <nav class="sh-nav" aria-label="Main Navigation">
       <a href="index.html" class="sh-link">Home</a>
 
-      <div class="sh-drop-wrap">
-        <a href="javascript:void(0)" class="sh-link" aria-haspopup="true">
+      <div class="sh-drop-wrap" id="shDropWrap">
+        <button type="button" class="sh-link" id="shIzBtn" aria-haspopup="true" aria-expanded="false" aria-controls="shDropMenu">
           <span>Investor Zone</span>
-          <svg class="sh-arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
-        </a>
-        <div class="sh-drop-menu" role="menu">
+          <svg class="sh-arr" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+        </button>
+        <div class="sh-drop-menu" id="shDropMenu" role="menu" aria-label="Investor Zone Menu">
           <div class="sh-drop-lbl">Investor Tools</div>
           <a href="mf-tools.html" class="sh-drop-item" role="menuitem">
             <div class="sh-drop-ico">
@@ -343,9 +354,33 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
   var h=document.getElementById('siteHeader'),b=document.getElementById('shMobBtn'),d=document.getElementById('shMobDrawer');
   if(h){window.addEventListener('scroll',function(){if(window.scrollY>10)h.classList.add('scrolled');else h.classList.remove('scrolled');},{passive:true});}
   if(b&&d){b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});}
+
+  // WCAG 2.1 AA Keyboard Accessible Dropdown
+  var dropWrap=document.getElementById('shDropWrap'),izBtn=document.getElementById('shIzBtn'),menu=document.getElementById('shDropMenu');
+  if(dropWrap&&izBtn&&menu){
+    function toggleDrop(open){
+      var isOpen = open !== undefined ? open : !dropWrap.classList.contains('is-open');
+      dropWrap.classList.toggle('is-open', isOpen);
+      izBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(isOpen){
+        var firstItem = menu.querySelector('a');
+        if(firstItem) firstItem.focus();
+      }
+    }
+    izBtn.addEventListener('click', function(e){ e.preventDefault(); toggleDrop(); });
+    izBtn.addEventListener('keydown', function(e){
+      if(e.key==='Enter'||e.key===' '||e.key==='ArrowDown'){ e.preventDefault(); toggleDrop(true); }
+    });
+    dropWrap.addEventListener('keydown', function(e){
+      if(e.key==='Escape'){ toggleDrop(false); izBtn.focus(); }
+    });
+    document.addEventListener('click', function(e){
+      if(!dropWrap.contains(e.target)) toggleDrop(false);
+    });
+  }
 })();
 </script>
-<div class="hero"><div class="w">
+<div class="hero" id="main-content"><div class="w">
 <div><div class="crumb"><i></i><span>Commission Disclosures</span></div>
 <h1>Commission Disclosures</h1>
 <p class="lead">Under SEBI and AMFI regulations, this page outlines how Vikas Agarwal earns remuneration as a Mutual Fund Distributor, the distinction between Regular and Direct Plans, and the trail commission structure.</p>
@@ -401,7 +436,8 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 
 <footer><div class="w"><div class="ft"><div><div class="fbr"><img alt="" src="logo.png"><b>Vikas Agarwal</b></div><p>AMFI-registered Mutual Fund Distributor (ARN-40434, EUIN E375656), Goregaon East, Mumbai. Simple, disciplined investing tailored to your life goals.</p></div>
 <div><h4>Explore</h4><ul><li><a href="index.html#goals">Goals</a></li><li><a href="index.html#how">How it works</a></li><li><a href="calculators.html" style="color:var(--g2);font-weight:700">Investor Zone</a></li><li><a href="index.html#about">About Vikas</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
-<div><h4>Disclosures</h4><ul><li><a href="how-i-earn.html">Commission Disclosures</a></li><li><a href="disclosures.html">Disclosures &amp; Grievances</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div></div>
+<div><h4>Disclosures</h4><ul><li><a href="how-i-earn.html">Commission Disclosures</a></li><li><a href="disclosures.html">Disclosures &amp; Grievances</a></li><li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li></ul></div></div>
 <div class="dis"><p>Vikas Agarwal is an AMFI-registered Mutual Fund Distributor (ARN-40434, valid till 07 August 2027; EUIN E375656) and is not a SEBI-registered investment adviser. He distributes Regular Plans only, which include distributor trail commission paid by the respective fund house. <a href="how-i-earn.html">View commission details</a>. Investors have the option to invest in Direct Plans of mutual fund schemes directly without intermediary commission.</p>
 <p>For grievance redressal, contact Vikas Agarwal at <a href="mailto:info@investwithvikas.in">info@investwithvikas.in</a> or escalate to SEBI via <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">SCORES 2.0</a> and <a href="https://smartodr.in" target="_blank" rel="noopener">SMART ODR Portal</a>.</p>
 <p class="rk">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p></div>
@@ -414,5 +450,31 @@ function u(){var y=innerHeight*.4,k=0;S.forEach(function(s,i){if(s.getBoundingCl
 <a class="wa-float" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20have%20a%20question%20regarding%20distributor%20commissions." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
+<!-- Cookie & Privacy Notice -->
+<div id="cookieNotice" role="region" aria-label="Privacy & Cookie Notice" style="display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);width:min(92vw,580px);background:#FFFFFF;border:1px solid #DCE5F2;box-shadow:0 18px 40px -10px rgba(3,23,68,.25);border-radius:18px;padding:18px 22px;z-index:998;align-items:center;justify-content:space-between;gap:16px;box-sizing:border-box">
+  <div style="font:500 13.5px/1.45 'DM Sans',-apple-system,sans-serif;color:#334155;flex:1">
+    We use essential storage and fonts to ensure security and proper site functionality. Review our <a href="privacy.html" style="color:#068A42;font-weight:700;text-decoration:underline">Privacy Policy</a> and <a href="terms.html" style="color:#068A42;font-weight:700;text-decoration:underline">Terms</a>.
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0">
+    <button type="button" id="cookieAccept" style="background:#068A42;color:#FFFFFF;border:none;padding:8px 18px;border-radius:999px;font:700 13px 'DM Sans',sans-serif;cursor:pointer;transition:background .15s">Accept All</button>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var b = document.getElementById('cookieNotice');
+    var btn = document.getElementById('cookieAccept');
+    if (!localStorage.getItem('mf_cookie_consent') && b && btn) {
+      b.style.display = 'flex';
+      btn.addEventListener('click', function(){
+        localStorage.setItem('mf_cookie_consent', 'accepted');
+        b.style.opacity = '0';
+        b.style.transition = 'opacity .25s ease';
+        setTimeout(function(){ b.remove(); }, 260);
+      });
+    }
+  } catch(e){}
+})();
+</script>
 </body>
 </html>
