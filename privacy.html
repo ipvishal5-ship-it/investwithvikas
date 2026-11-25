@@ -113,10 +113,39 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
 .wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,211,102,.5)}
 @media(max-width:860px){nav{display:none}.doc-card{padding:26px 22px}.ft{grid-template-columns:1fr;gap:34px}.step{flex-direction:column;gap:12px;align-items:flex-start}.step .num{align-self:flex-start}.btn-group{flex-direction:column}.btn-group .btn{width:100%}}
 @media(max-width:600px){.w{padding:0 16px}header .w{height:62px}.brand img{height:34px}.brand b{font-size:16.5px}.btn.sm{padding:7px 12px;font-size:13px;white-space:nowrap}.page-hero{padding:36px 0 28px}.page-hero h1{font-size:clamp(26px,6vw,34px);line-height:1.2;margin-bottom:12px}.page-hero p.lead{font-size:15.5px;line-height:1.55;margin-bottom:16px}.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.stat{padding:10px 12px;border-radius:10px}.stat b{font-size:14.5px}.stat span{font-size:11.5px}.section{padding:32px 0}.section-head{margin-bottom:20px}.section-title{font-size:clamp(22px,5vw,26px);line-height:1.25}.section-desc{font-size:14.5px}.doc-card{padding:18px 14px;border-radius:14px;margin-bottom:20px}.doc-card h2{font-size:20px;margin:20px 0 10px}.doc-card h3{font-size:16px;margin:16px 0 8px}.doc-card p,.doc-card ul{font-size:14.5px;line-height:1.6}.doc-card ul{margin-left:18px}.card-grid{grid-template-columns:1fr;gap:12px;margin:16px 0}.info-card{padding:16px 14px;border-radius:12px}.info-card .icn{width:36px;height:36px;border-radius:8px;margin-bottom:10px}.info-card .icn svg{width:19px;height:19px}.info-card h4{font-size:15px;margin-bottom:6px}.info-card p{font-size:13.5px}.notice-box{padding:18px 14px;border-radius:12px}.notice-box b{font-size:16.5px}.checklist li{padding-left:26px;font-size:14px;word-break:break-word}.checklist li::before{width:16px;height:16px;top:4px}footer{padding:36px 0 90px}.ft{gap:24px}.wa{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:10px 16px;font-size:13.5px}}
+
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:5px}
+.nav-item svg{width:9px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s}
+.nav-item:hover svg{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:270px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 16px 36px -10px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;display:grid;gap:2px}
+.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
+.drop-menu a:hover{background:var(--soft)}
+.drop-menu a b{display:block;font-size:13.5px;color:var(--navy);line-height:1.2}
+.drop-menu a small{display:block;font-size:11.5px;color:var(--mut);font-weight:400}
+.drop-ico{font-size:15px;width:26px;height:26px;border-radius:6px;background:#E7F6EE;display:grid;place-items:center;flex-shrink:0}
 </style>
 </head>
 <body>
-<header><div class="w"><a class="brand" href="index.html"><img alt="Vikas Agarwal" src="logo.png"><b>Vikas Agarwal</b></a><nav><a href="index.html#goals">Goals</a><a href="index.html#how">How it works</a><a href="index.html#about">About</a><a href="index.html#faq">FAQ</a><a href="index.html#contact">Contact</a></nav><a class="btn sm" href="tel:+919967129977">Call now</a></div></header>
+<header><div class="w"><a class="brand" href="index.html"><img alt="Vikas Agarwal" src="logo.png"><b>Vikas Agarwal</b></a><nav>
+<a href="index.html#goals">Goals</a>
+<a href="index.html#how">How it works</a>
+<div class="nav-item">
+<a href="investor-zone.html">Investor Zone <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+<div class="drop-menu">
+<a href="investor-zone.html#calculators"><span class="drop-ico">🧮</span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
+<a href="investor-zone.html#kyc"><span class="drop-ico">🛡️</span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
+<a href="investor-zone.html#forms"><span class="drop-ico">📄</span><div><b>MF Forms & Downloads</b><small>Common Transaction & Service Slips</small></div></a>
+<a href="investor-zone.html#tools"><span class="drop-ico">📊</span><div><b>MF Tools & Research</b><small>NAV, Factsheets & Performance</small></div></a>
+<a href="investor-zone.html#login"><span class="drop-ico">🔐</span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
+</div>
+</div>
+<a href="index.html#about">About</a>
+<a href="how-i-earn.html">Disclosures</a>
+<a href="index.html#faq">FAQ</a>
+<a href="index.html#contact">Contact</a>
+</nav><a class="btn sm" href="tel:+919967129977">Call now</a></div></header>
 <div class="page-hero"><div class="w"><div class="eb">Data Privacy & Protection</div><h1>Privacy Policy &amp; Client Data Safeguards</h1><p class="lead">We take your privacy seriously. This policy explains what information we collect when you invest in mutual funds through Vikas Agarwal (ARN-40434), how it is safeguarded in line with Indian data protection laws, and your rights as an investor.</p><div class="stat-row"><div class="stat"><b>Effective Date:</b><span>November 2026</span></div><div class="stat"><b>Framework:</b><span>In line with the DPDP Act &amp; SEBI Regulations</span></div><div class="stat"><b>Your rights:</b><span>Access, correction, erasure, grievance, nomination</span></div></div></div></div>
 <div class="content-body"><div class="w">
 <section class="section">
@@ -181,7 +210,7 @@ Office: 504 Atlanta Estate, Opp. Oberoi Mall, Goregaon East, Mumbai 400063</p>
 <h4>Explore</h4>
 <ul>
 <li><a href="index.html#goals">Goals</a></li>
-<li><a href="index.html#how">How it works</a></li>
+<li><a href="index.html#how">How it works</a></li><li><a href="investor-zone.html" style="color:var(--g2);font-weight:700">Investor Zone</a></li>
 <li><a href="index.html#about">About Vikas</a></li>
 <li><a href="index.html#faq">FAQ</a></li>
 <li><a href="index.html#contact">Contact</a></li>

@@ -106,10 +106,39 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 @media(max-width:900px){nav{display:none}.hero{padding:48px 0 52px}.hero .w,.sh,.end .w{grid-template-columns:1fr;gap:32px}.sh p{justify-self:start}section{padding:64px 0}.plans,.rq{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.fa{transform:rotate(90deg);justify-self:center}.pc{padding:28px 24px}.notice{padding:24px 22px}.end{padding:72px 0}.ft{grid-template-columns:1fr 1fr;gap:34px}.ft>div:first-child{grid-column:1/-1}footer{padding:44px 0 110px}.brand b{font-size:17px}}
 @media(max-width:600px){.w{padding:0 16px}header .w{height:62px}.brand img{height:34px}.brand b{font-size:16.5px}.btn.sm{padding:7px 12px;font-size:13px;white-space:nowrap}.hero{padding:32px 0 36px}.hero .w{gap:24px}.hero h1{font-size:clamp(28px,7.5vw,38px);line-height:1.15;letter-spacing:-.02em}.hero p.lead{font-size:15.5px;line-height:1.55;margin-bottom:18px}.ids{gap:8px}.ids span{padding:6px 12px;font-size:12.5px}.zero{padding:20px 16px;border-radius:18px}.zero strong{font-size:clamp(34px,8vw,46px)!important;margin:8px 0 6px}.zero p{font-size:14px;line-height:1.5}.zero em{margin-top:12px;font-size:11.5px;padding:5px 10px}section{padding:36px 0}.sh{gap:14px;margin-bottom:24px}.sh h2{font-size:clamp(22px,6vw,28px);line-height:1.2}.sh p{font-size:14.5px;line-height:1.55}.notice{padding:18px 14px;border-radius:14px;border-left-width:4px}.notice b{font-size:17px;line-height:1.3;margin-bottom:6px}.notice p{font-size:14.5px;line-height:1.55}.amc{grid-template-columns:1fr;gap:8px}.amc-logo-img{width:32px;height:32px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;border:1px solid var(--line);box-shadow:0 1px 4px rgba(6,40,110,.08);flex-shrink:0}.ac{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:14.5px;font-weight:600;color:var(--navy);transition:border-color .2s,transform .2s,box-shadow .2s;box-shadow:0 2px 6px rgba(6,40,110,.03)}.ac:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:0 6px 16px rgba(6,40,110,.08)}padding:11px 13px;font-size:13.5px;border-radius:10px}.plat{margin-top:20px;padding-top:16px;font-size:13.5px;gap:8px}.plat span.p{font-size:12px;padding:5px 10px}.rq{gap:12px;margin:20px 0 24px}.rc{padding:18px 14px;border-radius:14px}.rc b{font-size:15px}.rc p{font-size:13px}.ft{grid-template-columns:1fr;gap:24px}footer{padding:36px 0 90px}.wa{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:10px 16px;font-size:13.5px}}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:5px}
+.nav-item svg{width:9px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s}
+.nav-item:hover svg{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:270px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 16px 36px -10px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;display:grid;gap:2px}
+.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
+.drop-menu a:hover{background:var(--soft)}
+.drop-menu a b{display:block;font-size:13.5px;color:var(--navy);line-height:1.2}
+.drop-menu a small{display:block;font-size:11.5px;color:var(--mut);font-weight:400}
+.drop-ico{font-size:15px;width:26px;height:26px;border-radius:6px;background:#E7F6EE;display:grid;place-items:center;flex-shrink:0}
 </style>
 </head>
 <body>
-<header><div class="w"><a class="brand" href="index.html"><img alt="" src="logo.png"><b>Vikas Agarwal</b></a><nav><a href="index.html#goals">Goals</a><a href="index.html#how">How it works</a><a href="index.html#about">About</a><a href="index.html#faq">FAQ</a><a href="index.html#contact">Contact</a></nav><a class="btn sm" href="tel:+919967129977">Call now</a></div></header>
+<header><div class="w"><a class="brand" href="index.html"><img alt="" src="logo.png"><b>Vikas Agarwal</b></a><nav>
+<a href="index.html#goals">Goals</a>
+<a href="index.html#how">How it works</a>
+<div class="nav-item">
+<a href="investor-zone.html">Investor Zone <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+<div class="drop-menu">
+<a href="investor-zone.html#calculators"><span class="drop-ico">🧮</span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
+<a href="investor-zone.html#kyc"><span class="drop-ico">🛡️</span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
+<a href="investor-zone.html#forms"><span class="drop-ico">📄</span><div><b>MF Forms & Downloads</b><small>Common Transaction & Service Slips</small></div></a>
+<a href="investor-zone.html#tools"><span class="drop-ico">📊</span><div><b>MF Tools & Research</b><small>NAV, Factsheets & Performance</small></div></a>
+<a href="investor-zone.html#login"><span class="drop-ico">🔐</span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
+</div>
+</div>
+<a href="index.html#about">About</a>
+<a href="how-i-earn.html">Disclosures</a>
+<a href="index.html#faq">FAQ</a>
+<a href="index.html#contact">Contact</a>
+</nav><a class="btn sm" href="tel:+919967129977">Call now</a></div></header>
 
 <div class="hero"><div class="w">
 <div><div class="crumb"><i></i><span>Commission Disclosures</span></div>
@@ -166,7 +195,7 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 </div></section>
 
 <footer><div class="w"><div class="ft"><div><div class="fbr"><img alt="" src="logo.png"><b>Vikas Agarwal</b></div><p>AMFI-registered Mutual Fund Distributor (ARN-40434, EUIN E375656), Goregaon East, Mumbai. Simple, disciplined investing tailored to your life goals.</p></div>
-<div><h4>Explore</h4><ul><li><a href="index.html#goals">Goals</a></li><li><a href="index.html#how">How it works</a></li><li><a href="index.html#about">About Vikas</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+<div><h4>Explore</h4><ul><li><a href="index.html#goals">Goals</a></li><li><a href="index.html#how">How it works</a></li><li><a href="investor-zone.html" style="color:var(--g2);font-weight:700">Investor Zone</a></li><li><a href="index.html#about">About Vikas</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
 <div><h4>Disclosures</h4><ul><li><a href="how-i-earn.html">Commission Disclosures</a></li><li><a href="disclosures.html">Disclosures &amp; Grievances</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div></div>
 <div class="dis"><p>Vikas Agarwal is an AMFI-registered Mutual Fund Distributor (ARN-40434, valid till 07 August 2027; EUIN E375656) and is not a SEBI-registered investment adviser. He distributes Regular Plans only, which include distributor trail commission paid by the respective fund house. <a href="how-i-earn.html">View commission details</a>. Investors have the option to invest in Direct Plans of mutual fund schemes directly without intermediary commission.</p>
 <p>For grievance redressal, contact Vikas Agarwal at <a href="mailto:info@investwithvikas.in">info@investwithvikas.in</a> or escalate to SEBI via <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">SCORES 2.0</a> and <a href="https://smartodr.in" target="_blank" rel="noopener">SMART ODR Portal</a>.</p>

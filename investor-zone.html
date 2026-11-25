@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investor Zone · Financial Calculators, KYC & MF Forms | Vikas Agarwal</title>
+<meta name="description" content="Access smart financial calculators (SIP, Step-Up, Lumpsum, Retirement, Education), verify KYC status across CVL/CAMS/NSE KRAs, download mutual fund service forms, and access client login portals.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#031744;
+  --ink:#0B1B3D;
+  --mut:#4E6180;
+  --soft:#F4F7FB;
+  --card-bg:#FFFFFF;
+  --line:#D6E0EE;
+  --green:#068A42;
+  --g2:#056832;
+  --mint:#9BE8B8;
+  --accent:#E7F6EE;
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+.brand img{height:38px;width:auto}
+.bn{font:700 18px 'Montserrat',sans-serif;letter-spacing:-.01em;color:var(--navy);line-height:1.1}
+.bt{font:700 9.5px 'DM Sans',sans-serif;letter-spacing:1.5px;color:var(--green);text-transform:uppercase}
+nav{display:flex;align-items:center;gap:22px}
+nav a{text-decoration:none;color:var(--mut);font-weight:600;font-size:15px;transition:color .2s}
+nav a:hover,nav a.active{color:var(--navy)}
+
+/* Dropdown */
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:5px}
+.nav-item svg{width:10px;height:6px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .2s}
+.nav-item:hover svg{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);min-width:280px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 18px 40px -12px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;display:grid;gap:2px}
+.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
+.drop-menu a:hover{background:var(--soft)}
+.drop-menu a b{display:block;font-size:14px;color:var(--navy);line-height:1.2}
+.drop-menu a small{display:block;font-size:12px;color:var(--mut);font-weight:400}
+.drop-ico{font-size:16px;width:28px;height:28px;border-radius:8px;background:var(--accent);display:grid;place-items:center;flex-shrink:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;border:1px solid transparent;cursor:pointer}
+.btn.sm{padding:8px 16px;font-size:13.5px}
+.btn.pri{background:var(--green);color:#fff}
+.btn.pri:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(6,138,66,.25)}
+.btn.sec{background:var(--soft);color:var(--navy);border-color:var(--line)}
+.btn.sec:hover{background:#E9F0FA;border-color:var(--navy)}
+.btn.wa{background:#25D366;color:#fff}
+.btn.wa:hover{background:#1EBE5D;transform:translateY(-1px);box-shadow:0 6px 16px rgba(37,211,102,.3)}
+
+/* Hero */
+.iz-hero{padding:54px 0 44px;background:linear-gradient(180deg,var(--soft) 0%,#fff 100%);border-bottom:1px solid var(--line)}
+.crumb{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--mut);margin-bottom:14px}
+.crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:var(--navy)}
+.crumb span{color:var(--navy)}
+.eb{font:700 12px 'DM Sans',sans-serif;letter-spacing:2.4px;color:var(--green);text-transform:uppercase;margin-bottom:12px}
+.iz-hero h1{font:600 clamp(34px,4.5vw,54px)/1.1 'Fraunces',Georgia,serif;letter-spacing:-.025em;color:var(--navy);max-width:820px;margin-bottom:14px}
+.iz-hero p.lead{font-size:18px;line-height:1.6;color:var(--mut);max-width:760px;margin-bottom:28px}
+.iz-chips{display:flex;gap:10px;flex-wrap:wrap}
+.iz-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;transition:background .2s,border-color .2s,transform .2s;box-shadow:0 2px 6px rgba(6,40,110,.04)}
+.iz-chip:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-2px);box-shadow:0 8px 18px rgba(6,40,110,.18)}
+.iz-chip span.ci{width:22px;height:22px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-size:12px}
+.iz-chip:hover span.ci{background:rgba(255,255,255,.2)}
+
+/* Sections */
+section{padding:72px 0}
+.alt{background:var(--soft)}
+.sec-head{margin-bottom:36px}
+.sec-head h2{font:600 clamp(28px,3.8vw,44px)/1.15 'Fraunces',serif;letter-spacing:-.02em;color:var(--navy);margin-bottom:8px}
+.sec-head p{font-size:16.5px;color:var(--mut);max-width:620px}
+
+/* Calculators Layout */
+.calc-nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:28px;scrollbar-width:thin}
+.calc-tab{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;background:#fff;border:1px solid var(--line);font:600 14.5px 'DM Sans',sans-serif;color:var(--navy);cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s}
+.calc-tab:hover{border-color:var(--navy);background:#F8FAFE}
+.calc-tab.on{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 6px 18px rgba(6,40,110,.25)}
+.calc-box{background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px;box-shadow:0 12px 32px -12px rgba(6,40,110,.08)}
+.calc-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+.calc-inputs{display:grid;gap:24px}
+.ctrl-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.ctrl-row label{font-weight:700;font-size:15px;color:var(--navy)}
+.ctrl-val{font:700 18px 'DM Sans',sans-serif;color:var(--green);background:var(--accent);padding:4px 12px;border-radius:8px;border:1px solid rgba(6,138,66,.2)}
+input[type=range]{width:100%;height:7px;background:var(--line);border-radius:999px;outline:none;-webkit-appearance:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--navy);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25);cursor:pointer;transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);background:var(--green)}
+
+/* Calc Output Card */
+.calc-res{background:var(--navy);color:#fff;border-radius:20px;padding:30px;position:relative;overflow:hidden;box-shadow:0 16px 36px -12px rgba(6,40,110,.35)}
+.calc-res::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 100% 0%,transparent 0 20px,rgba(255,255,255,.05) 20px 21px);pointer-events:none}
+.calc-res-h{font:700 12px 'DM Sans',sans-serif;letter-spacing:1.8px;color:#9BE8B8;text-transform:uppercase;margin-bottom:18px}
+.calc-tot-lbl{font-size:13.5px;color:rgba(255,255,255,.75)}
+.calc-tot-val{font:600 clamp(32px,4vw,46px)/1.1 'Fraunces',serif;color:#fff;margin:4px 0 22px}
+.res-rows{display:grid;gap:12px;border-top:1px solid rgba(255,255,255,.15);padding-top:18px;margin-bottom:24px}
+.res-row{display:flex;justify-content:space-between;align-items:center;font-size:14.5px}
+.res-row span{color:rgba(255,255,255,.75)}
+.res-row b{font-weight:700;color:#fff}
+.res-bar-wrap{margin-top:14px}
+.res-bar-lbls{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.7);margin-bottom:6px}
+.res-bar{height:10px;border-radius:999px;background:rgba(255,255,255,.2);overflow:hidden;display:flex}
+.res-bar-inv{background:#9BE8B8;height:100%;transition:width .3s}
+.res-bar-gain{background:var(--green);height:100%;transition:width .3s}
+.calc-act{margin-top:20px;display:grid;gap:10px}
+.calc-panel{display:none}
+.calc-panel.on{display:block}
+
+/* KYC Grid */
+.kyc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:32px}
+.kyc-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
+.kyc-card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 12px 28px -10px rgba(6,40,110,.12)}
+.kyc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.kyc-badge{font:700 11px 'DM Sans',sans-serif;letter-spacing:1.2px;background:var(--accent);color:var(--g2);padding:4px 10px;border-radius:999px;text-transform:uppercase}
+.kyc-card h3{font:700 18px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:6px}
+.kyc-card p{font-size:13.5px;color:var(--mut);line-height:1.5;margin-bottom:20px;flex:1}
+.kyc-step-box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.kyc-step{position:relative}
+.kyc-step-num{font:600 24px 'Fraunces',serif;color:var(--green);margin-bottom:6px}
+.kyc-step h4{font:700 16px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:6px}
+.kyc-step p{font-size:13.5px;color:var(--mut);line-height:1.5}
+
+/* Forms Section */
+.forms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.form-category{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+.form-cat-h{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.form-cat-h svg{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:2}
+.form-cat-h h3{font:700 17px 'DM Sans',sans-serif;color:var(--navy)}
+.form-list{list-style:none;display:grid;gap:10px}
+.form-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:12px;background:var(--soft);border:1px solid transparent;transition:background .2s,border-color .2s}
+.form-item:hover{background:#EBF2FB;border-color:#C5D5ED}
+.form-info b{display:block;font-size:14px;color:var(--ink);line-height:1.2}
+.form-info small{display:block;font-size:12px;color:var(--mut)}
+.form-dl{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--green);text-decoration:none;background:#fff;padding:6px 12px;border-radius:999px;border:1px solid var(--line);transition:background .2s,color .2s,border-color .2s}
+.form-dl:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.form-dl svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* Research Tools & Factsheets */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:32px}
+.tool-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.tool-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px -10px rgba(6,40,110,.12);border-color:var(--navy)}
+.tool-icon{width:46px;height:46px;border-radius:12px;background:var(--accent);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.tool-card h3{font:700 18px 'DM Sans',sans-serif;color:var(--navy);margin-bottom:8px}
+.tool-card p{font-size:14px;color:var(--mut);line-height:1.55;margin-bottom:20px;flex:1}
+
+/* Client Login Portals */
+.login-box{background:linear-gradient(135deg,var(--navy) 0%,#052366 100%);border-radius:24px;padding:44px;color:#fff}
+.login-h{margin-bottom:32px;max-width:640px}
+.login-h h2{font:600 clamp(28px,3.5vw,42px)/1.15 'Fraunces',serif;color:#fff;margin-bottom:10px}
+.login-h p{font-size:16px;color:rgba(255,255,255,.8)}
+.login-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.login-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:24px;display:flex;flex-direction:column;text-decoration:none;color:#fff;transition:background .2s,transform .2s,border-color .2s}
+.login-card:hover{background:rgba(255,255,255,.16);border-color:#fff;transform:translateY(-3px)}
+.login-card b{font:700 18px 'DM Sans',sans-serif;margin-bottom:6px;display:block}
+.login-card small{font-size:13px;color:rgba(255,255,255,.75);line-height:1.45;margin-bottom:18px;flex:1;display:block}
+.login-link{font-size:13px;font-weight:700;color:#9BE8B8;display:inline-flex;align-items:center;gap:6px}
+.login-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5}
+
+/* Footer & Compliance */
+footer{background:#fff;padding:60px 0 100px;border-top:1px solid var(--line)}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+.fbr{display:flex;align-items:center;gap:12px;margin-bottom:14px}.fbr img{height:38px}.fbr b{font:700 19px 'Montserrat',sans-serif;color:var(--navy)}
+.ft p{font-size:14.5px;color:var(--mut);max-width:340px}
+.ft h4{font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:var(--ink);margin-bottom:14px;text-transform:uppercase}
+.ft ul{list-style:none;display:grid;gap:10px}.ft li a{text-decoration:none;color:var(--mut);font-size:14.5px}.ft li a:hover{color:var(--navy)}
+.dis{margin-top:44px;padding-top:28px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--mut);max-width:980px}
+.dis p+p{margin-top:10px}.dis a{color:var(--navy);font-weight:700}.dis .rk{color:var(--ink);font-weight:500}
+.cp{margin-top:20px;font-size:13px;color:var(--mut)}
+.wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:30;display:flex;align-items:center;gap:8px}
+
+@media(max-width:860px){
+  nav{display:none}
+  .calc-grid{grid-template-columns:1fr;gap:28px}
+  .login-box{padding:28px 20px}
+  .ft{grid-template-columns:1fr 1fr;gap:32px}.ft>div:first-child{grid-column:1/-1}
+}
+@media(max-width:480px){
+  .w{padding:0 16px}
+  .calc-box{padding:20px 16px}
+  .calc-res{padding:22px 18px}
+  .kyc-step-box{padding:22px 16px}
+  .ft{grid-template-columns:1fr;gap:24px}
+}
+</style>
+</head>
+<body>
+
+<header><div class="w">
+  <a class="brand" href="index.html">
+    <img alt="Vikas Agarwal" src="logo.png">
+    <div>
+      <div class="bn">Vikas Agarwal</div>
+      <div class="bt">MUTUAL FUND DISTRIBUTOR</div>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html#goals">Goals</a>
+    <a href="index.html#how">How it works</a>
+    <div class="nav-item">
+      <a href="investor-zone.html" class="active">Investor Zone <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+      <div class="drop-menu">
+        <a href="#calculators"><span class="drop-ico">🧮</span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
+        <a href="#kyc"><span class="drop-ico">🛡️</span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
+        <a href="#forms"><span class="drop-ico">📄</span><div><b>MF Forms & Downloads</b><small>Common Transaction & Service Slips</small></div></a>
+        <a href="#tools"><span class="drop-ico">📊</span><div><b>MF Tools & Research</b><small>NAV, Factsheets & Performance</small></div></a>
+        <a href="#login"><span class="drop-ico">🔐</span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
+      </div>
+    </div>
+    <a href="index.html#about">About</a>
+    <a href="how-i-earn.html">Disclosures</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn sm pri" href="tel:+919967129977">Call now</a>
+</div></header>
+
+<div class="iz-hero"><div class="w">
+  <div class="crumb"><a href="index.html">Home</a> / <span>Investor Zone</span></div>
+  <div class="eb">INVESTOR RESOURCES & UTILITIES</div>
+  <h1>Smart utilities for disciplined investors.</h1>
+  <p class="lead">Interactive goal calculators, direct regulatory KYC verification, essential mutual fund service forms, and institutional research tools — organized for clarity and informed decisions.</p>
+  <div class="iz-chips">
+    <a class="iz-chip" href="#calculators"><span class="ci">🧮</span>Financial Calculators</a>
+    <a class="iz-chip" href="#kyc"><span class="ci">🛡️</span>KYC Verification</a>
+    <a class="iz-chip" href="#forms"><span class="ci">📄</span>MF Forms & Slips</a>
+    <a class="iz-chip" href="#tools"><span class="ci">📊</span>MF Tools & NAV</a>
+    <a class="iz-chip" href="#login"><span class="ci">🔐</span>Client Login Portals</a>
+  </div>
+</div></div>
+
+<!-- Section 1: Financial Calculators -->
+<section id="calculators"><div class="w">
+  <div class="sec-head">
+    <div class="eb">FINANCIAL PLANNING SUITE</div>
+    <h2>Interactive Goal Calculators</h2>
+    <p>Model your investment projections with real-time compound wealth simulations. Adjust variables to see your future corpus.</p>
+  </div>
+
+  <div class="calc-nav" role="tablist">
+    <button class="calc-tab on" data-calc="sip">SIP Calculator</button>
+    <button class="calc-tab" data-calc="stepup">SIP Step-Up Calculator</button>
+    <button class="calc-tab" data-calc="lumpsum">Lumpsum Calculator</button>
+    <button class="calc-tab" data-calc="retirement">Retirement Planning</button>
+    <button class="calc-tab" data-calc="education">Child Education Goal</button>
+    <button class="calc-tab" data-calc="delay">Cost of Delay Analyzer</button>
+  </div>
+
+  <div class="calc-box">
+    <!-- Panel 1: SIP Calculator -->
+    <div class="calc-panel on" id="panel-sip">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div>
+            <div class="ctrl-row"><label>Monthly Investment Amount</label><span class="ctrl-val" id="sip-amt-val">₹ 15,000</span></div>
+            <input type="range" id="sip-amt" min="1000" max="200000" step="1000" value="15000">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Expected Return Rate (p.a.)</label><span class="ctrl-val" id="sip-rate-val">12.0 %</span></div>
+            <input type="range" id="sip-rate" min="8" max="18" step="0.5" value="12">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Investment Period (Years)</label><span class="ctrl-val" id="sip-yr-val">15 Years</span></div>
+            <input type="range" id="sip-yr" min="1" max="30" step="1" value="15">
+          </div>
+        </div>
+        <div class="calc-res">
+          <div class="calc-res-h">Projected Wealth Summary</div>
+          <div class="calc-tot-lbl">Total Expected Maturity Value</div>
+          <div class="calc-tot-val" id="sip-total">₹ 75,68,640</div>
+          <div class="res-rows">
+            <div class="res-row"><span>Total Amount Invested:</span><b id="sip-inv">₹ 27,00,000</b></div>
+            <div class="res-row"><span>Estimated Wealth Gain:</span><b id="sip-gain" style="color:#9BE8B8">₹ 48,68,640</b></div>
+          </div>
+          <div class="res-bar-wrap">
+            <div class="res-bar-lbls"><span>Invested (<span id="sip-inv-pct">35%</span>)</span><span>Growth (<span id="sip-gain-pct">65%</span>)</span></div>
+            <div class="res-bar">
+              <div class="res-bar-inv" id="sip-bar-inv" style="width:35%"></div>
+              <div class="res-bar-gain" id="sip-bar-gain" style="width:65%"></div>
+            </div>
+          </div>
+          <div class="calc-act">
+            <a class="btn pri wa" id="sip-wa-btn" href="#" target="_blank" rel="noopener">Plan this SIP with Vikas on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: SIP Step-Up Calculator -->
+    <div class="calc-panel" id="panel-stepup">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div>
+            <div class="ctrl-row"><label>Initial Monthly SIP</label><span class="ctrl-val" id="su-amt-val">₹ 15,000</span></div>
+            <input type="range" id="su-amt" min="1000" max="200000" step="1000" value="15000">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Annual SIP Step-Up Percentage</label><span class="ctrl-val" id="su-step-val">10.0 %</span></div>
+            <input type="range" id="su-step" min="5" max="25" step="1" value="10">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Expected Return Rate (p.a.)</label><span class="ctrl-val" id="su-rate-val">12.0 %</span></div>
+            <input type="range" id="su-rate" min="8" max="18" step="0.5" value="12">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Investment Period (Years)</label><span class="ctrl-val" id="su-yr-val">15 Years</span></div>
+            <input type="range" id="su-yr" min="1" max="30" step="1" value="15">
+          </div>
+        </div>
+        <div class="calc-res">
+          <div class="calc-res-h">Step-Up Wealth Acceleration</div>
+          <div class="calc-tot-lbl">Total Expected Maturity Value</div>
+          <div class="calc-tot-val" id="su-total">₹ 1,30,25,773</div>
+          <div class="res-rows">
+            <div class="res-row"><span>Total Amount Invested:</span><b id="su-inv">₹ 57,19,047</b></div>
+            <div class="res-row"><span>Estimated Wealth Gain:</span><b id="su-gain" style="color:#9BE8B8">₹ 73,06,726</b></div>
+            <div class="res-row"><span>Regular SIP Comparison:</span><b id="su-compare">₹ 75.6 Lakhs (+72% more)</b></div>
+          </div>
+          <div class="calc-act">
+            <a class="btn pri wa" id="su-wa-btn" href="#" target="_blank" rel="noopener">Discuss Step-Up Plan on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Lumpsum Calculator -->
+    <div class="calc-panel" id="panel-lumpsum">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div>
+            <div class="ctrl-row"><label>One-Time Lumpsum Investment</label><span class="ctrl-val" id="ls-amt-val">₹ 5,00,000</span></div>
+            <input type="range" id="ls-amt" min="10000" max="5000000" step="10000" value="500000">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Expected Annual Return (p.a.)</label><span class="ctrl-val" id="ls-rate-val">12.0 %</span></div>
+            <input type="range" id="ls-rate" min="6" max="18" step="0.5" value="12">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Time Horizon (Years)</label><span class="ctrl-val" id="ls-yr-val">15 Years</span></div>
+            <input type="range" id="ls-yr" min="1" max="30" step="1" value="15">
+          </div>
+        </div>
+        <div class="calc-res">
+          <div class="calc-res-h">Lumpsum Compound Growth</div>
+          <div class="calc-tot-lbl">Expected Value at Maturity</div>
+          <div class="calc-tot-val" id="ls-total">₹ 27,36,783</div>
+          <div class="res-rows">
+            <div class="res-row"><span>Principal Invested:</span><b id="ls-inv">₹ 5,00,000</b></div>
+            <div class="res-row"><span>Estimated Wealth Gain:</span><b id="ls-gain" style="color:#9BE8B8">₹ 22,36,783</b></div>
+            <div class="res-row"><span>Wealth Multiplier:</span><b id="ls-mult">5.47x Initial Capital</b></div>
+          </div>
+          <div class="calc-act">
+            <a class="btn pri wa" id="ls-wa-btn" href="#" target="_blank" rel="noopener">Review Lumpsum Strategy on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: Retirement Planner -->
+    <div class="calc-panel" id="panel-retirement">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div>
+            <div class="ctrl-row"><label>Current Age</label><span class="ctrl-val" id="ret-cur-val">32 Years</span></div>
+            <input type="range" id="ret-cur" min="20" max="55" step="1" value="32">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Target Retirement Age</label><span class="ctrl-val" id="ret-age-val">60 Years</span></div>
+            <input type="range" id="ret-age" min="50" max="70" step="1" value="60">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Current Monthly Expenses</label><span class="ctrl-val" id="ret-exp-val">₹ 60,000</span></div>
+            <input type="range" id="ret-exp" min="20000" max="300000" step="5000" value="60000">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Expected Inflation Rate (p.a.)</label><span class="ctrl-val" id="ret-inf-val">6.0 %</span></div>
+            <input type="range" id="ret-inf" min="4" max="8" step="0.5" value="6">
+          </div>
+        </div>
+        <div class="calc-res">
+          <div class="calc-res-h">Retirement Target Blueprint</div>
+          <div class="calc-tot-lbl">Required Retirement Corpus</div>
+          <div class="calc-tot-val" id="ret-total">₹ 6.42 Crores</div>
+          <div class="res-rows">
+            <div class="res-row"><span>Monthly Expense at Age 60:</span><b id="ret-fut-exp">₹ 3.06 Lakhs/mo</b></div>
+            <div class="res-row"><span>Years to Build Corpus:</span><b id="ret-yrs-left">28 Years</b></div>
+            <div class="res-row"><span>Recommended Monthly SIP:</span><b id="ret-req-sip" style="color:#9BE8B8">₹ 23,800/mo</b></div>
+          </div>
+          <div class="calc-act">
+            <a class="btn pri wa" id="ret-wa-btn" href="#" target="_blank" rel="noopener">Build Retirement Plan with Vikas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5: Child Education -->
+    <div class="calc-panel" id="panel-education">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div>
+            <div class="ctrl-row"><label>Estimated College Cost Today</label><span class="ctrl-val" id="edu-amt-val">₹ 25,00,000</span></div>
+            <input type="range" id="edu-amt" min="500000" max="10000000" step="100000" value="2500000">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Years Until College Admission</label><span class="ctrl-val" id="edu-yr-val">12 Years</span></div>
+            <input type="range" id="edu-yr" min="3" max="20" step="1" value="12">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Education Inflation (Typically higher)</label><span class="ctrl-val" id="edu-inf-val">8.0 %</span></div>
+            <input type="range" id="edu-inf" min="6" max="12" step="0.5" value="8">
+          </div>
+        </div>
+        <div class="calc-res">
+          <div class="calc-res-h">Education Funding Target</div>
+          <div class="calc-tot-lbl">Inflated Future College Cost</div>
+          <div class="calc-tot-val" id="edu-total">₹ 62,95,000</div>
+          <div class="res-rows">
+            <div class="res-row"><span>Cost in Today's Terms:</span><b id="edu-today">₹ 25.0 Lakhs</b></div>
+            <div class="res-row"><span>Inflation Multiplier:</span><b>2.52x over 12 yrs</b></div>
+            <div class="res-row"><span>Required Monthly SIP (@12%):</span><b id="edu-req-sip" style="color:#9BE8B8">₹ 19,500/mo</b></div>
+          </div>
+          <div class="calc-act">
+            <a class="btn pri wa" id="edu-wa-btn" href="#" target="_blank" rel="noopener">Plan Child Education with Vikas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 6: Cost of Delay -->
+    <div class="calc-panel" id="panel-delay">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div>
+            <div class="ctrl-row"><label>Planned Monthly Investment</label><span class="ctrl-val" id="del-amt-val">₹ 15,000</span></div>
+            <input type="range" id="del-amt" min="2000" max="100000" step="1000" value="15000">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Target Investment Duration</label><span class="ctrl-val" id="del-yr-val">15 Years</span></div>
+            <input type="range" id="del-yr" min="5" max="30" step="1" value="15">
+          </div>
+          <div>
+            <div class="ctrl-row"><label>Delay Period Before Starting</label><span class="ctrl-val" id="del-per-val">3 Years Delay</span></div>
+            <input type="range" id="del-per" min="1" max="5" step="1" value="3">
+          </div>
+        </div>
+        <div class="calc-res">
+          <div class="calc-res-h">Compounding Penalty of Waiting</div>
+          <div class="calc-tot-lbl">Wealth Lost Due to Delay</div>
+          <div class="calc-tot-val" id="del-loss" style="color:#FFB4B4">₹ 27.1 Lakhs Lost</div>
+          <div class="res-rows">
+            <div class="res-row"><span>Corpus if started today:</span><b id="del-ontime">₹ 75.68 Lakhs</b></div>
+            <div class="res-row"><span>Corpus if delayed by 3 yrs:</span><b id="del-delayed">₹ 48.58 Lakhs</b></div>
+            <div class="res-row"><span>Delayed contributions:</span><b>Only ₹ 5.4 Lakhs</b></div>
+          </div>
+          <div class="calc-act">
+            <a class="btn pri wa" id="del-wa-btn" href="#" target="_blank" rel="noopener">Start Today Without Delaying</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- Section 2: KYC Verification Center -->
+<section id="kyc" class="alt"><div class="w">
+  <div class="sec-head">
+    <div class="eb">REGULATORY COMPLIANCE</div>
+    <h2>KYC Verification Hub</h2>
+    <p>Under SEBI and Prevention of Money Laundering Act (PMLA) regulations, valid KYC (Know Your Customer) is mandatory before investing in mutual funds. Check your live status across official KRAs.</p>
+  </div>
+
+  <div class="kyc-grid">
+    <div class="kyc-card">
+      <div class="kyc-top"><span class="kyc-badge">Official KRA</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>CVL KRA</h3>
+      <p>CDSL Ventures Ltd — India’s pioneer KYC Registration Agency. Verify status using your PAN card.</p>
+      <a class="btn sec sm" href="https://www.cvlkra.com" target="_blank" rel="noopener">Check on CVL KRA ↗</a>
+    </div>
+
+    <div class="kyc-card">
+      <div class="kyc-top"><span class="kyc-badge">Official KRA</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>CAMS KRA</h3>
+      <p>Check your mutual fund KYC compliance and validation status on the CAMS KRA registry.</p>
+      <a class="btn sec sm" href="https://camskra.com" target="_blank" rel="noopener">Check on CAMS KRA ↗</a>
+    </div>
+
+    <div class="kyc-card">
+      <div class="kyc-top"><span class="kyc-badge">Official KRA</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>NSE KRA</h3>
+      <p>National Stock Exchange KRA portal for KYC inquiry, validation, and Aadhaar status verification.</p>
+      <a class="btn sec sm" href="https://www.nsekra.com" target="_blank" rel="noopener">Check on NSE KRA ↗</a>
+    </div>
+
+    <div class="kyc-card">
+      <div class="kyc-top"><span class="kyc-badge">Official KRA</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>NDML / NSDL KRA</h3>
+      <p>NSDL Database Management Limited KRA portal to track your PAN KYC confirmation and records.</p>
+      <a class="btn sec sm" href="https://kra.ndml.in" target="_blank" rel="noopener">Check on NDML KRA ↗</a>
+    </div>
+
+    <div class="kyc-card">
+      <div class="kyc-top"><span class="kyc-badge">Government</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+      <h3>PAN-Aadhaar Linkage</h3>
+      <p>Ensure your PAN is linked with Aadhaar as mandated by the Income Tax Department and SEBI.</p>
+      <a class="btn sec sm" href="https://eportal.incometax.gov.in" target="_blank" rel="noopener">Check Link Status ↗</a>
+    </div>
+
+    <div class="kyc-card">
+      <div class="kyc-top"><span class="kyc-badge">Assistance</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <h3>New KYC Onboarding</h3>
+      <p>First-time investor? Vikas Agarwal provides end-to-end guidance to complete paperless e-KYC in minutes.</p>
+      <a class="btn pri sm" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20need%20assistance%20completing%20my%20KYC%20for%20mutual%20funds." target="_blank" rel="noopener">Get KYC Assistance</a>
+    </div>
+  </div>
+
+  <div class="kyc-step-box">
+    <div class="kyc-step">
+      <div class="kyc-step-num">01</div>
+      <h4>Identity Proof</h4>
+      <p>Valid PAN Card copy or verified electronic PAN via DigiLocker.</p>
+    </div>
+    <div class="kyc-step">
+      <div class="kyc-step-num">02</div>
+      <h4>Address Proof</h4>
+      <p>Aadhaar (UIDAI), Passport, Voter ID, or Driving License with current residence address.</p>
+    </div>
+    <div class="kyc-step">
+      <div class="kyc-step-num">03</div>
+      <h4>Bank Verification</h4>
+      <p>Cancelled cheque leaf with printed name, or latest 3-month bank statement.</p>
+    </div>
+    <div class="kyc-step">
+      <div class="kyc-step-num">04</div>
+      <h4>In-Person Verification</h4>
+      <p>Quick video selfie IPV or physical document verification facilitated by Vikas Agarwal.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- Section 3: MF Forms & Downloads -->
+<section id="forms"><div class="w">
+  <div class="sec-head">
+    <div class="eb">SERVICE DOWNLOADS</div>
+    <h2>Mutual Fund Forms & Service Slips</h2>
+    <p>Standardized service forms for account maintenance, nomination, transaction execution, and changes across all mutual fund houses.</p>
+  </div>
+
+  <div class="forms-grid">
+    <div class="form-category">
+      <div class="form-cat-h">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        <h3>Transaction Requests</h3>
+      </div>
+      <ul class="form-list">
+        <li class="form-item"><div class="form-info"><b>Common Transaction Slip</b><small>Additional Purchase, Redemption, Switch</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20Common%20Transaction%20Slip." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>SIP Auto-Debit (NACH) Mandate</b><small>Automate monthly investments via bank</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20NACH%20SIP%20Mandate%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>Systematic Transfer Plan (STP)</b><small>Transfer systematically between schemes</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20STP%20Registration%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>Systematic Withdrawal (SWP)</b><small>Set up scheduled regular cash inflows</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20SWP%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+      </ul>
+    </div>
+
+    <div class="form-category">
+      <div class="form-cat-h">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        <h3>Account & Bank Changes</h3>
+      </div>
+      <ul class="form-list">
+        <li class="form-item"><div class="form-info"><b>Change of Bank Mandate</b><small>Update redemption & payout bank details</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20Change%20of%20Bank%20Mandate%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>Address & Contact Details Updation</b><small>Update email, mobile number or residence</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20Contact%20Change%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>FATCA / CRS Self-Declaration</b><small>Tax residency compliance declaration</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20FATCA%20Declaration%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>Multiple Bank Registration</b><small>Register up to 5 banks per folio</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20Multiple%20Bank%20Registration%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+      </ul>
+    </div>
+
+    <div class="form-category">
+      <div class="form-cat-h">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <h3>Nomination & Transmission</h3>
+      </div>
+      <ul class="form-list">
+        <li class="form-item"><div class="form-info"><b>Nomination Registration Form</b><small>Appoint or modify registered nominees</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20Nomination%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>Nomination Opt-Out Declaration</b><small>SEBI form for opting out of nomination</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20Nomination%20Opt-Out%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>Transmission of Units Form</b><small>Claim units upon death of unitholder</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20need%20guidance%20on%20Mutual%20Fund%20Transmission%20process." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+        <li class="form-item"><div class="form-info"><b>Minor to Major Status Change</b><small>Update KYC on child turning 18</small></div><a class="form-dl" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20please%20send%20the%20Minor%20to%20Major%20(MAM)%20Status%20Form." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Request</a></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- Section 4: MF Tools & Research -->
+<section id="tools" class="alt"><div class="w">
+  <div class="sec-head">
+    <div class="eb">MARKET INTELLIGENCE</div>
+    <h2>Mutual Fund Research & Tools</h2>
+    <p>Objective data sources and monitoring utilities to stay informed on NAV movements, factsheets, and portfolio allocation.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">📈</div>
+      <h3>AMFI Daily NAV Tracker</h3>
+      <p>Check official daily Net Asset Values across all registered schemes directly from the Association of Mutual Funds in India database.</p>
+      <a class="btn sec sm" href="https://www.amfiindia.com/net-asset-value/nav-history" target="_blank" rel="noopener">Open AMFI NAV Portal ↗</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">📑</div>
+      <h3>AMC Monthly Factsheets</h3>
+      <p>Review comprehensive portfolio holdings, sector allocation, fund manager commentary, and Risk-o-meter disclosures for the 13 empaneled fund houses.</p>
+      <a class="btn sec sm" href="how-i-earn.html#amcs">View Empaneled AMCs ↗</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🎯</div>
+      <h3>Category Performance Matrix</h3>
+      <p>Analyze how Large Cap, Mid Cap, Flexi Cap, Balanced Advantage, and Debt funds have performed across 3-year, 5-year, and 10-year rolling market cycles.</p>
+      <a class="btn sec sm" href="https://www.amfiindia.com/research-information/other-data/mf-scheme-performance-details" target="_blank" rel="noopener">Explore Return Data ↗</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🔔</div>
+      <h3>New Fund Offers (NFOs)</h3>
+      <p>Track current and upcoming New Fund Offers across asset management companies with scheme information documents and investment themes.</p>
+      <a class="btn sec sm" href="https://www.amfiindia.com/research-information/other-data/nfo-details" target="_blank" rel="noopener">Check Active NFOs ↗</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- Section 5: Client Login Portal -->
+<section id="login"><div class="w">
+  <div class="login-box">
+    <div class="login-h">
+      <div class="eb" style="color:#9BE8B8">DIRECT CLIENT ACCESS</div>
+      <h2>Consolidated Portfolio Login Portals</h2>
+      <p>Track your folios, download capital gains tax statements, initiate electronic transactions, and view consolidated account statements (CAS) through official industry portals.</p>
+    </div>
+
+    <div class="login-grid">
+      <a class="login-card" href="https://app.mfcentral.com/investor/signin" target="_blank" rel="noopener">
+        <b>MF Central</b>
+        <small>The unified industry portal developed jointly by CAMS & KFintech under SEBI guidelines. Track all mutual funds in one dashboard.</small>
+        <span class="login-link">Login to MF Central <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="login-card" href="https://mycams.camsonline.com" target="_blank" rel="noopener">
+        <b>myCAMS Portal</b>
+        <small>Direct access for schemes serviced by CAMS (HDFC, SBI, ICICI Prudential, Kotak, Aditya Birla, PPFAS, DSP, and more).</small>
+        <span class="login-link">Login to myCAMS <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="login-card" href="https://mfs.kfintech.com/investor" target="_blank" rel="noopener">
+        <b>KFinKart (KFintech)</b>
+        <small>Investor portal for mutual funds serviced by KFintech (Axis, Mirae Asset, Quant, Invesco, Edelweiss, and others).</small>
+        <span class="login-link">Login to KFintech <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="login-card" href="https://www.mfuonline.com" target="_blank" rel="noopener">
+        <b>MF Utility (MFU)</b>
+        <small>Single-window portal using Common Account Number (CAN) for multi-scheme transactions and order tracking.</small>
+        <span class="login-link">Login to MFU Portal <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </div>
+</div></section>
+
+<!-- Footer -->
+<footer><div class="w">
+  <div class="ft">
+    <div>
+      <div class="fbr"><img alt="Vikas Agarwal" src="logo.png"><b>Vikas Agarwal</b></div>
+      <p>AMFI-registered Mutual Fund Distributor (ARN-40434, EUIN E375656), Goregaon East, Mumbai. Providing structured financial guidance chosen around your long-term life goals.</p>
+    </div>
+    <div>
+      <h4>Investor Zone</h4>
+      <ul>
+        <li><a href="#calculators">Financial Calculators</a></li>
+        <li><a href="#kyc">KYC Verification Hub</a></li>
+        <li><a href="#forms">MF Forms & Downloads</a></li>
+        <li><a href="#tools">MF Tools & Research</a></li>
+        <li><a href="#login">Client Login Portals</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Disclosures & Policy</h4>
+      <ul>
+        <li><a href="how-i-earn.html">Commission Disclosures</a></li>
+        <li><a href="disclosures.html">Disclosures & Grievance</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="index.html#contact">Contact & Office</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dis">
+    <p>Vikas Agarwal is an AMFI-registered Mutual Fund Distributor (ARN-40434, valid till 07 August 2027; EUIN E375656) and is not a SEBI-registered investment adviser. He distributes Regular Plans only, which include distributor trail commission paid by the respective fund house. <a href="how-i-earn.html">View commission details</a>. Investors have the option to invest in Direct Plans of mutual fund schemes directly without intermediary commission.</p>
+    <p style="margin-top:8px">Calculators and projections provided on this page are for educational and illustrative purposes only based on mathematical compounding formulas with user-selected return rates. They do not constitute investment advice or a promise/guarantee of actual returns.</p>
+    <p style="margin-top:8px">For grievance redressal, contact Vikas Agarwal at <a href="mailto:info@investwithvikas.in">info@investwithvikas.in</a> or escalate to SEBI via <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">SCORES 2.0</a> and <a href="https://smartodr.in" target="_blank" rel="noopener">SMART ODR Portal</a>. <a href="disclosures.html">View full escalation matrix</a>.</p>
+    <p class="rk">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+  </div>
+  <div class="cp">© 2026 Vikas Agarwal · ARN-40434 · Goregaon East, Mumbai · investwithvikas.in</div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20have%20a%20question%20regarding%20the%20Investor%20Zone." target="_blank" rel="noopener">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+  WhatsApp
+</a>
+
+<!-- Interactive Calculators Engine -->
+<script>
+(function(){
+  // Format Indian currency
+  function fmt(n){
+    n = Math.round(n);
+    if(n >= 10000000){
+      return '₹ ' + (n / 10000000).toFixed(2) + ' Crores';
+    } else if(n >= 100000){
+      return '₹ ' + (n / 100000).toFixed(2) + ' Lakhs';
+    }
+    return '₹ ' + n.toLocaleString('en-IN');
+  }
+
+  // 1. Calculator Tabs Switching
+  var tabs = document.querySelectorAll('.calc-tab');
+  var panels = document.querySelectorAll('.calc-panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){t.classList.remove('on');});
+      panels.forEach(function(p){p.classList.remove('on');});
+      tab.classList.add('on');
+      var id = 'panel-' + tab.dataset.calc;
+      var el = document.getElementById(id);
+      if(el) el.classList.add('on');
+    });
+  });
+
+  // 2. SIP Calculator
+  var sAmt = document.getElementById('sip-amt'),
+      sRate = document.getElementById('sip-rate'),
+      sYr = document.getElementById('sip-yr');
+  function runSip(){
+    var p = parseFloat(sAmt.value),
+        r = (parseFloat(sRate.value) / 100) / 12,
+        n = parseFloat(sYr.value) * 12;
+    document.getElementById('sip-amt-val').textContent = '₹ ' + p.toLocaleString('en-IN');
+    document.getElementById('sip-rate-val').textContent = parseFloat(sRate.value).toFixed(1) + ' %';
+    document.getElementById('sip-yr-val').textContent = sYr.value + ' Years';
+
+    var fv = p * (((Math.pow(1 + r, n)) - 1) / r) * (1 + r);
+    var inv = p * n;
+    var gain = fv - inv;
+
+    document.getElementById('sip-total').textContent = fmt(fv);
+    document.getElementById('sip-inv').textContent = fmt(inv);
+    document.getElementById('sip-gain').textContent = fmt(gain);
+
+    var invPct = Math.round((inv / fv) * 100);
+    var gainPct = 100 - invPct;
+    document.getElementById('sip-inv-pct').textContent = invPct + '%';
+    document.getElementById('sip-gain-pct').textContent = gainPct + '%';
+    document.getElementById('sip-bar-inv').style.width = invPct + '%';
+    document.getElementById('sip-bar-gain').style.width = gainPct + '%';
+
+    var msg = 'Hi Vikas, I just calculated a goal on your website:%0A- Monthly SIP: ₹' + p.toLocaleString('en-IN') + '%0A- Duration: ' + sYr.value + ' Years%0A- Projected Value: ' + fmt(fv) + '%0ALet\'s discuss this investment plan!';
+    document.getElementById('sip-wa-btn').href = 'https://wa.me/919967129977?text=' + msg;
+  }
+  sAmt.addEventListener('input', runSip);
+  sRate.addEventListener('input', runSip);
+  sYr.addEventListener('input', runSip);
+  runSip();
+
+  // 3. Step-Up SIP Calculator
+  var suAmt = document.getElementById('su-amt'),
+      suStep = document.getElementById('su-step'),
+      suRate = document.getElementById('su-rate'),
+      suYr = document.getElementById('su-yr');
+  function runStepUp(){
+    var p = parseFloat(suAmt.value),
+        s = parseFloat(suStep.value) / 100,
+        r = (parseFloat(suRate.value) / 100) / 12,
+        y = parseInt(suYr.value, 10);
+
+    document.getElementById('su-amt-val').textContent = '₹ ' + p.toLocaleString('en-IN');
+    document.getElementById('su-step-val').textContent = parseFloat(suStep.value).toFixed(1) + ' %';
+    document.getElementById('su-rate-val').textContent = parseFloat(suRate.value).toFixed(1) + ' %';
+    document.getElementById('su-yr-val').textContent = y + ' Years';
+
+    var totalInv = 0, fv = 0, currP = p;
+    for(var yr = 0; yr < y; yr++){
+      for(var m = 0; m < 12; m++){
+        var rem = (y * 12) - (yr * 12 + m);
+        fv += currP * Math.pow(1 + r, rem);
+        totalInv += currP;
+      }
+      currP *= (1 + s);
+    }
+    var gain = fv - totalInv;
+
+    // regular comparison
+    var n = y * 12;
+    var regFv = p * (((Math.pow(1 + r, n)) - 1) / r) * (1 + r);
+    var diffPct = Math.round(((fv - regFv) / regFv) * 100);
+
+    document.getElementById('su-total').textContent = fmt(fv);
+    document.getElementById('su-inv').textContent = fmt(totalInv);
+    document.getElementById('su-gain').textContent = fmt(gain);
+    document.getElementById('su-compare').textContent = fmt(regFv) + ' (+' + diffPct + '% more wealth)';
+
+    var msg = 'Hi Vikas, I simulated a Step-Up SIP on your website:%0A- Initial SIP: ₹' + p.toLocaleString('en-IN') + '%0A- Annual Step-Up: ' + suStep.value + '%%0A- Duration: ' + y + ' Years%0A- Projected Value: ' + fmt(fv) + '%0ALet\'s plan this together!';
+    document.getElementById('su-wa-btn').href = 'https://wa.me/919967129977?text=' + msg;
+  }
+  suAmt.addEventListener('input', runStepUp);
+  suStep.addEventListener('input', runStepUp);
+  suRate.addEventListener('input', runStepUp);
+  suYr.addEventListener('input', runStepUp);
+  runStepUp();
+
+  // 4. Lumpsum Calculator
+  var lsAmt = document.getElementById('ls-amt'),
+      lsRate = document.getElementById('ls-rate'),
+      lsYr = document.getElementById('ls-yr');
+  function runLumpsum(){
+    var p = parseFloat(lsAmt.value),
+        r = parseFloat(lsRate.value) / 100,
+        y = parseFloat(lsYr.value);
+
+    document.getElementById('ls-amt-val').textContent = '₹ ' + p.toLocaleString('en-IN');
+    document.getElementById('ls-rate-val').textContent = parseFloat(lsRate.value).toFixed(1) + ' %';
+    document.getElementById('ls-yr-val').textContent = y + ' Years';
+
+    var fv = p * Math.pow(1 + r, y);
+    var gain = fv - p;
+    var mult = (fv / p).toFixed(2);
+
+    document.getElementById('ls-total').textContent = fmt(fv);
+    document.getElementById('ls-inv').textContent = fmt(p);
+    document.getElementById('ls-gain').textContent = fmt(gain);
+    document.getElementById('ls-mult').textContent = mult + 'x Initial Capital';
+
+    var msg = 'Hi Vikas, I just calculated a Lumpsum investment on your portal:%0A- Amount: ₹' + p.toLocaleString('en-IN') + '%0A- Duration: ' + y + ' Years%0A- Projected Value: ' + fmt(fv) + '%0AHow should we allocate this?';
+    document.getElementById('ls-wa-btn').href = 'https://wa.me/919967129977?text=' + msg;
+  }
+  lsAmt.addEventListener('input', runLumpsum);
+  lsRate.addEventListener('input', runLumpsum);
+  lsYr.addEventListener('input', runLumpsum);
+  runLumpsum();
+
+  // 5. Retirement Planner
+  var rCur = document.getElementById('ret-cur'),
+      rAge = document.getElementById('ret-age'),
+      rExp = document.getElementById('ret-exp'),
+      rInf = document.getElementById('ret-inf');
+  function runRetirement(){
+    var cur = parseInt(rCur.value, 10),
+        ret = parseInt(rAge.value, 10);
+    if(ret <= cur){
+      ret = cur + 1;
+      rAge.value = ret;
+    }
+    var exp = parseFloat(rExp.value),
+        inf = parseFloat(rInf.value) / 100;
+    var yrs = ret - cur;
+
+    document.getElementById('ret-cur-val').textContent = cur + ' Years';
+    document.getElementById('ret-age-val').textContent = ret + ' Years';
+    document.getElementById('ret-exp-val').textContent = '₹ ' + exp.toLocaleString('en-IN');
+    document.getElementById('ret-inf-val').textContent = parseFloat(rInf.value).toFixed(1) + ' %';
+
+    var futExp = exp * Math.pow(1 + inf, yrs);
+    var corpus = futExp * 12 * 22; // 22x annual expenses conservative post-retirement factor
+
+    // Monthly SIP needed at 12% to reach corpus in yrs
+    var r = (0.12) / 12, n = yrs * 12;
+    var reqSip = corpus / (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+
+    document.getElementById('ret-total').textContent = fmt(corpus);
+    document.getElementById('ret-fut-exp').textContent = fmt(futExp) + '/month';
+    document.getElementById('ret-yrs-left').textContent = yrs + ' Years left';
+    document.getElementById('ret-req-sip').textContent = fmt(reqSip) + '/month';
+
+    var msg = 'Hi Vikas, I used your Retirement Planner:%0A- Current Age: ' + cur + ' | Target Age: ' + ret + '%0A- Target Corpus: ' + fmt(corpus) + '%0A- Recommended Monthly SIP: ' + fmt(reqSip) + '/mo%0ALet\'s review this plan!';
+    document.getElementById('ret-wa-btn').href = 'https://wa.me/919967129977?text=' + msg;
+  }
+  rCur.addEventListener('input', runRetirement);
+  rAge.addEventListener('input', runRetirement);
+  rExp.addEventListener('input', runRetirement);
+  rInf.addEventListener('input', runRetirement);
+  runRetirement();
+
+  // 6. Child Education Goal
+  var eAmt = document.getElementById('edu-amt'),
+      eYr = document.getElementById('edu-yr'),
+      eInf = document.getElementById('edu-inf');
+  function runEducation(){
+    var p = parseFloat(eAmt.value),
+        y = parseFloat(eYr.value),
+        inf = parseFloat(eInf.value) / 100;
+
+    document.getElementById('edu-amt-val').textContent = fmt(p);
+    document.getElementById('edu-yr-val').textContent = y + ' Years';
+    document.getElementById('edu-inf-val').textContent = parseFloat(eInf.value).toFixed(1) + ' %';
+
+    var futCost = p * Math.pow(1 + inf, y);
+    var r = 0.12 / 12, n = y * 12;
+    var reqSip = futCost / (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+
+    document.getElementById('edu-total').textContent = fmt(futCost);
+    document.getElementById('edu-today').textContent = fmt(p);
+    document.getElementById('edu-req-sip').textContent = fmt(reqSip) + '/month';
+
+    var msg = 'Hi Vikas, I calculated my Child\'s Higher Education goal:%0A- College Cost Today: ' + fmt(p) + '%0A- Years to Admission: ' + y + ' Yrs%0A- Inflated Future Cost: ' + fmt(futCost) + '%0A- Required Monthly SIP: ' + fmt(reqSip) + '/mo%0ALet\'s start this fund!';
+    document.getElementById('edu-wa-btn').href = 'https://wa.me/919967129977?text=' + msg;
+  }
+  eAmt.addEventListener('input', runEducation);
+  eYr.addEventListener('input', runEducation);
+  eInf.addEventListener('input', runEducation);
+  runEducation();
+
+  // 7. Cost of Delay
+  var dAmt = document.getElementById('del-amt'),
+      dYr = document.getElementById('del-yr'),
+      dPer = document.getElementById('del-per');
+  function runDelay(){
+    var p = parseFloat(dAmt.value),
+        y = parseFloat(dYr.value),
+        delay = parseFloat(dPer.value);
+
+    document.getElementById('del-amt-val').textContent = '₹ ' + p.toLocaleString('en-IN');
+    document.getElementById('del-yr-val').textContent = y + ' Years';
+    document.getElementById('del-per-val').textContent = delay + ' Years Delay';
+
+    var r = 0.12 / 12;
+    var n1 = y * 12;
+    var fv1 = p * (((Math.pow(1 + r, n1)) - 1) / r) * (1 + r);
+
+    var n2 = (y - delay) * 12;
+    var fv2 = p * (((Math.pow(1 + r, n2)) - 1) / r) * (1 + r);
+    var loss = fv1 - fv2;
+
+    document.getElementById('del-loss').textContent = fmt(loss) + ' Lost';
+    document.getElementById('del-ontime').textContent = fmt(fv1);
+    document.getElementById('del-delayed').textContent = fmt(fv2);
+
+    var msg = 'Hi Vikas, I just checked the Cost of Delay on your website:%0A- Planned SIP: ₹' + p.toLocaleString('en-IN') + '/mo for ' + y + ' yrs%0A- Delaying by ' + delay + ' yrs loses: ' + fmt(loss) + '!%0AI want to start right away without losing wealth.';
+    document.getElementById('del-wa-btn').href = 'https://wa.me/919967129977?text=' + msg;
+  }
+  dAmt.addEventListener('input', runDelay);
+  dYr.addEventListener('input', runDelay);
+  dPer.addEventListener('input', runDelay);
+  runDelay();
+
+})();
+</script>
+</body>
+</html>
