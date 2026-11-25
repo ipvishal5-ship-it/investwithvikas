@@ -188,15 +188,32 @@ input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;bac
 .sched-table td:first-child{text-align:left;font-weight:700;color:var(--navy)}
 .sched-table tr:hover td{background:#fff}
 
-/* Methodology & Education */
-.math-section{margin-top:44px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px}
-.math-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
-.math-col h3{font:600 21px 'Fraunces',serif;color:var(--navy);margin-bottom:10px}
-.math-col p{font-size:14.5px;color:var(--mut);line-height:1.6;margin-bottom:12px}
-.math-formula{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13.5px;color:var(--navy);margin:12px 0;font-weight:600}
-.math-col ul{list-style:none;display:grid;gap:7px}
-.math-col li{font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:8px}
-.math-col li svg{width:14px;height:14px;stroke:var(--green);fill:none;stroke-width:2.5;flex-shrink:0}
+/* Methodology & Education (Refined Institutional Design) */
+.math-section{margin-top:44px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px;box-shadow:0 12px 32px -16px rgba(6,40,110,.08)}
+.math-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
+.math-tag{font:700 11px 'DM Sans',sans-serif;letter-spacing:1.8px;color:var(--green);text-transform:uppercase;margin-bottom:8px}
+.math-col h3{font:600 22px/1.25 'Fraunces',Georgia,serif;color:var(--navy);margin-bottom:12px}
+.math-col p{font-size:14.5px;color:var(--mut);line-height:1.62;margin-bottom:14px}
+
+/* Visual Math Fraction Display */
+.math-card{background:linear-gradient(135deg,#031744 0%,#06286E 100%);color:#fff;border-radius:16px;padding:18px 22px;margin:18px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 10px 24px -8px rgba(3,23,68,.3)}
+.math-eq{display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',-apple-system,sans-serif;font-size:17px;font-weight:700;color:#fff}
+.eq-term{color:#9BE8B8}
+.eq-op{color:rgba(255,255,255,.6);font-weight:400}
+.eq-frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;padding:0 4px}
+.eq-num{border-bottom:1.5px solid rgba(255,255,255,.6);padding-bottom:3px;font-size:14.5px;color:#fff}
+.eq-den{padding-top:3px;font-size:14px;color:#9BE8B8}
+.math-badge{font-size:11px;font-weight:700;letter-spacing:1px;color:#9BE8B8;background:rgba(155,232,184,.14);border:1px solid rgba(155,232,184,.3);padding:4px 10px;border-radius:999px;text-transform:uppercase}
+
+.math-col ul{list-style:none;display:grid;gap:8px;margin-top:14px}
+.math-col li{font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:10px}
+.math-col li svg{width:15px;height:15px;stroke:var(--green);fill:none;stroke-width:2.5;flex-shrink:0}
+.math-col li b{color:var(--navy)}
+
+.rule-box{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.rule-box h4{font:700 13px 'DM Sans',sans-serif;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.rule-box h4 svg{width:14px;height:14px;stroke:var(--green);fill:none;stroke-width:2.5}
+.rule-box ul{gap:7px;margin:0}
 
 /* Footer & Disclosures */
 footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40px;font-size:14px;color:var(--mut)}
@@ -790,25 +807,55 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40
 
   </div>
 
-  <!-- Educational & Methodology Breakdown -->
+  <!-- Educational & Methodology Breakdown (Refined Institutional Architecture) -->
   <div class="math-section">
     <div class="math-grid">
       <div class="math-col">
-        <h3>The Compounding Formula Behind SIP</h3>
-        <p>A Systematic Investment Plan works on the <b>Future Value of an Annuity Due</b> model. Because installments are deployed at the start of each month, every contribution earns compound growth over its full tenure.</p>
-        <div class="math-formula">FV = P × [((1 + r)^n − 1) / r] × (1 + r)</div>
+        <div class="math-tag">COMPOUNDING BLUEPRINT</div>
+        <h3>How Beginning-of-Month SIPs Build Wealth</h3>
+        <p>Unlike standard bank deposits credited at term-end, a mutual fund Systematic Investment Plan functions as an <b>Annuity Due</b> model. Because each installment is invested at the beginning of the monthly billing cycle, your capital starts participating in market movements from Day 1.</p>
+        
+        <div class="math-card">
+          <div class="math-eq">
+            <span class="eq-term">FV</span>
+            <span class="eq-op">=</span>
+            <span class="eq-term">P</span>
+            <span class="eq-op">×</span>
+            <div class="eq-frac">
+              <span class="eq-num">(1 + r)<sup>n</sup> − 1</span>
+              <span class="eq-den">r</span>
+            </div>
+            <span class="eq-op">×</span>
+            <span class="eq-term">(1 + r)</span>
+          </div>
+          <div class="math-badge">Annuity Due</div>
+        </div>
+
         <ul>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><b>P:</b> Fixed Monthly Investment Installment</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><b>r:</b> Monthly Rate of Return (Annual Return ÷ 12 ÷ 100)</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><b>n:</b> Total Number of Months (Tenure in Years × 12)</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><b>P:</b> Fixed monthly commitment deposited at the start of each month</span></li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><b>r:</b> Periodic monthly return derived from expected annual portfolio growth</span></li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><b>n:</b> Total monthly compounding cycles across your goal horizon (Years × 12)</span></li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><b>(1 + r):</b> The Day-1 multiplier ensuring your initial month starts compounding immediately</span></li>
         </ul>
       </div>
+
       <div class="math-col">
-        <h3>Why Step-Up &amp; Early Starts Dominate</h3>
-        <p>A static SIP assumes your income remains constant for decades. A <b>Step-Up SIP</b> automatically raises your monthly contribution by 5%–15% annually in line with career growth.</p>
-        <p>Combined with starting early—avoiding the exponential penalty shown in the Cost of Delay analyzer—a 10% annual step-up typically produces <b>60% to 80% higher final wealth</b> over 15–20 years.</p>
-        <div style="margin-top:16px">
-          <a class="btn sec sm" href="index.html#contact">Consult Vikas Agarwal on Asset Allocation →</a>
+        <div class="math-tag">ADVISOR'S RULE OF THUMB</div>
+        <h3>Why Discipline Beats Market Timing</h3>
+        <p>Attempting to time market highs and lows to chase an extra 1%–2% return adds significant emotional anxiety. A disciplined <b>10% Annual Step-Up SIP</b>—scaling contributions alongside career appraisals—typically delivers <b>60% to 80% more final wealth</b> with zero speculative timing risk.</p>
+        
+        <div class="rule-box">
+          <h4><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Three Pillars of Compounding Success</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><b>Counters Lifestyle Inflation:</b> Automatically redirects increments into assets before spending leaks.</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><b>Heavyweight Senior Years:</b> Deploys your largest contributions during peak earning decades.</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><b>Starting 3 Years Early:</b> Saves up to 35% in required out-of-pocket investment capital.</span></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <a class="btn pri sm" href="index.html#contact">Discuss Your SIP Plan with Vikas →</a>
+          <a class="btn sec sm" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20would%20like%20to%20plan%20a%20goal-based%20SIP%20strategy." target="_blank" rel="noopener">WhatsApp Consultation</a>
         </div>
       </div>
     </div>
