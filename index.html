@@ -271,7 +271,18 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 <div class="cp">© 2026 Vikas Agarwal · investwithvikas.in</div></div></footer>
 <a class="wa" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%27d%20like%20a%20portfolio%20review." target="_blank" rel="noopener">WhatsApp</a>
 
-<script>(function(){var w=document.getElementById('grow');if(!w)return;var tabs=[].slice.call(w.querySelectorAll('.gs-tab')),panels=[].slice.call(w.querySelectorAll('.gs-panel'));function sel(i){tabs.forEach(function(t,k){var on=k===i;t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false')});panels.forEach(function(p,k){p.classList.toggle('on',k===i)})}tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(i)})});sel(0)})();</script>
+<script>(function(){var w=document.getElementById('grow');if(!w)return;var tabs=[].slice.call(w.querySelectorAll('.gs-tab')),panels=[].slice.call(w.querySelectorAll('.gs-panel'));function sel(i){tabs.forEach(function(t,k){var on=k===i;t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false')});panels.forEach(function(p,k){
+      var on=k===i;
+      if(on){
+        p.classList.add('on');
+        if(typeof gsap!=='undefined'&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+          gsap.fromTo(p,{opacity:0,y:12,scale:.985},{opacity:1,y:0,scale:1,duration:.38,ease:'power2.out'});
+          gsap.fromTo(p.querySelectorAll('.gi,h3,.gl,ul,.btn'),{opacity:0,y:8},{opacity:1,y:0,stagger:.04,duration:.32,ease:'power2.out',delay:.03});
+        }
+      }else{
+        p.classList.remove('on');
+      }
+    })}tabs.forEach(function(t,i){t.addEventListener('click',function(){sel(i)})});sel(0)})();</script>
 <script>(function(){var tl=document.getElementById('tl'),fl=document.getElementById('fill'),st=[].slice.call(tl.querySelectorAll('.st')),rm=matchMedia('(prefers-reduced-motion:reduce)').matches,t=0;function u(){t=0;var r=tl.getBoundingClientRect(),vh=innerHeight,p=rm?1:Math.max(0,Math.min(1,(vh*.6-r.top)/r.height));fl.style.height=(p*100)+'%';st.forEach(function(s){var n=s.querySelector('.nd').getBoundingClientRect();s.classList.toggle('on',rm||n.top<vh*.62)})}function q(){if(!t)t=requestAnimationFrame(u)}addEventListener('scroll',q,{passive:true});addEventListener('resize',q);u()})();</script>
 <script>(function(){
 
@@ -363,4 +374,116 @@ function close(el){
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches)[].slice.call(b.querySelectorAll('.mq')).forEach(function(m){var g=m.firstElementChild,c=g.cloneNode(true);c.setAttribute('aria-hidden','true');while(c.firstChild)g.appendChild(c.firstChild)});
 xs.forEach(function(x){x.addEventListener('pointermove',function(e){var r=x.getBoundingClientRect();x.style.setProperty('--mx',(e.clientX-r.left)+'px');x.style.setProperty('--my',(e.clientY-r.top)+'px')})});
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});xs.forEach(function(x){io.observe(x)})}else xs.forEach(function(x){x.classList.add('in')})})();</script>
+<!-- GSAP 3 & ScrollTrigger (GreenSock Animation Platform) -->
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined')return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(rm)return;
+
+  // 1. Hero Entrance Timeline
+  var htl=gsap.timeline({defaults:{ease:'power3.out'}});
+  htl.from('.hero .badge',{opacity:0,y:20,duration:.7,delay:.1})
+     .from('.hero h1',{opacity:0,y:30,duration:.8},'-=0.4')
+     .from('.hero .lead',{opacity:0,y:20,duration:.7},'-=0.45')
+     .from('.hero .cta .btn',{opacity:0,y:18,duration:.6,stagger:.12},'-=0.4')
+     .from('.hero .tr div',{opacity:0,y:14,duration:.5,stagger:.08},'-=0.3')
+     .from('.hero .art',{opacity:0,scale:.93,duration:1.1,ease:'power2.out'},0.2);
+
+  // 2. Ambient Floating Coins
+  gsap.to('.cn',{
+    y:-8,
+    duration:2.4,
+    yoyo:true,
+    repeat:-1,
+    ease:'sine.inOut',
+    stagger:0.25
+  });
+
+  // 3. ScrollTrigger Section Headings Stagger
+  ['#goals','#how','#about','#faq','#contact'].forEach(function(sel){
+    var sec=document.querySelector(sel);
+    if(!sec)return;
+    var elements=sec.querySelectorAll('.eb, h2, .gsub, .ceb, .csub');
+    if(elements.length){
+      gsap.from(elements,{
+        scrollTrigger:{
+          trigger:sec,
+          start:'top 82%',
+          toggleActions:'play none none none'
+        },
+        opacity:0,
+        y:28,
+        duration:0.8,
+        stagger:0.12,
+        ease:'power2.out'
+      });
+    }
+  });
+
+  // 4. Goals Showcase Cards Entrance
+  var grow=document.getElementById('grow');
+  if(grow){
+    gsap.from(grow.querySelectorAll('.gs-tab'),{
+      scrollTrigger:{
+        trigger:grow,
+        start:'top 80%',
+        toggleActions:'play none none none'
+      },
+      opacity:0,
+      x:-24,
+      duration:0.7,
+      stagger:0.08,
+      ease:'power2.out'
+    });
+    gsap.from(grow.querySelector('.gs-stage'),{
+      scrollTrigger:{
+        trigger:grow,
+        start:'top 80%',
+        toggleActions:'play none none none'
+      },
+      opacity:0,
+      scale:0.96,
+      duration:0.8,
+      ease:'power2.out'
+    });
+  }
+
+  // 5. Bento Grid Luxury Stagger Entrance
+  var bento=document.getElementById('bento');
+  if(bento){
+    var boxes=bento.querySelectorAll('.bx');
+    gsap.fromTo(boxes,
+      {opacity:0,y:36},
+      {
+        opacity:1,
+        y:0,
+        duration:0.75,
+        stagger:0.1,
+        ease:'power2.out',
+        scrollTrigger:{
+          trigger:bento,
+          start:'top 78%',
+          toggleActions:'play none none none'
+        }
+      }
+    );
+  }
+
+  // 6. Smooth Button Micro-interactions
+  document.querySelectorAll('.btn:not(.o)').forEach(function(btn){
+    btn.addEventListener('mouseenter',function(){
+      gsap.to(btn,{scale:1.03,duration:.22,ease:'power1.out'});
+    });
+    btn.addEventListener('mouseleave',function(){
+      gsap.to(btn,{scale:1,duration:.22,ease:'power1.out'});
+    });
+  });
+
+})();
+</script>
 </body></html>
