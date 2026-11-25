@@ -137,23 +137,22 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
 .wa-float svg{width:30px;height:30px;fill:currentColor}
 </style>
 <style id="site-header-css">
-/* Designer-Crafted Institutional Sticky Header & Segmented Navigation */
-.site-header{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(214,224,238,.85);transition:box-shadow .25s ease}
+/* Designer-Crafted Institutional Sticky Header & Navigation */
+.site-header{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(214,224,238,.85);transition:box-shadow .25s ease}
 .site-header.scrolled{box-shadow:0 8px 30px -10px rgba(3,23,68,.12)}
-.sh-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-sizing:border-box}
+.sh-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-sizing:border-box}
 
-/* Brand Signature */
+/* Brand Signature (Minimalist - ARN removed per request) */
 .sh-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
 .sh-brand img{height:38px;width:auto;display:block;border:none!important;border-radius:0!important;object-fit:contain!important;background:transparent!important}
 .sh-brand-txt{display:flex;flex-direction:column;justify-content:center}
 .sh-bn{font:700 18.5px/1.1 'Montserrat',-apple-system,sans-serif;letter-spacing:-.02em;color:#031744;margin:0}
-.sh-bt{font:700 9.5px/1.2 'DM Sans',-apple-system,sans-serif;letter-spacing:1.3px;color:#068A42;text-transform:uppercase;margin-top:3px;white-space:nowrap}
-.sh-bt span{color:#4E6180;font-weight:600;letter-spacing:.9px}
+.sh-bt{font:700 9.5px/1.2 'DM Sans',-apple-system,sans-serif;letter-spacing:1.4px;color:#068A42;text-transform:uppercase;margin-top:3px;white-space:nowrap}
 
-/* Center Segmented Navigation Dock */
-.sh-nav{display:inline-flex;align-items:center;gap:4px;background:#F4F7FB;border:1px solid #DCE5F2;padding:4px;border-radius:999px;position:relative}
-.sh-link{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:999px;font:600 14px/1.2 'DM Sans',-apple-system,sans-serif;color:#475569;text-decoration:none;white-space:nowrap;transition:color .18s ease,background .18s ease,box-shadow .18s ease;cursor:pointer;border:none;background:transparent}
-.sh-link:hover{color:#031744;background:rgba(255,255,255,.65)}
+/* Segmented Navigation Dock */
+.sh-nav{display:inline-flex;align-items:center;gap:4px;background:#F4F7FB;border:1px solid #DCE5F2;padding:5px;border-radius:999px;position:relative}
+.sh-link{display:inline-flex;align-items:center;gap:6px;padding:8px 22px;border-radius:999px;font:600 14.5px/1.2 'DM Sans',-apple-system,sans-serif;color:#475569;text-decoration:none;white-space:nowrap;transition:color .18s ease,background .18s ease,box-shadow .18s ease;cursor:pointer;border:none;background:transparent}
+.sh-link:hover{color:#031744;background:rgba(255,255,255,.75)}
 .sh-link.is-active{color:#031744;background:#FFFFFF;font-weight:700;box-shadow:0 2px 8px rgba(3,23,68,.08)}
 
 /* Investor Zone Vertical Dropdown */
@@ -182,8 +181,12 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
 .sh-drop-chev{width:14px;height:14px;stroke:#94A3B8;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:translateX(-4px);transition:opacity .16s ease,transform .16s ease;flex-shrink:0}
 .sh-drop-item:hover .sh-drop-chev{opacity:1;transform:translateX(0);stroke:#031744}
 
-/* Right Action Cluster */
+/* Right Actions Cluster */
 .sh-actions{display:inline-flex;align-items:center;gap:10px;flex-shrink:0}
+.sh-phone{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:999px;font:600 13.5px/1 'DM Sans',-apple-system,sans-serif;color:#031744;text-decoration:none;border:1px solid #DCE5F2;background:#FFFFFF;transition:all .18s ease}
+.sh-phone:hover{background:#F4F7FB;border-color:#CBD5E1;color:#068A42}
+.sh-phone svg{width:13px;height:13px;stroke:#068A42;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
 .sh-cta{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:999px;background:#068A42;color:#FFFFFF!important;font:700 13.5px/1 'DM Sans',-apple-system,sans-serif;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px -2px rgba(6,138,66,.35);transition:background .18s ease,transform .18s ease,box-shadow .18s ease}
 .sh-cta:hover{background:#056832;transform:translateY(-1px);box-shadow:0 8px 20px -4px rgba(6,138,66,.45)}
 .sh-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease}
@@ -204,12 +207,17 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
 .sh-mob-sub a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font:600 14px 'DM Sans',sans-serif;color:#334155}
 .sh-mob-sub a:hover,.sh-mob-sub a.is-active{background:#E7F6EE;color:#056832}
 
+@media(max-width:980px){
+  .sh-phone span{display:none}
+  .sh-phone{padding:9px 11px}
+}
+
 @media(max-width:860px){
   .sh-inner{height:66px;padding:0 16px}
   .sh-nav{display:none!important}
+  .sh-phone{display:none}
   .sh-mob-btn{display:inline-flex}
   .sh-cta{padding:9px 15px;font-size:13px}
-  .sh-bt span{display:none}
 }
 </style>
 </head>
@@ -221,7 +229,7 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
       <img src="logo.png" alt="Vikas Agarwal Logo">
       <div class="sh-brand-txt">
         <div class="sh-bn">Vikas Agarwal</div>
-        <div class="sh-bt">Mutual Fund Distributor <span>· ARN-40434</span></div>
+        <div class="sh-bt">Mutual Fund Distributor</div>
       </div>
     </a>
 
@@ -282,6 +290,10 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
     </nav>
 
     <div class="sh-actions">
+      <a class="sh-phone" href="tel:+919967129977" title="Call +91 99671 29977">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>+91 99671 29977</span>
+      </a>
       <a class="sh-cta" href="index.html#contact">
         <span>Get in Touch</span>
         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -303,6 +315,12 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
         <a href="mf-forms.html" class="">MF Forms &amp; Slips</a>
       </div>
       <a href="index.html#about" class="sh-mob-link">About</a>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid #E2E8F0">
+        <a class="sh-phone" href="tel:+919967129977" style="display:flex;justify-content:center;margin-bottom:8px">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <span style="display:inline">+91 99671 29977</span>
+        </a>
+      </div>
     </div>
   </div>
 </header>
