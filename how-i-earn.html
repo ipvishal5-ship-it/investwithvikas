@@ -102,7 +102,7 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 .dis{margin-top:44px;padding-top:28px;border-top:1px solid var(--line);font-size:14px;line-height:1.7;color:var(--mut);max-width:980px}.dis p+p{margin-top:10px}.dis a{color:var(--navy);font-weight:700}.dis .rk{color:var(--ink);font-weight:500}.cp{margin-top:20px;font-size:13.5px;color:var(--mut)}
 .wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--g2);color:#fff;text-decoration:none;font-weight:700;padding:13px 20px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.25);z-index:30}
 
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1);will-change:transform,opacity}.rv.in{opacity:1;transform:none}
 @media(max-width:900px){nav{display:none}.hero{padding:48px 0 52px}.hero .w,.sh,.end .w{grid-template-columns:1fr;gap:32px}.sh p{justify-self:start}section{padding:64px 0}.plans,.rq{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.fa{transform:rotate(90deg);justify-self:center}.pc{padding:28px 24px}.notice{padding:24px 22px}.end{padding:72px 0}.ft{grid-template-columns:1fr 1fr;gap:34px}.ft>div:first-child{grid-column:1/-1}footer{padding:44px 0 110px}.brand b{font-size:17px}}
 @media(max-width:600px){.w{padding:0 16px}header .w{height:62px}.brand img{height:34px}.brand b{font-size:16.5px}.btn.sm{padding:7px 12px;font-size:13px;white-space:nowrap}.hero{padding:32px 0 36px}.hero .w{gap:24px}.hero h1{font-size:clamp(28px,7.5vw,38px);line-height:1.15;letter-spacing:-.02em}.hero p.lead{font-size:15.5px;line-height:1.55;margin-bottom:18px}.ids{gap:8px}.ids span{padding:6px 12px;font-size:12.5px}.zero{padding:20px 16px;border-radius:18px}.zero strong{font-size:clamp(34px,8vw,46px)!important;margin:8px 0 6px}.zero p{font-size:14px;line-height:1.5}.zero em{margin-top:12px;font-size:11.5px;padding:5px 10px}section{padding:36px 0}.sh{gap:14px;margin-bottom:24px}.sh h2{font-size:clamp(22px,6vw,28px);line-height:1.2}.sh p{font-size:14.5px;line-height:1.55}.notice{padding:18px 14px;border-radius:14px;border-left-width:4px}.notice b{font-size:17px;line-height:1.3;margin-bottom:6px}.notice p{font-size:14.5px;line-height:1.55}.amc{grid-template-columns:1fr;gap:8px}.amc-logo-img{width:32px;height:32px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;border:1px solid var(--line);box-shadow:0 1px 4px rgba(6,40,110,.08);flex-shrink:0}.ac{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:14.5px;font-weight:600;color:var(--navy);transition:border-color .2s,transform .2s,box-shadow .2s;box-shadow:0 2px 6px rgba(6,40,110,.03)}.ac:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:0 6px 16px rgba(6,40,110,.08)}padding:11px 13px;font-size:13.5px;border-radius:10px}.plat{margin-top:20px;padding-top:16px;font-size:13.5px;gap:8px}.plat span.p{font-size:12px;padding:5px 10px}.rq{gap:12px;margin:20px 0 24px}.rc{padding:18px 14px;border-radius:14px}.rc b{font-size:15px}.rc p{font-size:13px}.ft{grid-template-columns:1fr;gap:24px}footer{padding:36px 0 90px}.wa{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:10px 16px;font-size:13.5px}}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
@@ -177,45 +177,5 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 <script>(function(){var r=[].slice.call(document.querySelectorAll('.rv'));if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});r.forEach(function(x,i){x.style.transitionDelay=(i%3)*70+'ms';io.observe(x)})}else r.forEach(function(x){x.classList.add('in')});
 var L=[].slice.call(document.querySelectorAll('.jump a')),S=L.map(function(a){return document.querySelector(a.getAttribute('href'))});
 function u(){var y=innerHeight*.4,k=0;S.forEach(function(s,i){if(s.getBoundingClientRect().top<y)k=i});L.forEach(function(a,i){a.classList.toggle('on',i===k)})}addEventListener('scroll',u,{passive:true});u()})();</script>
-<!-- GSAP 3 & ScrollTrigger -->
-<script src="js/gsap.min.js"></script>
-<script src="js/ScrollTrigger.min.js"></script>
-<script>
-(function(){
-  if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined')return;
-  gsap.registerPlugin(ScrollTrigger);
-
-  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(rm)return;
-
-  // Stagger entrance of AMC cards
-  gsap.from('.amc .ac',{
-    scrollTrigger:{
-      trigger:'.amc',
-      start:'top 82%',
-      toggleActions:'play none none none'
-    },
-    opacity:0,
-    y:24,
-    stagger:0.06,
-    duration:0.65,
-    ease:'power2.out'
-  });
-
-  // Stagger request cards
-  gsap.from('.rq .rc',{
-    scrollTrigger:{
-      trigger:'.rq',
-      start:'top 85%',
-      toggleActions:'play none none none'
-    },
-    opacity:0,
-    y:20,
-    stagger:0.1,
-    duration:0.6,
-    ease:'power2.out'
-  });
-})();
-</script>
 </body>
 </html>
