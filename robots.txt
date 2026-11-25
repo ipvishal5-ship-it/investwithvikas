@@ -1,0 +1,12 @@
+# robots.txt for investwithvikas.in
+User-agent: *
+Allow: /
+Disallow: /scratch/
+Disallow: /draft/
+Disallow: /temp/
+
+# Crawl-delay for aggressive bots
+Crawl-delay: 1
+
+# XML Sitemap Location
+Sitemap: https://investwithvikas.in/sitemap.xml
