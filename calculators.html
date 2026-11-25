@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Financial Calculators · SIP, Step-Up, Retirement & Goals | Vikas Agarwal</title>
+<meta name="description" content="Plan your wealth with precision. Interactive Mutual Fund SIP, Step-Up SIP, Lumpsum, Retirement, Education, and Delay calculators with live compounding charts and year-by-year schedules.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#031744;
+  --ink:#0B1B3D;
+  --mut:#4E6180;
+  --soft:#F4F7FB;
+  --card-bg:#FFFFFF;
+  --line:#D6E0EE;
+  --green:#068A42;
+  --g2:#056832;
+  --mint:#9BE8B8;
+  --accent:#E7F6EE;
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+.brand img{height:38px;width:auto}
+.bn{font:700 18px 'Montserrat',sans-serif;letter-spacing:-.01em;color:var(--navy);line-height:1.1}
+.bt{font:700 9.5px 'DM Sans',sans-serif;letter-spacing:1.5px;color:var(--green);text-transform:uppercase}
+nav{display:flex;align-items:center;gap:22px}
+nav a{text-decoration:none;color:var(--mut);font-weight:600;font-size:15px;transition:color .2s}
+nav a:hover,nav a.active{color:var(--navy)}
+
+/* Luxury Dropdown */
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:5px}
+.nav-item svg.arr{width:9px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s}
+.nav-item:hover svg.arr{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:275px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 16px 36px -10px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:60;display:grid;gap:2px}
+.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
+.drop-menu a:hover{background:var(--soft)}
+.drop-menu a.active{background:var(--accent)}
+.drop-menu a b{display:block;font-size:13.5px;color:var(--navy);line-height:1.2}
+.drop-menu a small{display:block;font-size:11.5px;color:var(--mut);font-weight:400}
+.drop-ico{width:28px;height:28px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.drop-ico svg{width:15px;height:15px;stroke:var(--g2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;border:1px solid transparent;cursor:pointer}
+.btn.sm{padding:8px 16px;font-size:13.5px}
+.btn.pri{background:var(--green);color:#fff}
+.btn.pri:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(6,138,66,.25)}
+.btn.sec{background:var(--soft);color:var(--navy);border-color:var(--line)}
+.btn.sec:hover{background:#E9F0FA;border-color:var(--navy)}
+.btn.wa{background:#25D366;color:#fff}
+.btn.wa:hover{background:#1EBE5D;transform:translateY(-1px);box-shadow:0 6px 16px rgba(37,211,102,.3)}
+
+/* Hero Header */
+.calc-hero{padding:54px 0 44px;background:linear-gradient(180deg,var(--soft) 0%,#fff 100%);border-bottom:1px solid var(--line)}
+.crumb{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--mut);margin-bottom:14px}
+.crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{color:var(--navy)}
+.crumb span{color:var(--navy)}
+.eb{font:700 12px 'DM Sans',sans-serif;letter-spacing:2.4px;color:var(--green);text-transform:uppercase;margin-bottom:12px}
+.calc-hero h1{font:600 clamp(34px,4.5vw,54px)/1.1 'Fraunces',Georgia,serif;letter-spacing:-.025em;color:var(--navy);max-width:860px;margin-bottom:14px}
+.calc-hero p.lead{font-size:18px;line-height:1.6;color:var(--mut);max-width:760px;margin-bottom:28px}
+
+/* Selector Tabs */
+.c-nav{display:flex;gap:10px;overflow-x:auto;padding-bottom:12px;scrollbar-width:thin}
+.c-tab{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:14px;background:#fff;border:1px solid var(--line);font:700 14px 'DM Sans',sans-serif;color:var(--navy);cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s,box-shadow .2s}
+.c-tab:hover{border-color:var(--navy);background:#F8FAFE;transform:translateY(-1px)}
+.c-tab.on{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 8px 22px rgba(6,40,110,.25)}
+.c-tab svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.c-tab.on svg{stroke:#9BE8B8}
+
+/* Calculator Main Body */
+section.main-calc{padding:48px 0 84px}
+.calc-shell{background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px;box-shadow:0 14px 40px -16px rgba(6,40,110,.1)}
+.calc-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+
+/* Input Controls */
+.calc-inputs{display:grid;gap:28px}
+.ctrl-card{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:20px}
+.ctrl-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ctrl-label{font-weight:700;font-size:14.5px;color:var(--navy)}
+.ctrl-box{display:inline-flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 12px;font:700 16px 'DM Sans',sans-serif;color:var(--navy);transition:border-color .2s,box-shadow .2s}
+.ctrl-box:focus-within{border-color:var(--green);box-shadow:0 0 0 3px rgba(6,138,66,.15)}
+.ctrl-prefix{font-size:14px;color:var(--mut);margin-right:4px}
+.ctrl-input{border:none;outline:none;font:inherit;color:inherit;width:110px;text-align:right;background:transparent}
+input[type=range]{width:100%;height:6px;background:#C5D5ED;border-radius:999px;outline:none;-webkit-appearance:none;cursor:pointer;margin:10px 0 12px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--navy);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);background:var(--green)}
+.ctrl-presets{display:flex;gap:6px;flex-wrap:wrap}
+.preset-btn{background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 8px;font:600 12px 'DM Sans',sans-serif;color:var(--mut);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.preset-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* Right Results Card */
+.calc-summary{background:var(--navy);color:#fff;border-radius:22px;padding:34px;position:relative;overflow:hidden;box-shadow:0 20px 44px -14px rgba(6,40,110,.4)}
+.calc-summary::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 100% 0%,transparent 0 24px,rgba(255,255,255,.05) 24px 25px);pointer-events:none}
+.sum-head{font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#9BE8B8;text-transform:uppercase;margin-bottom:12px}
+.sum-total-wrap{margin-bottom:24px}
+.sum-sub{font-size:13px;color:rgba(255,255,255,.75)}
+.sum-val{font:600 clamp(32px,3.8vw,46px)/1.08 'Fraunces',serif;color:#fff;margin-top:4px}
+.sum-human{font-size:14px;color:#9BE8B8;font-weight:600;margin-top:4px}
+
+/* Donut Chart */
+.donut-wrap{display:flex;align-items:center;gap:24px;padding:20px 0;border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:22px}
+.donut-chart{position:relative;width:110px;height:110px;flex-shrink:0}
+.donut-chart svg{transform:rotate(-90deg);width:100%;height:100%}
+.donut-bg{fill:none;stroke:rgba(255,255,255,.15);stroke-width:14}
+.donut-inv{fill:none;stroke:#9BE8B8;stroke-width:14;stroke-linecap:round;transition:stroke-dasharray .4s ease}
+.donut-gain{fill:none;stroke:var(--green);stroke-width:14;stroke-linecap:round;transition:stroke-dasharray .4s ease,stroke-dashoffset .4s ease}
+.donut-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;text-align:center}
+.donut-label span{font-size:10px;color:rgba(255,255,255,.7);font-weight:500}
+
+.sum-legend{display:grid;gap:10px;flex:1}
+.leg-item{display:flex;align-items:center;justify-content:space-between;font-size:13.5px}
+.leg-left{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75)}
+.leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.leg-val{font-weight:700;color:#fff}
+
+.sum-compare{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.88);margin-bottom:20px}
+.sum-compare b{color:#9BE8B8}
+
+/* Action Buttons */
+.sum-actions{display:grid;gap:10px}
+
+/* Expandable Year-by-Year Schedule */
+.sched-toggle{margin-top:40px;background:var(--soft);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.sched-btn{width:100%;background:none;border:none;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font:700 15px 'DM Sans',sans-serif;color:var(--navy);transition:background .2s}
+.sched-btn:hover{background:#E9F0FA}
+.sched-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;transition:transform .25s}
+.sched-btn.open svg{transform:rotate(180deg)}
+.sched-content{display:none;padding:0 24px 24px;border-top:1px solid var(--line)}
+.sched-content.open{display:block}
+.sched-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+.sched-table th{background:#fff;color:var(--navy);font-weight:700;padding:10px 14px;text-align:right;border-bottom:2px solid var(--line)}
+.sched-table th:first-child{text-align:left}
+.sched-table td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--line);color:var(--ink)}
+.sched-table td:first-child{text-align:left;font-weight:700;color:var(--navy)}
+.sched-table tr:hover td{background:#fff}
+
+/* Methodology & Education */
+.math-section{margin-top:64px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px}
+.math-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.math-col h3{font:600 22px 'Fraunces',serif;color:var(--navy);margin-bottom:12px}
+.math-col p{font-size:15px;color:var(--mut);line-height:1.6;margin-bottom:14px}
+.math-formula{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-family:monospace;font-size:14px;color:var(--navy);margin:14px 0}
+.math-col ul{list-style:none;display:grid;gap:8px}
+.math-col li{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.math-col li svg{width:14px;height:14px;stroke:var(--green);fill:none;stroke-width:2.5;flex-shrink:0}
+
+/* Footer & Disclosures */
+footer{background:#fff;padding:60px 0 100px;border-top:1px solid var(--line);margin-top:80px}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+.fbr{display:flex;align-items:center;gap:12px;margin-bottom:14px}.fbr img{height:38px}.fbr b{font:700 19px 'Montserrat',sans-serif;color:var(--navy)}
+.ft p{font-size:14.5px;color:var(--mut);max-width:340px}
+.ft h4{font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:var(--ink);margin-bottom:14px;text-transform:uppercase}
+.ft ul{list-style:none;display:grid;gap:10px}.ft li a{text-decoration:none;color:var(--mut);font-size:14.5px}.ft li a:hover{color:var(--navy)}
+.dis{margin-top:44px;padding-top:28px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--mut);max-width:980px}
+.dis p+p{margin-top:10px}.dis a{color:var(--navy);font-weight:700}.dis .rk{color:var(--ink);font-weight:500}
+.cp{margin-top:20px;font-size:13px;color:var(--mut)}
+
+.wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:30;display:flex;align-items:center;gap:8px}
+.wa-float svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+
+/* Panels switcher */
+.calc-panel{display:none}
+.calc-panel.on{display:block}
+
+@media(max-width:900px){
+  nav{display:none}
+  .calc-grid{grid-template-columns:1fr;gap:36px}
+  .math-grid{grid-template-columns:1fr;gap:28px}
+  .ft{grid-template-columns:1fr 1fr;gap:32px}.ft>div:first-child{grid-column:1/-1}
+}
+@media(max-width:540px){
+  .w{padding:0 16px}
+  .calc-shell{padding:24px 18px}
+  .calc-summary{padding:24px 20px}
+  .donut-wrap{flex-direction:column;gap:18px;align-items:flex-start}
+  .sched-table{font-size:12.5px}
+  .sched-table th,.sched-table td{padding:8px 8px}
+}
+</style>
+</head>
+<body>
+
+<header><div class="w">
+  <a class="brand" href="index.html">
+    <img alt="Vikas Agarwal" src="logo.png">
+    <div>
+      <div class="bn">Vikas Agarwal</div>
+      <div class="bt">MUTUAL FUND DISTRIBUTOR</div>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html#goals">Goals</a>
+    <a href="index.html#how">How it works</a>
+    <div class="nav-item">
+      <a href="calculators.html" class="active">Investor Zone <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+      <div class="drop-menu">
+        <a href="calculators.html" class="active"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
+        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
+        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><div><b>MF Forms & Downloads</b><small>Common Transaction & Service Slips</small></div></a>
+        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><div><b>MF Tools & Research</b><small>NAV, Factsheets & Performance</small></div></a>
+        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
+      </div>
+    </div>
+    <a href="index.html#about">About</a>
+    <a href="how-i-earn.html">Disclosures</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <a class="btn sm pri" href="tel:+919967129977">Call now</a>
+</div></header>
+
+<div class="calc-hero"><div class="w">
+  <div class="crumb"><a href="index.html">Home</a> / <span>Investor Zone</span> / <span>Financial Calculators</span></div>
+  <div class="eb">WEALTH COMPOUNDING &amp; GOAL ARCHITECTURE</div>
+  <h1>Interactive Financial Calculators</h1>
+  <p class="lead">Simulate wealth creation across different horizons, evaluate inflation-adjusted retirement needs, and understand the geometric power of annual step-ups.</p>
+
+  <div class="c-nav" role="tablist">
+    <button class="c-tab on" data-target="sip"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>SIP Calculator</button>
+    <button class="c-tab" data-target="stepup"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>SIP Step-Up Calculator</button>
+    <button class="c-tab" data-target="lumpsum"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 12h8"/></svg>Lumpsum Growth</button>
+    <button class="c-tab" data-target="retirement"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Retirement Planner</button>
+    <button class="c-tab" data-target="education"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Child Education Goal</button>
+    <button class="c-tab" data-target="delay"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Cost of Delay</button>
+  </div>
+</div></div>
+
+<section class="main-calc"><div class="w">
+  <div class="calc-shell">
+
+    <!-- 1. SIP Calculator -->
+    <div class="calc-panel on" id="panel-sip">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Monthly Investment (₹)</span>
+              <div class="ctrl-box"><span class="ctrl-prefix">₹</span><input type="number" id="sip-in-amt" class="ctrl-input" value="15000" min="500" max="500000" step="500"></div>
+            </div>
+            <input type="range" id="sip-rng-amt" min="1000" max="200000" step="1000" value="15000">
+            <div class="ctrl-presets">
+              <button class="preset-btn" onclick="setVal('sip-in-amt','sip-rng-amt',5000)">₹ 5,000</button>
+              <button class="preset-btn" onclick="setVal('sip-in-amt','sip-rng-amt',10000)">₹ 10,000</button>
+              <button class="preset-btn" onclick="setVal('sip-in-amt','sip-rng-amt',25000)">₹ 25,000</button>
+              <button class="preset-btn" onclick="setVal('sip-in-amt','sip-rng-amt',50000)">₹ 50,000</button>
+            </div>
+          </div>
+
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Expected Return Rate (p.a.)</span>
+              <div class="ctrl-box"><input type="number" id="sip-in-rate" class="ctrl-input" value="12.0" min="6" max="24" step="0.5"><span class="ctrl-prefix" style="margin-left:4px">%</span></div>
+            </div>
+            <input type="range" id="sip-rng-rate" min="6" max="20" step="0.5" value="12">
+            <div class="ctrl-presets">
+              <button class="preset-btn" onclick="setVal('sip-in-rate','sip-rng-rate',10.0)">10% Conservative</button>
+              <button class="preset-btn" onclick="setVal('sip-in-rate','sip-rng-rate',12.0)">12% Moderate</button>
+              <button class="preset-btn" onclick="setVal('sip-in-rate','sip-rng-rate',14.0)">14% Aggressive</button>
+            </div>
+          </div>
+
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Investment Horizon (Years)</span>
+              <div class="ctrl-box"><input type="number" id="sip-in-yr" class="ctrl-input" value="15" min="1" max="40" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div>
+            </div>
+            <input type="range" id="sip-rng-yr" min="1" max="35" step="1" value="15">
+            <div class="ctrl-presets">
+              <button class="preset-btn" onclick="setVal('sip-in-yr','sip-rng-yr',5)">5 Yrs</button>
+              <button class="preset-btn" onclick="setVal('sip-in-yr','sip-rng-yr',10)">10 Yrs</button>
+              <button class="preset-btn" onclick="setVal('sip-in-yr','sip-rng-yr',15)">15 Yrs</button>
+              <button class="preset-btn" onclick="setVal('sip-in-yr','sip-rng-yr',20)">20 Yrs</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="sum-head">Projected Maturity Outcome</div>
+          <div class="sum-total-wrap">
+            <div class="sum-sub">Estimated Future Value</div>
+            <div class="sum-val" id="sip-res-tot">₹ 75,68,640</div>
+            <div class="sum-human" id="sip-res-human">₹ 75.69 Lakhs Total Corpus</div>
+          </div>
+
+          <div class="donut-wrap">
+            <div class="donut-chart">
+              <svg viewBox="0 0 140 140">
+                <circle class="donut-bg" cx="70" cy="70" r="56"/>
+                <circle class="donut-inv" id="sip-d-inv" cx="70" cy="70" r="56" stroke-dasharray="125 352"/>
+                <circle class="donut-gain" id="sip-d-gain" cx="70" cy="70" r="56" stroke-dasharray="227 352" stroke-dashoffset="-125"/>
+              </svg>
+              <div class="donut-label">
+                <b id="sip-mult-lbl">2.8x</b>
+                <span>Growth</span>
+              </div>
+            </div>
+            <div class="sum-legend">
+              <div class="leg-item">
+                <div class="leg-left"><div class="leg-dot" style="background:#9BE8B8"></div><span>Amount Invested</span></div>
+                <span class="leg-val" id="sip-res-inv">₹ 27,00,000</span>
+              </div>
+              <div class="leg-item">
+                <div class="leg-left"><div class="leg-dot" style="background:var(--green)"></div><span>Estimated Returns</span></div>
+                <span class="leg-val" id="sip-res-gain" style="color:#9BE8B8">₹ 48,68,640</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sum-compare" id="sip-comp-text">
+            Investing ₹15,000/mo over 15 years compounds into <b>₹75.69 Lakhs</b>. In a traditional 6.5% bank deposit, the outcome would be approximately ₹44.8 Lakhs (a difference of <b>+₹30.8 Lakhs</b>).
+          </div>
+
+          <div class="sum-actions">
+            <a class="btn pri wa" id="sip-wa-link" href="#" target="_blank" rel="noopener">Discuss this SIP Plan with Vikas</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule Table Accordion -->
+      <div class="sched-toggle">
+        <button class="sched-btn" id="sip-sched-btn" onclick="toggleSched('sip')">
+          <span>View Detailed Year-by-Year Compounding Schedule</span>
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="sched-content" id="sip-sched-box">
+          <table class="sched-table">
+            <thead>
+              <tr><th>Year</th><th>Total Invested</th><th>Wealth Gained</th><th>End of Year Balance</th></tr>
+            </thead>
+            <tbody id="sip-sched-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Step-Up SIP Calculator -->
+    <div class="calc-panel" id="panel-stepup">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Initial Monthly SIP (₹)</span>
+              <div class="ctrl-box"><span class="ctrl-prefix">₹</span><input type="number" id="su-in-amt" class="ctrl-input" value="15000" min="500" max="500000" step="500"></div>
+            </div>
+            <input type="range" id="su-rng-amt" min="1000" max="200000" step="1000" value="15000">
+          </div>
+
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Annual Step-Up Percentage</span>
+              <div class="ctrl-box"><input type="number" id="su-in-step" class="ctrl-input" value="10" min="1" max="50" step="1"><span class="ctrl-prefix" style="margin-left:4px">%</span></div>
+            </div>
+            <input type="range" id="su-rng-step" min="5" max="30" step="1" value="10">
+            <div class="ctrl-presets">
+              <button class="preset-btn" onclick="setVal('su-in-step','su-rng-step',5)">5% Yearly</button>
+              <button class="preset-btn" onclick="setVal('su-in-step','su-rng-step',10)">10% Yearly</button>
+              <button class="preset-btn" onclick="setVal('su-in-step','su-rng-step',15)">15% Yearly</button>
+            </div>
+          </div>
+
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Expected Return Rate (p.a.)</span>
+              <div class="ctrl-box"><input type="number" id="su-in-rate" class="ctrl-input" value="12.0" min="6" max="24" step="0.5"><span class="ctrl-prefix" style="margin-left:4px">%</span></div>
+            </div>
+            <input type="range" id="su-rng-rate" min="6" max="20" step="0.5" value="12">
+          </div>
+
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Investment Horizon (Years)</span>
+              <div class="ctrl-box"><input type="number" id="su-in-yr" class="ctrl-input" value="15" min="1" max="35" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div>
+            </div>
+            <input type="range" id="su-rng-yr" min="1" max="35" step="1" value="15">
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="sum-head">Step-Up Wealth Acceleration</div>
+          <div class="sum-total-wrap">
+            <div class="sum-sub">Total Projected Corpus</div>
+            <div class="sum-val" id="su-res-tot">₹ 1.30 Crores</div>
+            <div class="sum-human" id="su-res-human">With 10% Annual Increments</div>
+          </div>
+
+          <div class="donut-wrap">
+            <div class="donut-chart">
+              <svg viewBox="0 0 140 140">
+                <circle class="donut-bg" cx="70" cy="70" r="56"/>
+                <circle class="donut-inv" id="su-d-inv" cx="70" cy="70" r="56" stroke-dasharray="150 352"/>
+                <circle class="donut-gain" id="su-d-gain" cx="70" cy="70" r="56" stroke-dasharray="202 352" stroke-dashoffset="-150"/>
+              </svg>
+              <div class="donut-label">
+                <b id="su-mult-lbl">2.28x</b>
+                <span>Return</span>
+              </div>
+            </div>
+            <div class="sum-legend">
+              <div class="leg-item">
+                <div class="leg-left"><div class="leg-dot" style="background:#9BE8B8"></div><span>Amount Invested</span></div>
+                <span class="leg-val" id="su-res-inv">₹ 57,19,047</span>
+              </div>
+              <div class="leg-item">
+                <div class="leg-left"><div class="leg-dot" style="background:var(--green)"></div><span>Estimated Returns</span></div>
+                <span class="leg-val" id="su-res-gain" style="color:#9BE8B8">₹ 73,06,726</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sum-compare" id="su-comp-text">
+            A standard non-stepping SIP of ₹15,000 builds ₹75.68 Lakhs. By increasing investments by 10% each year, your final wealth jumps to <b>₹1.30 Crores (+72% more wealth)</b>.
+          </div>
+
+          <div class="sum-actions">
+            <a class="btn pri wa" id="su-wa-link" href="#" target="_blank" rel="noopener">Plan a Step-Up SIP with Vikas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Lumpsum Investment -->
+    <div class="calc-panel" id="panel-lumpsum">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Lumpsum Investment (₹)</span>
+              <div class="ctrl-box"><span class="ctrl-prefix">₹</span><input type="number" id="ls-in-amt" class="ctrl-input" value="500000" min="5000" max="10000000" step="5000"></div>
+            </div>
+            <input type="range" id="ls-rng-amt" min="10000" max="2500000" step="10000" value="500000">
+            <div class="ctrl-presets">
+              <button class="preset-btn" onclick="setVal('ls-in-amt','ls-rng-amt',200000)">₹ 2 Lakhs</button>
+              <button class="preset-btn" onclick="setVal('ls-in-amt','ls-rng-amt',500000)">₹ 5 Lakhs</button>
+              <button class="preset-btn" onclick="setVal('ls-in-amt','ls-rng-amt',1000000)">₹ 10 Lakhs</button>
+              <button class="preset-btn" onclick="setVal('ls-in-amt','ls-rng-amt',2500000)">₹ 25 Lakhs</button>
+            </div>
+          </div>
+
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Expected Annual Return (p.a.)</span>
+              <div class="ctrl-box"><input type="number" id="ls-in-rate" class="ctrl-input" value="12.0" min="6" max="24" step="0.5"><span class="ctrl-prefix" style="margin-left:4px">%</span></div>
+            </div>
+            <input type="range" id="ls-rng-rate" min="6" max="20" step="0.5" value="12">
+          </div>
+
+          <div class="ctrl-card">
+            <div class="ctrl-top">
+              <span class="ctrl-label">Investment Horizon (Years)</span>
+              <div class="ctrl-box"><input type="number" id="ls-in-yr" class="ctrl-input" value="15" min="1" max="40" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div>
+            </div>
+            <input type="range" id="ls-rng-yr" min="1" max="35" step="1" value="15">
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="sum-head">Lumpsum Compound Valuation</div>
+          <div class="sum-total-wrap">
+            <div class="sum-sub">Projected Capital Growth</div>
+            <div class="sum-val" id="ls-res-tot">₹ 27,36,783</div>
+            <div class="sum-human" id="ls-res-human">₹ 27.37 Lakhs at 15 Years</div>
+          </div>
+
+          <div class="donut-wrap">
+            <div class="donut-chart">
+              <svg viewBox="0 0 140 140">
+                <circle class="donut-bg" cx="70" cy="70" r="56"/>
+                <circle class="donut-inv" id="ls-d-inv" cx="70" cy="70" r="56" stroke-dasharray="64 352"/>
+                <circle class="donut-gain" id="ls-d-gain" cx="70" cy="70" r="56" stroke-dasharray="288 352" stroke-dashoffset="-64"/>
+              </svg>
+              <div class="donut-label">
+                <b id="ls-mult-lbl">5.47x</b>
+                <span>Growth</span>
+              </div>
+            </div>
+            <div class="sum-legend">
+              <div class="leg-item">
+                <div class="leg-left"><div class="leg-dot" style="background:#9BE8B8"></div><span>Principal Invested</span></div>
+                <span class="leg-val" id="ls-res-inv">₹ 5,00,000</span>
+              </div>
+              <div class="leg-item">
+                <div class="leg-left"><div class="leg-dot" style="background:var(--green)"></div><span>Wealth Gain</span></div>
+                <span class="leg-val" id="ls-res-gain" style="color:#9BE8B8">₹ 22,36,783</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sum-compare" id="ls-comp-text">
+            Your ₹5.0 Lakhs investment compounds over 5.4 times, earning <b>₹22.37 Lakhs in capital appreciation</b> without touching principal.
+          </div>
+
+          <div class="sum-actions">
+            <a class="btn pri wa" id="ls-wa-link" href="#" target="_blank" rel="noopener">Review Lumpsum Strategy with Vikas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Retirement Planner -->
+    <div class="calc-panel" id="panel-retirement">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Current Age</span><div class="ctrl-box"><input type="number" id="ret-in-cur" class="ctrl-input" value="32" min="18" max="60"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div></div>
+            <input type="range" id="ret-rng-cur" min="20" max="55" step="1" value="32">
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Target Retirement Age</span><div class="ctrl-box"><input type="number" id="ret-in-age" class="ctrl-input" value="60" min="45" max="75"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div></div>
+            <input type="range" id="ret-rng-age" min="50" max="70" step="1" value="60">
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Current Monthly Household Expenses</span><div class="ctrl-box"><span class="ctrl-prefix">₹</span><input type="number" id="ret-in-exp" class="ctrl-input" value="60000" min="10000" max="500000" step="5000"></div></div>
+            <input type="range" id="ret-rng-exp" min="20000" max="300000" step="5000" value="60000">
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Expected Inflation Rate (p.a.)</span><div class="ctrl-box"><input type="number" id="ret-in-inf" class="ctrl-input" value="6.0" min="4" max="10" step="0.5"><span class="ctrl-prefix" style="margin-left:4px">%</span></div></div>
+            <input type="range" id="ret-rng-inf" min="4" max="8" step="0.5" value="6">
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="sum-head">Retirement Target Blueprint</div>
+          <div class="sum-total-wrap">
+            <div class="sum-sub">Required Retirement Corpus</div>
+            <div class="sum-val" id="ret-res-tot">₹ 8.08 Crores</div>
+            <div class="sum-human" id="ret-res-human">To sustain lifestyle till age 85</div>
+          </div>
+          <div class="sum-compare">
+            Monthly living cost of ₹60,000 inflates to <b id="ret-res-fut">₹3.07 Lakhs/month</b> at retirement age 60.
+          </div>
+          <div class="res-rows" style="border-top:1px solid rgba(255,255,255,.15);padding-top:16px;margin-bottom:20px;display:grid;gap:10px">
+            <div style="display:flex;justify-content:space-between"><span>Years to Build Nest Egg:</span><b id="ret-res-yrs">28 Years</b></div>
+            <div style="display:flex;justify-content:space-between"><span>Required Monthly SIP (@12%):</span><b id="ret-res-sip" style="color:#9BE8B8;font-size:16px">₹ 30,000/mo</b></div>
+          </div>
+          <div class="sum-actions">
+            <a class="btn pri wa" id="ret-wa-link" href="#" target="_blank" rel="noopener">Build Retirement Plan with Vikas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Child Education Goal -->
+    <div class="calc-panel" id="panel-education">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Degree / College Cost in Today's Terms</span><div class="ctrl-box"><span class="ctrl-prefix">₹</span><input type="number" id="edu-in-amt" class="ctrl-input" value="2500000" min="100000" max="20000000" step="50000"></div></div>
+            <input type="range" id="edu-rng-amt" min="500000" max="10000000" step="100000" value="2500000">
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Years Until Admission</span><div class="ctrl-box"><input type="number" id="edu-in-yr" class="ctrl-input" value="12" min="1" max="22" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div></div>
+            <input type="range" id="edu-rng-yr" min="3" max="20" step="1" value="12">
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Education Inflation (Typically 8-10%)</span><div class="ctrl-box"><input type="number" id="edu-in-inf" class="ctrl-input" value="8.0" min="5" max="14" step="0.5"><span class="ctrl-prefix" style="margin-left:4px">%</span></div></div>
+            <input type="range" id="edu-rng-inf" min="6" max="12" step="0.5" value="8">
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="sum-head">Higher Education Target</div>
+          <div class="sum-total-wrap">
+            <div class="sum-sub">Inflated Future College Fee</div>
+            <div class="sum-val" id="edu-res-tot">₹ 62.95 Lakhs</div>
+            <div class="sum-human" id="edu-res-human">2.52x due to 8% inflation</div>
+          </div>
+          <div class="sum-compare">
+            A course costing ₹25 Lakhs today will require <b id="edu-res-target">₹62.95 Lakhs</b> in 12 years.
+          </div>
+          <div class="res-rows" style="border-top:1px solid rgba(255,255,255,.15);padding-top:16px;margin-bottom:20px;display:grid;gap:10px">
+            <div style="display:flex;justify-content:space-between"><span>Required Monthly SIP (@12%):</span><b id="edu-res-sip" style="color:#9BE8B8;font-size:16px">₹ 19,500/mo</b></div>
+          </div>
+          <div class="sum-actions">
+            <a class="btn pri wa" id="edu-wa-link" href="#" target="_blank" rel="noopener">Plan Child's Education with Vikas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Cost of Delay -->
+    <div class="calc-panel" id="panel-delay">
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Planned Monthly SIP (₹)</span><div class="ctrl-box"><span class="ctrl-prefix">₹</span><input type="number" id="del-in-amt" class="ctrl-input" value="15000" min="1000" max="200000" step="1000"></div></div>
+            <input type="range" id="del-rng-amt" min="2000" max="100000" step="1000" value="15000">
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Target Horizon (Years)</span><div class="ctrl-box"><input type="number" id="del-in-yr" class="ctrl-input" value="15" min="5" max="30" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div></div>
+            <input type="range" id="del-rng-yr" min="5" max="30" step="1" value="15">
+          </div>
+          <div class="ctrl-card">
+            <div class="ctrl-top"><span class="ctrl-label">Delay Period Before Starting</span><div class="ctrl-box"><input type="number" id="del-in-per" class="ctrl-input" value="3" min="1" max="10" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div></div>
+            <input type="range" id="del-rng-per" min="1" max="5" step="1" value="3">
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <div class="sum-head">The Compounding Penalty</div>
+          <div class="sum-total-wrap">
+            <div class="sum-sub">Permanent Wealth Forgone</div>
+            <div class="sum-val" id="del-res-loss" style="color:#FFB4B4">₹ 27.10 Lakhs</div>
+            <div class="sum-human">Cost of waiting 3 years</div>
+          </div>
+          <div class="sum-compare">
+            By delaying contributions of only ₹5.4 Lakhs, you lose <b id="del-res-net">₹27.1 Lakhs</b> in compounding growth.
+          </div>
+          <div class="res-rows" style="border-top:1px solid rgba(255,255,255,.15);padding-top:16px;margin-bottom:20px;display:grid;gap:10px">
+            <div style="display:flex;justify-content:space-between"><span>Corpus starting today:</span><b id="del-res-on">₹ 75.68 Lakhs</b></div>
+            <div style="display:flex;justify-content:space-between"><span>Corpus if delayed by 3 yrs:</span><b id="del-res-del">₹ 48.58 Lakhs</b></div>
+          </div>
+          <div class="sum-actions">
+            <a class="btn pri wa" id="del-wa-link" href="#" target="_blank" rel="noopener">Start Today Without Delaying</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Educational & Methodology Breakdown -->
+  <div class="math-section">
+    <div class="math-grid">
+      <div class="math-col">
+        <h3>The Compounding Formula Behind SIP</h3>
+        <p>A Systematic Investment Plan works on the <b>Future Value of an Annuity Due</b> model. Because investments are made at the beginning of every month, every monthly contribution earns compound interest over its own tenure.</p>
+        <div class="math-formula">FV = P × [((1 + r)^n - 1) / r] × (1 + r)</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><b>P:</b> Fixed Monthly Investment Installment</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><b>r:</b> Monthly Rate of Return (Annual Return ÷ 12 ÷ 100)</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><b>n:</b> Total Number of Months (Tenure in Years × 12)</li>
+        </ul>
+      </div>
+      <div class="math-col">
+        <h3>Why Step-Up SIP Outperforms Regular SIP</h3>
+        <p>A standard SIP assumes your investment capacity never changes. A <b>Step-Up SIP</b> automatically raises your investment by 5% or 10% each year in line with salary increments.</p>
+        <p>Because the largest contributions enter during your peak earning years and compound on top of the established base, a 10% annual step-up typically yields <b>60% to 80% higher final wealth</b> than a fixed SIP.</p>
+        <div style="margin-top:18px">
+          <a class="btn sec sm" href="index.html#contact">Consult Vikas Agarwal on Asset Allocation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></section>
+
+<!-- Footer -->
+<footer><div class="w">
+  <div class="ft">
+    <div>
+      <div class="fbr"><img alt="Vikas Agarwal" src="logo.png"><b>Vikas Agarwal</b></div>
+      <p>AMFI-registered Mutual Fund Distributor (ARN-40434, EUIN E375656), Goregaon East, Mumbai. Providing structured financial guidance chosen around your long-term life goals.</p>
+    </div>
+    <div>
+      <h4>Investor Zone</h4>
+      <ul>
+        <li><a href="calculators.html" style="color:var(--g2);font-weight:700">Financial Calculators</a></li>
+        <li><a href="index.html#investor-zone">KYC Verification Hub</a></li>
+        <li><a href="index.html#investor-zone">MF Forms & Downloads</a></li>
+        <li><a href="index.html#investor-zone">MF Tools & Research</a></li>
+        <li><a href="index.html#investor-zone">Client Login Portals</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Disclosures & Policy</h4>
+      <ul>
+        <li><a href="how-i-earn.html">Commission Disclosures</a></li>
+        <li><a href="disclosures.html">Disclosures & Grievance</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="index.html#contact">Contact & Office</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dis">
+    <p>Vikas Agarwal is an AMFI-registered Mutual Fund Distributor (ARN-40434, valid till 07 August 2027; EUIN E375656) and is not a SEBI-registered investment adviser. He distributes Regular Plans only, which include distributor trail commission paid by the respective fund house. <a href="how-i-earn.html">View commission details</a>. Investors have the option to invest in Direct Plans of mutual fund schemes directly without intermediary commission.</p>
+    <p style="margin-top:8px">Calculators and projections provided on this page are for educational and illustrative purposes only based on mathematical compounding formulas with user-selected return rates. They do not constitute investment advice or a promise/guarantee of actual returns.</p>
+    <p style="margin-top:8px">For grievance redressal, contact Vikas Agarwal at <a href="mailto:info@investwithvikas.in">info@investwithvikas.in</a> or escalate to SEBI via <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">SCORES 2.0</a> and <a href="https://smartodr.in" target="_blank" rel="noopener">SMART ODR Portal</a>. <a href="disclosures.html">View full escalation matrix</a>.</p>
+    <p class="rk">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+  </div>
+  <div class="cp">© 2026 Vikas Agarwal · ARN-40434 · Goregaon East, Mumbai · investwithvikas.in</div>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20have%20a%20question%20regarding%20financial%20calculators." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+  WhatsApp
+</a>
+
+<!-- Precision Math & Interactive Engine -->
+<script>
+function fmtINR(n){
+  n = Math.round(n);
+  return '₹ ' + n.toLocaleString('en-IN');
+}
+function fmtLakhCr(n){
+  n = Math.round(n);
+  if(n >= 10000000) return '₹ ' + (n / 10000000).toFixed(2) + ' Crores';
+  if(n >= 100000) return '₹ ' + (n / 100000).toFixed(2) + ' Lakhs';
+  return '₹ ' + n.toLocaleString('en-IN');
+}
+
+function setVal(inId, rngId, val){
+  var i = document.getElementById(inId), r = document.getElementById(rngId);
+  if(i) i.value = val;
+  if(r) r.value = val;
+  i.dispatchEvent(new Event('input'));
+}
+
+function toggleSched(id){
+  var btn = document.getElementById(id + '-sched-btn');
+  var box = document.getElementById(id + '-sched-box');
+  if(!btn || !box) return;
+  var isOpen = box.classList.contains('open');
+  if(isOpen){
+    box.classList.remove('open');
+    btn.classList.remove('open');
+  } else {
+    box.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+
+// Tab Switching
+document.querySelectorAll('.c-tab').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    document.querySelectorAll('.c-tab').forEach(function(t){t.classList.remove('on');});
+    document.querySelectorAll('.calc-panel').forEach(function(p){p.classList.remove('on');});
+    tab.classList.add('on');
+    var target = document.getElementById('panel-' + tab.dataset.target);
+    if(target) target.classList.add('on');
+  });
+});
+
+// Sync input + slider helper
+function bindSync(inId, rngId, onUpdate){
+  var inp = document.getElementById(inId), rng = document.getElementById(rngId);
+  if(!inp || !rng) return;
+  rng.addEventListener('input', function(){ inp.value = rng.value; onUpdate(); });
+  inp.addEventListener('input', function(){ rng.value = inp.value; onUpdate(); });
+}
+
+// 1. SIP Calculator Engine
+(function(){
+  var circ = 2 * Math.PI * 56; // 351.86
+  function run(){
+    var p = parseFloat(document.getElementById('sip-in-amt').value) || 0;
+    var r = ((parseFloat(document.getElementById('sip-in-rate').value) || 0) / 100) / 12;
+    var y = parseInt(document.getElementById('sip-in-yr').value, 10) || 1;
+    var n = y * 12;
+
+    var fv = p * (((Math.pow(1 + r, n)) - 1) / r) * (1 + r);
+    var inv = p * n;
+    var gain = fv - inv;
+
+    document.getElementById('sip-res-tot').textContent = fmtINR(fv);
+    document.getElementById('sip-res-human').textContent = fmtLakhCr(fv) + ' Total Corpus';
+    document.getElementById('sip-res-inv').textContent = fmtINR(inv);
+    document.getElementById('sip-res-gain').textContent = fmtINR(gain);
+
+    var mult = (fv / (inv || 1)).toFixed(2) + 'x';
+    document.getElementById('sip-mult-lbl').textContent = mult;
+
+    // Donut chart
+    var invPct = inv / fv;
+    var invStroke = invPct * circ;
+    var gainStroke = (1 - invPct) * circ;
+    var dInv = document.getElementById('sip-d-inv');
+    var dGain = document.getElementById('sip-d-gain');
+    if(dInv && dGain){
+      dInv.setAttribute('stroke-dasharray', invStroke + ' ' + (circ - invStroke));
+      dGain.setAttribute('stroke-dasharray', gainStroke + ' ' + (circ - gainStroke));
+      dGain.setAttribute('stroke-dashoffset', -invStroke);
+    }
+
+    // Comparison with 6.5% FD
+    var rFd = (0.065) / 12;
+    var fdFv = p * (((Math.pow(1 + rFd, n)) - 1) / rFd) * (1 + rFd);
+    var diff = fv - fdFv;
+    document.getElementById('sip-comp-text').innerHTML = 'Investing ' + fmtINR(p) + '/mo over ' + y + ' years compounds into <b>' + fmtLakhCr(fv) + '</b>. In a traditional 6.5% deposit, the corpus would be approximately ' + fmtLakhCr(fdFv) + ' (a wealth creation difference of <b>+' + fmtLakhCr(diff) + '</b>).';
+
+    // WhatsApp
+    var waMsg = 'Hi Vikas, I just configured my SIP plan on your website:%0A- Monthly SIP: ' + fmtINR(p) + '%0A- Duration: ' + y + ' Years%0A- Projected Value: ' + fmtLakhCr(fv) + '%0APlease help me select the right mutual fund schemes for this goal.';
+    document.getElementById('sip-wa-link').href = 'https://wa.me/919967129977?text=' + waMsg;
+
+    // Schedule Table
+    var tbody = document.getElementById('sip-sched-body');
+    if(tbody){
+      var rows = '';
+      for(var i = 1; i <= y; i++){
+        var m_i = i * 12;
+        var inv_i = p * m_i;
+        var fv_i = p * (((Math.pow(1 + r, m_i)) - 1) / r) * (1 + r);
+        var gain_i = fv_i - inv_i;
+        rows += '<tr><td>Year ' + i + '</td><td>' + fmtINR(inv_i) + '</td><td style="color:var(--green)">+' + fmtINR(gain_i) + '</td><td><b>' + fmtINR(fv_i) + '</b></td></tr>';
+      }
+      tbody.innerHTML = rows;
+    }
+  }
+
+  bindSync('sip-in-amt', 'sip-rng-amt', run);
+  bindSync('sip-in-rate', 'sip-rng-rate', run);
+  bindSync('sip-in-yr', 'sip-rng-yr', run);
+  run();
+})();
+
+// 2. Step-Up SIP Engine
+(function(){
+  var circ = 2 * Math.PI * 56;
+  function run(){
+    var p = parseFloat(document.getElementById('su-in-amt').value) || 0;
+    var s = (parseFloat(document.getElementById('su-in-step').value) || 0) / 100;
+    var r = ((parseFloat(document.getElementById('su-in-rate').value) || 0) / 100) / 12;
+    var y = parseInt(document.getElementById('su-in-yr').value, 10) || 1;
+
+    var totalInv = 0, fv = 0, currP = p;
+    for(var yr = 0; yr < y; yr++){
+      for(var m = 0; m < 12; m++){
+        var rem = (y * 12) - (yr * 12 + m);
+        fv += currP * Math.pow(1 + r, rem);
+        totalInv += currP;
+      }
+      currP *= (1 + s);
+    }
+    var gain = fv - totalInv;
+
+    var n = y * 12;
+    var regFv = p * (((Math.pow(1 + r, n)) - 1) / r) * (1 + r);
+    var diffPct = Math.round(((fv - regFv) / (regFv || 1)) * 100);
+
+    document.getElementById('su-res-tot').textContent = fmtLakhCr(fv);
+    document.getElementById('su-res-human').textContent = 'With ' + (s * 100).toFixed(0) + '% Annual Increments';
+    document.getElementById('su-res-inv').textContent = fmtINR(totalInv);
+    document.getElementById('su-res-gain').textContent = fmtINR(gain);
+
+    var mult = (fv / (totalInv || 1)).toFixed(2) + 'x';
+    document.getElementById('su-mult-lbl').textContent = mult;
+
+    var invPct = totalInv / fv;
+    var invStroke = invPct * circ;
+    var gainStroke = (1 - invPct) * circ;
+    var dInv = document.getElementById('su-d-inv');
+    var dGain = document.getElementById('su-d-gain');
+    if(dInv && dGain){
+      dInv.setAttribute('stroke-dasharray', invStroke + ' ' + (circ - invStroke));
+      dGain.setAttribute('stroke-dasharray', gainStroke + ' ' + (circ - gainStroke));
+      dGain.setAttribute('stroke-dashoffset', -invStroke);
+    }
+
+    document.getElementById('su-comp-text').innerHTML = 'A standard constant SIP of ' + fmtINR(p) + ' builds ' + fmtLakhCr(regFv) + '. By increasing investments by ' + (s * 100).toFixed(0) + '% every year, your accumulated wealth expands to <b>' + fmtLakhCr(fv) + ' (+' + diffPct + '% more wealth)</b>.';
+
+    var waMsg = 'Hi Vikas, I tested the Step-Up SIP calculator:%0A- Initial Monthly SIP: ' + fmtINR(p) + '%0A- Annual Step-Up: ' + (s * 100).toFixed(0) + '%%0A- Duration: ' + y + ' Years%0A- Projected Wealth: ' + fmtLakhCr(fv) + '%0APlease help me set up a top-up SIP.';
+    document.getElementById('su-wa-link').href = 'https://wa.me/919967129977?text=' + waMsg;
+  }
+
+  bindSync('su-in-amt', 'su-rng-amt', run);
+  bindSync('su-in-step', 'su-rng-step', run);
+  bindSync('su-in-rate', 'su-rng-rate', run);
+  bindSync('su-in-yr', 'su-rng-yr', run);
+  run();
+})();
+
+// 3. Lumpsum Engine
+(function(){
+  var circ = 2 * Math.PI * 56;
+  function run(){
+    var p = parseFloat(document.getElementById('ls-in-amt').value) || 0;
+    var r = (parseFloat(document.getElementById('ls-in-rate').value) || 0) / 100;
+    var y = parseInt(document.getElementById('ls-in-yr').value, 10) || 1;
+
+    var fv = p * Math.pow(1 + r, y);
+    var gain = fv - p;
+    var mult = (fv / (p || 1)).toFixed(2) + 'x';
+
+    document.getElementById('ls-res-tot').textContent = fmtINR(fv);
+    document.getElementById('ls-res-human').textContent = fmtLakhCr(fv) + ' at ' + y + ' Years';
+    document.getElementById('ls-res-inv').textContent = fmtINR(p);
+    document.getElementById('ls-res-gain').textContent = fmtINR(gain);
+    document.getElementById('ls-mult-lbl').textContent = mult;
+
+    var invPct = p / fv;
+    var invStroke = invPct * circ;
+    var gainStroke = (1 - invPct) * circ;
+    var dInv = document.getElementById('ls-d-inv');
+    var dGain = document.getElementById('ls-d-gain');
+    if(dInv && dGain){
+      dInv.setAttribute('stroke-dasharray', invStroke + ' ' + (circ - invStroke));
+      dGain.setAttribute('stroke-dasharray', gainStroke + ' ' + (circ - gainStroke));
+      dGain.setAttribute('stroke-dashoffset', -invStroke);
+    }
+
+    document.getElementById('ls-comp-text').innerHTML = 'Your ' + fmtLakhCr(p) + ' lump-sum multiplies over ' + mult + ' times, earning <b>' + fmtLakhCr(gain) + ' in pure capital growth</b>.';
+
+    var waMsg = 'Hi Vikas, I evaluated a Lumpsum investment plan:%0A- Amount: ' + fmtINR(p) + '%0A- Duration: ' + y + ' Years%0A- Projected Maturity: ' + fmtLakhCr(fv) + '%0APlease guide me on asset allocation.';
+    document.getElementById('ls-wa-link').href = 'https://wa.me/919967129977?text=' + waMsg;
+  }
+
+  bindSync('ls-in-amt', 'ls-rng-amt', run);
+  bindSync('ls-in-rate', 'ls-rng-rate', run);
+  bindSync('ls-in-yr', 'ls-rng-yr', run);
+  run();
+})();
+
+// 4. Retirement Engine
+(function(){
+  function run(){
+    var cur = parseInt(document.getElementById('ret-in-cur').value, 10) || 30;
+    var ret = parseInt(document.getElementById('ret-in-age').value, 10) || 60;
+    if(ret <= cur){ ret = cur + 1; document.getElementById('ret-in-age').value = ret; }
+    var exp = parseFloat(document.getElementById('ret-in-exp').value) || 0;
+    var inf = (parseFloat(document.getElementById('ret-in-inf').value) || 0) / 100;
+    var yrs = ret - cur;
+
+    var futExp = exp * Math.pow(1 + inf, yrs);
+    var corpus = futExp * 12 * 22; // 22x annual expenses
+    var r = 0.12 / 12, n = yrs * 12;
+    var reqSip = corpus / (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+
+    document.getElementById('ret-res-tot').textContent = fmtLakhCr(corpus);
+    document.getElementById('ret-res-fut').textContent = fmtLakhCr(futExp) + '/month';
+    document.getElementById('ret-res-yrs').textContent = yrs + ' Years';
+    document.getElementById('ret-res-sip').textContent = fmtINR(reqSip) + '/mo';
+
+    var waMsg = 'Hi Vikas, I calculated my Retirement Plan on your website:%0A- Current Age: ' + cur + ' | Retirement Age: ' + ret + '%0A- Target Corpus: ' + fmtLakhCr(corpus) + '%0A- Recommended Monthly SIP: ' + fmtINR(reqSip) + '/mo%0ALet\'s review this plan!';
+    document.getElementById('ret-wa-link').href = 'https://wa.me/919967129977?text=' + waMsg;
+  }
+
+  bindSync('ret-in-cur', 'ret-rng-cur', run);
+  bindSync('ret-in-age', 'ret-rng-age', run);
+  bindSync('ret-in-exp', 'ret-rng-exp', run);
+  bindSync('ret-in-inf', 'ret-rng-inf', run);
+  run();
+})();
+
+// 5. Education Engine
+(function(){
+  function run(){
+    var p = parseFloat(document.getElementById('edu-in-amt').value) || 0;
+    var y = parseInt(document.getElementById('edu-in-yr').value, 10) || 1;
+    var inf = (parseFloat(document.getElementById('edu-in-inf').value) || 0) / 100;
+
+    var futCost = p * Math.pow(1 + inf, y);
+    var r = 0.12 / 12, n = y * 12;
+    var reqSip = futCost / (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+
+    document.getElementById('edu-res-tot').textContent = fmtLakhCr(futCost);
+    document.getElementById('edu-res-target').textContent = fmtLakhCr(futCost);
+    document.getElementById('edu-res-sip').textContent = fmtINR(reqSip) + '/mo';
+
+    var waMsg = 'Hi Vikas, I calculated my Child Higher Education Fund:%0A- Cost Today: ' + fmtLakhCr(p) + '%0A- Years to Admission: ' + y + ' Yrs%0A- Future Inflated Cost: ' + fmtLakhCr(futCost) + '%0A- Required Monthly SIP: ' + fmtINR(reqSip) + '/mo%0APlease help me set this up.';
+    document.getElementById('edu-wa-link').href = 'https://wa.me/919967129977?text=' + waMsg;
+  }
+
+  bindSync('edu-in-amt', 'edu-rng-amt', run);
+  bindSync('edu-in-yr', 'edu-rng-yr', run);
+  bindSync('edu-in-inf', 'edu-rng-inf', run);
+  run();
+})();
+
+// 6. Cost of Delay Engine
+(function(){
+  function run(){
+    var p = parseFloat(document.getElementById('del-in-amt').value) || 0;
+    var y = parseInt(document.getElementById('del-in-yr').value, 10) || 5;
+    var delay = parseInt(document.getElementById('del-in-per').value, 10) || 1;
+    if(delay >= y){ delay = y - 1; document.getElementById('del-in-per').value = delay; }
+
+    var r = 0.12 / 12;
+    var n1 = y * 12;
+    var fv1 = p * (((Math.pow(1 + r, n1)) - 1) / r) * (1 + r);
+
+    var n2 = (y - delay) * 12;
+    var fv2 = p * (((Math.pow(1 + r, n2)) - 1) / r) * (1 + r);
+    var loss = fv1 - fv2;
+
+    document.getElementById('del-res-loss').textContent = fmtLakhCr(loss);
+    document.getElementById('del-res-net').textContent = fmtLakhCr(loss);
+    document.getElementById('del-res-on').textContent = fmtLakhCr(fv1);
+    document.getElementById('del-res-del').textContent = fmtLakhCr(fv2);
+
+    var waMsg = 'Hi Vikas, I checked the Cost of Delay Analyzer:%0A- Planned Monthly SIP: ' + fmtINR(p) + ' for ' + y + ' yrs%0A- Delaying by ' + delay + ' yrs loses ' + fmtLakhCr(loss) + ' in wealth!%0AI would like to start immediately without delaying.';
+    document.getElementById('del-wa-link').href = 'https://wa.me/919967129977?text=' + waMsg;
+  }
+
+  bindSync('del-in-amt', 'del-rng-amt', run);
+  bindSync('del-in-yr', 'del-rng-yr', run);
+  bindSync('del-in-per', 'del-rng-per', run);
+  run();
+})();
+</script>
+</body>
+</html>
