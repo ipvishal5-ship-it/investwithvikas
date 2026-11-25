@@ -18,37 +18,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
 <style>
-/* Standardized Luxury Sticky Header & Nav */
-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
-.brand img{height:40px;width:auto;display:block}
-.bn{font:700 19px/1.1 'Montserrat',sans-serif;letter-spacing:-.01em;color:var(--navy)}
-.bt{font:700 9.5px 'DM Sans',sans-serif;letter-spacing:1.5px;color:var(--green);text-transform:uppercase;margin-top:3px}
-
-nav{display:flex;align-items:center;gap:18px;flex-shrink:0}
-nav a{text-decoration:none;color:var(--mut);font-weight:600;font-size:14.5px;white-space:nowrap;transition:color .2s}
-nav a:hover,nav a.active{color:var(--navy)}
-
-.nav-item{position:relative}
-.nav-item>a{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
-.nav-item svg.arr{width:9px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .2s}
-.nav-item:hover svg.arr{transform:rotate(180deg)}
-.drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:275px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 16px 36px -10px rgba(6,40,110,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:70;display:grid;gap:2px}
-.nav-item:hover .drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
-.drop-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);transition:background .2s}
-.drop-menu a:hover{background:var(--soft)}
-.drop-menu a.active{background:var(--accent)}
-.drop-menu a b{display:block;font-size:13.5px;color:var(--navy);line-height:1.2;white-space:nowrap}
-.drop-menu a small{display:block;font-size:11.5px;color:var(--mut);font-weight:400;white-space:nowrap}
-.drop-ico{width:28px;height:28px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex-shrink:0}
-.drop-ico svg{width:15px;height:15px;stroke:var(--g2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;border:1px solid transparent;cursor:pointer}
-.btn.sm{padding:8px 18px;font-size:13.5px}
-.btn.pri{background:var(--green);color:#fff;border-color:var(--green)}
-.btn.pri:hover{background:var(--g2);border-color:var(--g2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(6,138,66,.25)}
-
 :root{--navy:#06286E;--green:#068A42;--g2:#067A3A;--ink:#0B1B3A;--mut:#4A5568;--line:#DCE3EF;--soft:#F4F7FC;color-scheme:light}
 html{scroll-behavior:smooth;scroll-padding-top:150px}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:#fff;color:var(--ink);font:400 17px/1.65 'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -156,71 +125,183 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 .wa-float:hover{transform:scale(1.08);box-shadow:0 12px 30px rgba(37,211,102,.5)}
 .wa-float svg{width:30px;height:30px;fill:currentColor}
 </style>
+<style id="site-header-css">
+/* Designer-Crafted Institutional Sticky Header & Segmented Navigation */
+.site-header{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(214,224,238,.85);transition:box-shadow .25s ease}
+.site-header.scrolled{box-shadow:0 8px 30px -10px rgba(3,23,68,.12)}
+.sh-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-sizing:border-box}
+
+/* Brand Signature */
+.sh-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.sh-brand img{height:38px;width:auto;display:block;border:none!important;border-radius:0!important;object-fit:contain!important;background:transparent!important}
+.sh-brand-txt{display:flex;flex-direction:column;justify-content:center}
+.sh-bn{font:700 18.5px/1.1 'Montserrat',-apple-system,sans-serif;letter-spacing:-.02em;color:#031744;margin:0}
+.sh-bt{font:700 9.5px/1.2 'DM Sans',-apple-system,sans-serif;letter-spacing:1.3px;color:#068A42;text-transform:uppercase;margin-top:3px;white-space:nowrap}
+.sh-bt span{color:#4E6180;font-weight:600;letter-spacing:.9px}
+
+/* Center Segmented Navigation Dock */
+.sh-nav{display:inline-flex;align-items:center;gap:4px;background:#F4F7FB;border:1px solid #DCE5F2;padding:4px;border-radius:999px;position:relative}
+.sh-link{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:999px;font:600 14px/1.2 'DM Sans',-apple-system,sans-serif;color:#475569;text-decoration:none;white-space:nowrap;transition:color .18s ease,background .18s ease,box-shadow .18s ease;cursor:pointer;border:none;background:transparent}
+.sh-link:hover{color:#031744;background:rgba(255,255,255,.65)}
+.sh-link.is-active{color:#031744;background:#FFFFFF;font-weight:700;box-shadow:0 2px 8px rgba(3,23,68,.08)}
+
+/* Investor Zone Vertical Dropdown */
+.sh-drop-wrap{position:relative;display:inline-flex}
+.sh-drop-wrap::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px;background:transparent}
+.sh-dot{width:6px;height:6px;border-radius:50%;background:#068A42;display:inline-block;flex-shrink:0}
+.sh-arr{width:10px;height:6px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease;flex-shrink:0}
+.sh-drop-wrap:hover .sh-arr,.sh-drop-wrap:focus-within .sh-arr{transform:rotate(180deg)}
+.sh-drop-wrap:hover>.sh-link{color:#031744;background:#FFFFFF;box-shadow:0 2px 8px rgba(3,23,68,.08)}
+
+.sh-drop-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);width:316px;background:#FFFFFF;border:1px solid #DCE5F2;border-radius:18px;padding:8px;box-shadow:0 22px 46px -12px rgba(3,23,68,.2),0 4px 14px rgba(3,23,68,.05);opacity:0;pointer-events:none;transition:opacity .2s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1);z-index:130;display:grid;gap:2px}
+.sh-drop-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:11px;height:11px;background:#FFFFFF;border-left:1px solid #DCE5F2;border-top:1px solid #DCE5F2;z-index:-1}
+.sh-drop-wrap:hover .sh-drop-menu,.sh-drop-wrap:focus-within .sh-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+
+.sh-drop-lbl{font:700 10px/1 'DM Sans',-apple-system,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:#64748B;padding:6px 12px 6px}
+.sh-drop-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;text-decoration:none;color:#0B1B3D;transition:background .16s ease,transform .16s ease}
+.sh-drop-item:hover{background:#F4F7FB}
+.sh-drop-item.is-active{background:#E7F6EE}
+.sh-drop-ico{width:34px;height:34px;border-radius:10px;background:#E7F6EE;display:grid;place-items:center;flex-shrink:0;transition:background .16s ease}
+.sh-drop-ico svg{width:16px;height:16px;stroke:#056832;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .16s ease}
+.sh-drop-item:hover .sh-drop-ico{background:#031744}
+.sh-drop-item:hover .sh-drop-ico svg{stroke:#9BE8B8}
+.sh-drop-txt{flex:1;min-width:0}
+.sh-drop-txt b{display:block;font:700 13.5px/1.25 'DM Sans',-apple-system,sans-serif;color:#031744;white-space:nowrap}
+.sh-drop-txt small{display:block;font:500 11.5px/1.3 'DM Sans',-apple-system,sans-serif;color:#4E6180;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-drop-chev{width:14px;height:14px;stroke:#94A3B8;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:translateX(-4px);transition:opacity .16s ease,transform .16s ease;flex-shrink:0}
+.sh-drop-item:hover .sh-drop-chev{opacity:1;transform:translateX(0);stroke:#031744}
+
+/* Right Action Cluster */
+.sh-actions{display:inline-flex;align-items:center;gap:10px;flex-shrink:0}
+.sh-cta{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:999px;background:#068A42;color:#FFFFFF!important;font:700 13.5px/1 'DM Sans',-apple-system,sans-serif;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px -2px rgba(6,138,66,.35);transition:background .18s ease,transform .18s ease,box-shadow .18s ease}
+.sh-cta:hover{background:#056832;transform:translateY(-1px);box-shadow:0 8px 20px -4px rgba(6,138,66,.45)}
+.sh-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease}
+.sh-cta:hover svg{transform:translateX(2px)}
+
+/* Mobile Drawer Toggle */
+.sh-mob-btn{display:none;width:40px;height:40px;border-radius:10px;border:1px solid #DCE5F2;background:#F4F7FB;color:#031744;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .15s}
+.sh-mob-btn:hover{background:#E2E8F0}
+.sh-mob-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round}
+
+.sh-mob-drawer{display:none;background:#FFFFFF;border-top:1px solid #E2E8F0;padding:14px 20px 20px;box-shadow:0 16px 32px rgba(3,23,68,.12)}
+.sh-mob-drawer.open{display:block}
+.sh-mob-list{display:grid;gap:4px}
+.sh-mob-link{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:10px;text-decoration:none;font:600 15px 'DM Sans',sans-serif;color:#031744}
+.sh-mob-link:hover,.sh-mob-link.is-active{background:#F4F7FB;color:#068A42}
+.sh-mob-sec{font:700 10.5px 'DM Sans',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#64748B;padding:10px 12px 4px}
+.sh-mob-sub{display:grid;gap:2px;padding-left:8px;border-left:2px solid #E7F6EE;margin-left:12px;margin-bottom:6px}
+.sh-mob-sub a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font:600 14px 'DM Sans',sans-serif;color:#334155}
+.sh-mob-sub a:hover,.sh-mob-sub a.is-active{background:#E7F6EE;color:#056832}
+
+@media(max-width:860px){
+  .sh-inner{height:66px;padding:0 16px}
+  .sh-nav{display:none!important}
+  .sh-mob-btn{display:inline-flex}
+  .sh-cta{padding:9px 15px;font-size:13px}
+  .sh-bt span{display:none}
+}
+</style>
 </head>
 <body>
 <!-- Header -->
-<header><div class="w">
-  <a class="brand" href="index.html">
-    <img src="logo.png" alt="Vikas Agarwal Logo">
-    <div>
-      <div class="bn">Vikas Agarwal</div>
-      <div class="bt">Mutual Fund Distributor</div>
-    </div>
-  </a>
-
-  <nav>
-    <a href="index.html">Home</a>
-    
-    <!-- Investor Zone Dropdown -->
-    <div class="nav-item">
-      <a href="javascript:void(0)">
-        <span>Investor Zone</span>
-        <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
-      </a>
-      <div class="drop-menu">
-        <a href="mf-tools.html">
-          <div class="drop-ico">
-            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-          </div>
-          <div>
-            <b>MF Tools &amp; Research</b>
-            <small>Live NAVs, past SIP &amp; tax analyzer</small>
-          </div>
-        </a>
-        <a href="calculators.html">
-          <div class="drop-ico">
-            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
-          </div>
-          <div>
-            <b>Financial Calculators</b>
-            <small>SIP, step-up, lumpsum &amp; delay</small>
-          </div>
-        </a>
-        <a href="kyc.html">
-          <div class="drop-ico">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <div>
-            <b>KYC Verification Hub</b>
-            <small>Verify PAN status across 5 KRAs</small>
-          </div>
-        </a>
-        <a href="mf-forms.html">
-          <div class="drop-ico">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <div>
-            <b>MF Forms &amp; Slips</b>
-            <small>14 standardized mutual fund slips</small>
-          </div>
-        </a>
+<header class="site-header" id="siteHeader">
+  <div class="sh-inner">
+    <a class="sh-brand" href="index.html">
+      <img src="logo.png" alt="Vikas Agarwal Logo">
+      <div class="sh-brand-txt">
+        <div class="sh-bn">Vikas Agarwal</div>
+        <div class="sh-bt">Mutual Fund Distributor <span>· ARN-40434</span></div>
       </div>
-    </div>
+    </a>
 
-    <a href="index.html#about">About</a>
-    <a class="btn pri sm" href="index.html#contact">Get in Touch</a>
-  </nav>
-</div></header>
+    <nav class="sh-nav" aria-label="Main Navigation">
+      <a href="index.html" class="sh-link">Home</a>
+
+      <div class="sh-drop-wrap">
+        <a href="javascript:void(0)" class="sh-link" aria-haspopup="true">
+          <span>Investor Zone</span>
+          <svg class="sh-arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
+        </a>
+        <div class="sh-drop-menu" role="menu">
+          <div class="sh-drop-lbl">Investor Tools</div>
+          <a href="mf-tools.html" class="sh-drop-item" role="menuitem">
+            <div class="sh-drop-ico">
+              <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <div class="sh-drop-txt">
+              <b>MF Tools &amp; Research</b>
+              <small>Live NAVs, past SIP &amp; tax analyzer</small>
+            </div>
+            <svg class="sh-drop-chev" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+          <a href="calculators.html" class="sh-drop-item" role="menuitem">
+            <div class="sh-drop-ico">
+              <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
+            </div>
+            <div class="sh-drop-txt">
+              <b>Financial Calculators</b>
+              <small>SIP, step-up, lumpsum &amp; delay</small>
+            </div>
+            <svg class="sh-drop-chev" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+          <a href="kyc.html" class="sh-drop-item" role="menuitem">
+            <div class="sh-drop-ico">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="sh-drop-txt">
+              <b>KYC Verification Hub</b>
+              <small>Verify PAN status across 5 KRAs</small>
+            </div>
+            <svg class="sh-drop-chev" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+          <a href="mf-forms.html" class="sh-drop-item" role="menuitem">
+            <div class="sh-drop-ico">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="sh-drop-txt">
+              <b>MF Forms &amp; Slips</b>
+              <small>14 standardized mutual fund slips</small>
+            </div>
+            <svg class="sh-drop-chev" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <a href="index.html#about" class="sh-link">About</a>
+    </nav>
+
+    <div class="sh-actions">
+      <a class="sh-cta" href="index.html#contact">
+        <span>Get in Touch</span>
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <button type="button" class="sh-mob-btn" id="shMobBtn" aria-label="Toggle Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="sh-mob-drawer" id="shMobDrawer">
+    <div class="sh-mob-list">
+      <a href="index.html" class="sh-mob-link">Home</a>
+      <div class="sh-mob-sec">Investor Zone</div>
+      <div class="sh-mob-sub">
+        <a href="mf-tools.html" class="">MF Tools &amp; Research</a>
+        <a href="calculators.html" class="">Financial Calculators</a>
+        <a href="kyc.html" class="">KYC Verification Hub</a>
+        <a href="mf-forms.html" class="">MF Forms &amp; Slips</a>
+      </div>
+      <a href="index.html#about" class="sh-mob-link">About</a>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  var h=document.getElementById('siteHeader'),b=document.getElementById('shMobBtn'),d=document.getElementById('shMobDrawer');
+  if(h){window.addEventListener('scroll',function(){if(window.scrollY>10)h.classList.add('scrolled');else h.classList.remove('scrolled');},{passive:true});}
+  if(b&&d){b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});}
+})();
+</script>
 
 <div class="hero"><div class="w">
 <div><div class="crumb"><i></i><span>Commission Disclosures</span></div>
