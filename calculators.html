@@ -31,7 +31,7 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var
 .w{max-width:1180px;margin:0 auto;padding:0 24px}
 
 /* Header */
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
 .brand img{height:38px;width:auto}
@@ -251,7 +251,7 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40
   .ft{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:640px){
-  header .w{padding:0 16px}
+  header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
   nav{display:none}
   .c-nav{grid-template-columns:repeat(2,1fr)}
   .calc-shell{padding:22px 16px}
@@ -263,33 +263,73 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40
 </head>
 <body>
 
+<!-- Header -->
 <header><div class="w">
   <a class="brand" href="index.html">
-    <img alt="Vikas Agarwal" src="logo.png">
+    <img src="logo.png" alt="Vikas Agarwal Logo">
     <div>
       <div class="bn">Vikas Agarwal</div>
-      <div class="bt">MUTUAL FUND DISTRIBUTOR</div>
+      <div class="bt">Mutual Fund Distributor</div>
     </div>
   </a>
+
   <nav>
+    <a href="index.html">Home</a>
     <a href="index.html#goals">Goals</a>
-    <a href="index.html#how">How it works</a>
+    <a href="index.html#how">How It Works</a>
+    
+    <!-- Investor Zone Dropdown -->
     <div class="nav-item">
-      <a href="calculators.html" class="active">Investor Zone <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+      <a href="javascript:void(0)" class="active">
+        <span>Investor Zone</span>
+        <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
+      </a>
       <div class="drop-menu">
-        <a href="calculators.html" class="active"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
-        <a href="kyc.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
-        <a href="mf-forms.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><div><b>MF Forms &amp; Downloads</b><small>Common Transaction &amp; Service Slips</small></div></a>
-        <a href="mf-tools.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><div><b>MF Tools &amp; Research</b><small>NAV, Factsheets &amp; Performance</small></div></a>
-        <a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
+        <a href="mf-tools.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>
+            <b>MF Tools &amp; Research</b>
+            <small>Live NAVs, past SIP &amp; tax analyzer</small>
+          </div>
+        </a>
+        <a href="calculators.html" class="active">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
+          </div>
+          <div>
+            <b>Financial Calculators</b>
+            <small>SIP, step-up, lumpsum &amp; delay</small>
+          </div>
+        </a>
+        <a href="kyc.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <b>KYC Verification Hub</b>
+            <small>Verify PAN status across 5 KRAs</small>
+          </div>
+        </a>
+        <a href="mf-forms.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <b>MF Forms &amp; Slips</b>
+            <small>14 standardized mutual fund slips</small>
+          </div>
+        </a>
       </div>
     </div>
+
     <a href="index.html#about">About</a>
-    <a href="how-i-earn.html">Disclosures</a>
+    <a href="how-i-earn.html">How I Earn</a>
+    <a href="disclosures.html">Disclosures</a>
     <a href="index.html#faq">FAQ</a>
-    <a href="index.html#contact">Contact</a>
+    <a class="btn pri sm" href="index.html#contact">Get in Touch</a>
   </nav>
-  <a class="btn sm pri" href="tel:+919967129977">Call now</a>
 </div></header>
 
 <div class="calc-hero">
@@ -878,7 +918,7 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40
         <li><a href="kyc.html">KYC Verification Hub</a></li>
         <li><a href="mf-forms.html">MF Forms &amp; Downloads</a></li>
         <li><a href="mf-tools.html">MF Tools &amp; Research</a></li>
-        <li><a href="index.html#investor-zone">Client Login Portals</a></li>
+        
       </ul>
     </div>
     <div>

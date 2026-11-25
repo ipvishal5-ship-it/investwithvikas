@@ -32,7 +32,7 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var
 .w{max-width:1180px;margin:0 auto;padding:0 24px}
 
 /* Header */
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
 .brand img{height:38px;width:auto}
@@ -212,34 +212,65 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;font-size:14px}
     <img src="logo.png" alt="Vikas Agarwal Logo">
     <div>
       <div class="bn">Vikas Agarwal</div>
-      <div class="bt">AMFI Registered MFD</div>
+      <div class="bt">Mutual Fund Distributor</div>
     </div>
   </a>
+
   <nav>
-    <a href="index.html#about">About</a>
-    <a href="index.html#services">Services</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#goals">Goals</a>
+    <a href="index.html#how">How It Works</a>
+    
+    <!-- Investor Zone Dropdown -->
     <div class="nav-item">
-      <a class="active" href="javascript:void(0)">Investor Zone <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+      <a href="javascript:void(0)" class="active">
+        <span>Investor Zone</span>
+        <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
+      </a>
       <div class="drop-menu">
-        <a class="active" href="mf-forms.html">
-          <div class="drop-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div><b>MF Forms &amp; Slips</b><small>Standardized AMFI &amp; AMC PDFs</small></div>
+        <a href="mf-tools.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>
+            <b>MF Tools &amp; Research</b>
+            <small>Live NAVs, past SIP &amp; tax analyzer</small>
+          </div>
         </a>
         <a href="calculators.html">
-          <div class="drop-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg></div>
-          <div><b>Financial Calculators</b><small>SIP, Step-Up, Lumpsum &amp; Delay</small></div>
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
+          </div>
+          <div>
+            <b>Financial Calculators</b>
+            <small>SIP, step-up, lumpsum &amp; delay</small>
+          </div>
         </a>
         <a href="kyc.html">
-          <div class="drop-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><b>KYC Verification Hub</b><small>Verify Across All 5 KRAs</small></div>
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <b>KYC Verification Hub</b>
+            <small>Verify PAN status across 5 KRAs</small>
+          </div>
         </a>
-        <a href="mf-tools.html">
-          <div class="drop-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-          <div><b>MF Tools &amp; Research</b><small>Live NAV, Past SIP &amp; Tax Analyzer</small></div>
+        <a href="mf-forms.html" class="active">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <b>MF Forms &amp; Slips</b>
+            <small>14 standardized mutual fund slips</small>
+          </div>
         </a>
       </div>
     </div>
-    <a href="index.html#contact">Contact</a>
+
+    <a href="index.html#about">About</a>
+    <a href="how-i-earn.html">How I Earn</a>
+    <a href="disclosures.html">Disclosures</a>
+    <a href="index.html#faq">FAQ</a>
     <a class="btn pri sm" href="index.html#contact">Get in Touch</a>
   </nav>
 </div></header>

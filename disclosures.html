@@ -26,8 +26,8 @@ body{background:#fff;color:var(--ink);font:400 17px/1.7 'DM Sans',sans-serif;-we
 a{color:var(--green);text-decoration:none;font-weight:700;transition:color .2s}
 a:hover{color:var(--green-dim)}img{max-width:100%;display:block}
 
-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-header .w{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy)}
 .brand img{width:40px;height:40px;border-radius:10px;object-fit:cover;border:1px solid var(--line)}
 .brand b{font:700 18px/1 'DM Sans',sans-serif;letter-spacing:-.2px}
@@ -116,7 +116,7 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
 .wa{position:fixed;bottom:26px;right:26px;z-index:100;background:#25D366;color:#fff;text-decoration:none;font:700 15px 'DM Sans',sans-serif;padding:12px 20px;border-radius:999px;box-shadow:0 8px 24px rgba(37,211,102,.38);display:flex;align-items:center;gap:8px;transition:all .2s}
 .wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,211,102,.5)}
 @media(max-width:860px){nav{display:none}.doc-card{padding:26px 22px}.ft{grid-template-columns:1fr;gap:34px}.step{flex-direction:column;gap:12px;align-items:flex-start}.step .num{align-self:flex-start}.btn-group{flex-direction:column}.btn-group .btn{width:100%}}
-@media(max-width:600px){.w{padding:0 16px}header .w{height:62px}.brand img{height:34px}.brand b{font-size:16.5px}.btn.sm{padding:7px 12px;font-size:13px;white-space:nowrap}.page-hero{padding:36px 0 28px}.page-hero h1{font-size:clamp(26px,6vw,34px);line-height:1.2;margin-bottom:12px}.page-hero p.lead{font-size:15.5px;line-height:1.55;margin-bottom:16px}.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.stat{padding:10px 12px;border-radius:10px}.stat b{font-size:14.5px}.stat span{font-size:11.5px}.section{padding:32px 0}.section-head{margin-bottom:20px}.section-title{font-size:clamp(22px,5vw,26px);line-height:1.25}.section-desc{font-size:14.5px}.doc-card{padding:18px 14px;border-radius:14px;margin-bottom:20px}.doc-card h2{font-size:20px;margin:20px 0 10px}.doc-card h3{font-size:16px;margin:16px 0 8px}.doc-card p,.doc-card ul{font-size:14.5px;line-height:1.6}.doc-card ul{margin-left:18px}.checklist li{padding-left:26px;font-size:14px;word-break:break-word}.checklist li::before{width:16px;height:16px;top:4px}.step{padding:16px 14px;border-radius:12px;gap:12px}.step .num{width:32px;height:32px;font-size:15px;border-radius:8px}.step .txt h4{font-size:15.5px}.step .txt p{font-size:13.5px}.step .txt a{word-break:break-all}.notice-box{padding:18px 14px;border-radius:12px}.notice-box b{font-size:16.5px}.risk-banner{padding:16px 14px;border-radius:12px;font-size:13.5px}footer{padding:36px 0 90px}.ft{gap:24px}.wa{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:10px 16px;font-size:13.5px}}
+@media(max-width:600px){.w{padding:0 16px}header .w{display:flex;align-items:center;justify-content:space-between;height:72px}.brand img{height:34px}.brand b{font-size:16.5px}.btn.sm{padding:7px 12px;font-size:13px;white-space:nowrap}.page-hero{padding:36px 0 28px}.page-hero h1{font-size:clamp(26px,6vw,34px);line-height:1.2;margin-bottom:12px}.page-hero p.lead{font-size:15.5px;line-height:1.55;margin-bottom:16px}.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.stat{padding:10px 12px;border-radius:10px}.stat b{font-size:14.5px}.stat span{font-size:11.5px}.section{padding:32px 0}.section-head{margin-bottom:20px}.section-title{font-size:clamp(22px,5vw,26px);line-height:1.25}.section-desc{font-size:14.5px}.doc-card{padding:18px 14px;border-radius:14px;margin-bottom:20px}.doc-card h2{font-size:20px;margin:20px 0 10px}.doc-card h3{font-size:16px;margin:16px 0 8px}.doc-card p,.doc-card ul{font-size:14.5px;line-height:1.6}.doc-card ul{margin-left:18px}.checklist li{padding-left:26px;font-size:14px;word-break:break-word}.checklist li::before{width:16px;height:16px;top:4px}.step{padding:16px 14px;border-radius:12px;gap:12px}.step .num{width:32px;height:32px;font-size:15px;border-radius:8px}.step .txt h4{font-size:15.5px}.step .txt p{font-size:13.5px}.step .txt a{word-break:break-all}.notice-box{padding:18px 14px;border-radius:12px}.notice-box b{font-size:16.5px}.risk-banner{padding:16px 14px;border-radius:12px;font-size:13.5px}footer{padding:36px 0 90px}.ft{gap:24px}.wa{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:10px 16px;font-size:13.5px}}
 
 .nav-item{position:relative}
 .nav-item>a{display:inline-flex;align-items:center;gap:5px}
@@ -136,24 +136,74 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:72px 0 40
 </style>
 </head>
 <body>
-<header><div class="w"><a class="brand" href="index.html"><img alt="Vikas Agarwal" src="logo.png"><b>Vikas Agarwal</b></a><nav>
-<a href="index.html#goals">Goals</a>
-<a href="index.html#how">How it works</a>
-<div class="nav-item">
-<a href="calculators.html">Investor Zone <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
-<div class="drop-menu">
-<a href="calculators.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg></span><div><b>Financial Calculators</b><small>SIP, Step-Up, Retirement, Goals</small></div></a>
-<a href="kyc.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><b>KYC Verification Hub</b><small>CVL, CAMS, NSE, CKYC Status</small></div></a>
-<a href="mf-forms.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><div><b>MF Forms &amp; Downloads</b><small>Common Transaction &amp; Service Slips</small></div></a>
-<a href="mf-tools.html"><span class="drop-ico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><div><b>MF Tools &amp; Research</b><small>NAV, Factsheets &amp; Performance</small></div></a>
-<a href="index.html#investor-zone"><span class="drop-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><div><b>Client Login Hub</b><small>MF Central, myCAMS, KFinKart</small></div></a>
-</div>
-</div>
-<a href="index.html#about">About</a>
-<a href="how-i-earn.html">Disclosures</a>
-<a href="index.html#faq">FAQ</a>
-<a href="index.html#contact">Contact</a>
-</nav><a class="btn sm" href="tel:+919967129977">Call now</a></div></header>
+<!-- Header -->
+<header><div class="w">
+  <a class="brand" href="index.html">
+    <img src="logo.png" alt="Vikas Agarwal Logo">
+    <div>
+      <div class="bn">Vikas Agarwal</div>
+      <div class="bt">Mutual Fund Distributor</div>
+    </div>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#goals">Goals</a>
+    <a href="index.html#how">How It Works</a>
+    
+    <!-- Investor Zone Dropdown -->
+    <div class="nav-item">
+      <a href="javascript:void(0)" class="">
+        <span>Investor Zone</span>
+        <svg class="arr" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
+      </a>
+      <div class="drop-menu">
+        <a href="mf-tools.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>
+            <b>MF Tools &amp; Research</b>
+            <small>Live NAVs, past SIP &amp; tax analyzer</small>
+          </div>
+        </a>
+        <a href="calculators.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
+          </div>
+          <div>
+            <b>Financial Calculators</b>
+            <small>SIP, step-up, lumpsum &amp; delay</small>
+          </div>
+        </a>
+        <a href="kyc.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <b>KYC Verification Hub</b>
+            <small>Verify PAN status across 5 KRAs</small>
+          </div>
+        </a>
+        <a href="mf-forms.html">
+          <div class="drop-ico">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <b>MF Forms &amp; Slips</b>
+            <small>14 standardized mutual fund slips</small>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <a href="index.html#about">About</a>
+    <a href="how-i-earn.html">How I Earn</a>
+    <a href="disclosures.html" active>Disclosures</a>
+    <a href="index.html#faq">FAQ</a>
+    <a class="btn pri sm" href="index.html#contact">Get in Touch</a>
+  </nav>
+</div></header>
 <div class="page-hero"><div class="w"><div class="eb">Compliance & Disclosures</div><h1>Regulatory Disclosures &amp; Grievance Redressal</h1><p class="lead">Vikas Agarwal is an AMFI-registered Mutual Fund Distributor who follows the codes of conduct set by SEBI and AMFI. This page sets out his registration details, escalation matrix, code of conduct and risk disclosures.</p><div class="stat-row"><div class="stat"><b>ARN-40434</b><span>AMFI Registration</span></div><div class="stat"><b>E375656</b><span>EUIN</span></div><div class="stat"><b>NISM V-A</b><span>Certified Distributor</span></div><div class="stat"><b>Valid till 07 Aug 2027</b><span>Registration Validity</span></div></div></div></div>
 
 <div class="content-body"><div class="w">
