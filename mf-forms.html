@@ -190,18 +190,18 @@ nav a:hover,nav a.active{color:var(--navy)}
 .gen-frame-bar a:hover{text-decoration:underline}
 
 /* Modal PDF Previewer */
-.modal-overlay{position:fixed;inset:0;background:rgba(3,23,68,.75);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .2s}
+.modal-overlay{position:fixed;inset:0;background:rgba(3,23,68,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);z-index:99999;display:none;align-items:center;justify-content:center;padding:24px 20px;opacity:0;transition:opacity .2s}
 .modal-overlay.active{display:flex;opacity:1}
-.modal-window{background:#fff;border-radius:20px;width:100%;max-width:1020px;height:90vh;max-height:860px;display:flex;flex-direction:column;box-shadow:0 28px 60px -15px rgba(0,0,0,.45);overflow:hidden;animation:modalZoom .25s ease-out}
+.modal-window{background:#fff;border-radius:20px;width:100%;max-width:1040px;height:90vh;max-height:860px;display:flex;flex-direction:column;box-shadow:0 30px 80px -15px rgba(0,0,0,.6);overflow:hidden;animation:modalZoom .25s ease-out;position:relative;z-index:100000}
 @keyframes modalZoom{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
 
-.modal-hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--line);background:#fff}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--line);background:#fff;flex-shrink:0;position:relative;z-index:10}
 .modal-title-wrap{display:flex;align-items:center;gap:12px;overflow:hidden}
 .modal-title-wrap svg{width:22px;height:22px;stroke:var(--navy);fill:none;stroke-width:2;flex-shrink:0}
 .modal-title-wrap h3{font:700 17px 'DM Sans',sans-serif;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .modal-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
 
-.modal-close-btn{width:34px;height:34px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;color:var(--mut);transition:all .15s}
+.modal-close-btn{width:38px;height:38px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;color:var(--navy);transition:all .15s;flex-shrink:0}
 .modal-close-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
 .modal-close-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5}
 
@@ -245,7 +245,7 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;font-size:14px}
   .filter-pills{width:100%;overflow-x:auto}
   .gen-frame-wrap{min-height:550px}
   .gen-frame-wrap iframe{height:550px}
-  .modal-window{height:96vh;max-height:none;border-radius:14px}
+  .modal-overlay{padding:12px}.modal-window{height:94vh;max-height:none;border-radius:14px}.modal-hdr{padding:12px 16px}
 }
 </style>
 <style id="site-header-css">
@@ -686,14 +686,14 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;font-size:14px}
     <div class="forms-grid" id="formsGrid">
 
       <!-- Form 1: HDFC Common Transaction Slip -->
-      <div class="form-card" data-category="transaction" data-title="common transaction slip purchase switch redemption stp swp" data-file="forms/HDFC_Common_Transaction_Slip.pdf">
+      <div class="form-card" data-category="transaction" data-title="hdfc mutual fund common transaction slip purchase switch redemption stp swp" data-file="forms/HDFC_Common_Transaction_Slip.pdf">
         <div>
           <div class="fc-head">
-            <span class="fc-cat">Transaction</span>
+            <span class="fc-cat">HDFC Mutual Fund</span>
             <span class="fc-meta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> 524 KB · 2 Pgs</span>
           </div>
-          <h3>Common Transaction Slip (Purchase / Switch / Redemption)</h3>
-          <p class="desc">Standard physical transaction slip for executing additional investments, switching units between mutual fund schemes, or initiating partial/full redemptions and systematic transfers.</p>
+          <h3>HDFC Mutual Fund · Common Transaction Slip</h3>
+          <p class="desc">Official physical transaction request slip for HDFC Mutual Fund folios for executing additional purchases, switching units between schemes, or initiating redemptions and systematic transfers.</p>
           <div class="req-box">
             <div class="req-lbl"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Key Submission Requirements</div>
             <ul class="req-list">
@@ -704,8 +704,8 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;font-size:14px}
           </div>
         </div>
         <div class="fc-actions">
-          <button class="btn sec sm preview-btn" data-pdf="forms/HDFC_Common_Transaction_Slip.pdf" data-name="Common Transaction Slip">Preview PDF</button>
-          <a class="btn pri sm" href="forms/HDFC_Common_Transaction_Slip.pdf" download="Common_Transaction_Slip.pdf">Download</a>
+          <button class="btn sec sm preview-btn" data-pdf="forms/HDFC_Common_Transaction_Slip.pdf" data-name="HDFC Mutual Fund · Common Transaction Slip">Preview PDF</button>
+          <a class="btn pri sm" href="forms/HDFC_Common_Transaction_Slip.pdf" download="HDFC_Common_Transaction_Slip.pdf">Download</a>
         </div>
       </div>
 
