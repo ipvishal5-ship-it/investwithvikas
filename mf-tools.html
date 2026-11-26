@@ -1062,6 +1062,16 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
               <b id="taxStatBase" style="color:var(--mint)">₹9,375</b>
             </div>
           </div>
+
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <a class="btn wa sm" id="tax-wa-link" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20have%20a%20query%20regarding%20Mutual%20Fund%20Capital%20Gains%20Tax%20and%20Tax-Saving%20ELSS%20investments." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align:middle"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+              <span>Consult on WhatsApp</span>
+            </a>
+            <a class="btn sec sm" href="calculators.html?tool=sip" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)">
+              <span>Explore SIP Calculator →</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1742,6 +1752,18 @@ document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('taxStatExempt').innerText = exemptLimit ? '₹' + exemptLimit.toLocaleString('en-IN') : 'Nil';
     document.getElementById('taxStatTaxable').innerText = '₹' + Math.round(taxableGain).toLocaleString('en-IN');
     document.getElementById('taxStatBase').innerText = '₹' + Math.round(taxPayable).toLocaleString('en-IN');
+
+    var taxWaLink = document.getElementById('tax-wa-link');
+    if (taxWaLink) {
+      var schemeLabel = taxSchemeType.options[taxSchemeType.selectedIndex].text;
+      var termLabel = taxHoldingPeriod.value === 'long' ? 'Long Term' : 'Short Term';
+      var msg = 'Hi Vikas, I checked the Budget 2024 Tax Reckoner for ' + schemeLabel + ' (' + termLabel + '):\n' +
+                '• Realized Capital Gain: ₹' + gain.toLocaleString('en-IN') + '\n' +
+                '• Statutory Exemption: ' + (exemptLimit ? '₹' + exemptLimit.toLocaleString('en-IN') : 'Nil') + '\n' +
+                '• Estimated Base Tax: ₹' + Math.round(taxPayable).toLocaleString('en-IN') + '\n' +
+                'I would like guidance on tax-efficient mutual fund strategies and ELSS.';
+      taxWaLink.href = 'https://wa.me/919967129977?text=' + encodeURIComponent(msg);
+    }
   }
 
   taxSchemeType.addEventListener('change', updateTax);
