@@ -271,24 +271,45 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 .dis{margin-top:44px;padding-top:28px;border-top:1px solid var(--line);font-size:14px;line-height:1.7;color:var(--mut);max-width:980px}.dis p+p{margin-top:10px}.dis a{color:var(--navy);font-weight:700}.dis .rk{color:var(--ink);font-weight:500}.cp{margin-top:20px;font-size:13.5px;color:var(--mut)}
 @media(max-width:860px){#contact{padding:72px 0}.cg{grid-template-columns:1fr;gap:44px}.ci{padding-left:0;border-left:0;padding-top:32px;border-top:1px solid rgba(255,255,255,.22)}.ft{grid-template-columns:1fr 1fr;gap:36px}.ft>div:first-child{grid-column:1/-1}footer{padding:44px 0 110px}}
 @media(max-width:540px){.ft{grid-template-columns:1fr;gap:28px}}
-/* Allied Platform Bullion Card */
-.bullion-card{grid-column:span 12;background:linear-gradient(135deg,#031744 0%,#0A2540 60%,#051538 100%);color:#fff;border-radius:20px;border:1px solid rgba(212,175,55,.35);box-shadow:0 16px 36px -8px rgba(3,23,68,.3);padding:30px 32px;position:relative;overflow:hidden}
-.bullion-card::after{content:"";position:absolute;top:-50%;right:-15%;width:380px;height:380px;background:radial-gradient(circle,rgba(212,175,55,.14) 0%,transparent 70%);pointer-events:none}
-.bullion-badge-strip{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-.bullion-tag{background:linear-gradient(135deg,#F6E58D 0%,#D4AF37 100%);color:#031744;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:4px 12px;border-radius:999px}
-.bullion-subtag{font-size:12.5px;color:rgba(255,255,255,.75);font-weight:600}
-.bullion-content{display:flex;align-items:center;justify-content:space-between;gap:32px}
-.bullion-text{flex:1}
-.bullion-text h3{font:700 24px/1.2 'Fraunces',Georgia,serif;color:#fff;margin:0 0 8px 0}
-.bullion-text p{font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.6;margin:0 0 16px 0;max-width:660px}
-.bullion-features{display:flex;gap:18px;flex-wrap:wrap}
-.bullion-features span{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#E2E8F0;font-weight:600}
-.bullion-features svg{width:15px;height:15px;stroke:#D4AF37;stroke-width:2.5;fill:none}
-.bullion-action{display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}
-.bullion-btn{background:linear-gradient(135deg,#E6CA65 0%,#D4AF37 50%,#B8972E 100%)!important;color:#031744!important;font-weight:800!important;border:none!important;padding:13px 22px!important;border-radius:12px!important;box-shadow:0 8px 24px rgba(212,175,55,.28)!important;transition:transform .2s,box-shadow .2s!important;display:inline-flex!important;align-items:center!important;gap:8px!important;text-decoration:none!important;white-space:nowrap}
-.bullion-btn:hover{transform:translateY(-2px)!important;box-shadow:0 12px 28px rgba(212,175,55,.45)!important}
-.bullion-action small{font-size:11px;color:rgba(255,255,255,.55);text-align:center}
-@media(max-width:860px){.bullion-content{flex-direction:column;align-items:flex-start}.bullion-action{width:100%;align-items:flex-start}.bullion-btn{width:100%;justify-content:center}}
+/* Creative Interactive Wealth Blueprint Card */
+.blueprint-card{grid-column:span 12;background:linear-gradient(135deg,#031744 0%,#06286E 55%,#020F2E 100%);color:#fff;border-radius:22px;border:1px solid rgba(155,232,184,.25);box-shadow:0 18px 40px -10px rgba(3,23,68,.35);padding:32px 34px;position:relative;overflow:hidden}
+.blueprint-card::before{content:"";position:absolute;top:-40%;right:-10%;width:420px;height:420px;background:radial-gradient(circle,rgba(52,211,153,.12) 0%,transparent 70%);pointer-events:none}
+.bp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.bp-kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:var(--mint);padding:4px 12px;border-radius:999px;font:700 11px/1 'DM Sans',sans-serif;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.bp-kicker svg{width:12px;height:12px;fill:currentColor}
+.bp-title{font:700 clamp(22px,3vw,30px)/1.2 'Fraunces',Georgia,serif;color:#fff;margin:0 0 6px 0}
+.bp-desc{font-size:14.5px;color:rgba(255,255,255,.78);line-height:1.5;max-width:640px;margin:0}
+.bp-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.bp-tab{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 14px;color:#fff;cursor:pointer;text-align:left;transition:all .2s;font-family:'DM Sans',sans-serif}
+.bp-tab:hover{background:rgba(255,255,255,.13);border-color:rgba(155,232,184,.4)}
+.bp-tab.active{background:#fff;border-color:#fff;color:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.bp-tab-num{font-size:11px;font-weight:800;letter-spacing:1px;opacity:.7;display:block;margin-bottom:3px}
+.bp-tab.active .bp-tab-num{color:var(--green);opacity:1}
+.bp-tab-name{font-size:13.5px;font-weight:700;display:block;line-height:1.3}
+.bp-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px}
+.bp-p-left h4{font:700 20px/1.3 'Fraunces',Georgia,serif;color:#fff;margin:0 0 8px 0}
+.bp-p-left p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.6;margin:0 0 16px 0}
+.bp-alloc-box{margin-bottom:18px}
+.bp-alloc-lbl{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:rgba(255,255,255,.75);margin-bottom:6px}
+.bp-alloc-bar{height:10px;background:rgba(255,255,255,.15);border-radius:999px;display:flex;overflow:hidden}
+.bp-alloc-eq{background:#34D399;height:100%}
+.bp-alloc-deb{background:#60A5FA;height:100%}
+.bp-alloc-gld{background:#FBBF24;height:100%}
+.bp-p-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.bp-stat-item{background:rgba(255,255,255,.06);border-radius:10px;padding:10px 12px}
+.bp-stat-item small{display:block;font-size:10.5px;font-weight:700;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.bp-stat-item b{font-size:15px;color:#fff;font-weight:700}
+.bp-p-right{background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.04) 100%);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;text-align:center}
+.bp-sim-badge{display:inline-block;background:rgba(52,211,153,.2);color:#9BE8B8;border:1px solid rgba(52,211,153,.3);font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:999px;align-self:center}
+.bp-sim-headline{font:700 22px/1.2 'Fraunces',Georgia,serif;color:#fff}
+.bp-sim-note{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.45}
+.bp-actions{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.bp-calc-btn{background:var(--green);color:#fff;font-size:13.5px;font-weight:700;padding:11px 18px;border-radius:10px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bp-calc-btn:hover{background:#046A32;transform:translateY(-1px);color:#fff}
+.bp-wa-btn{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);font-size:13px;font-weight:600;padding:9px 16px;border-radius:10px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bp-wa-btn:hover{background:rgba(255,255,255,.1);border-color:#fff}
+@media(max-width:960px){.bp-tabs{grid-template-columns:repeat(2,1fr)}.bp-panel{grid-template-columns:1fr}}
+@media(max-width:640px){.bp-tabs{grid-template-columns:1fr}.bp-p-stats{grid-template-columns:1fr}}
 .art{position:relative;width:100%;max-width:620px;margin-left:auto;perspective:1200px;transform-style:preserve-3d;isolation:isolate}
 .art-particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
 .art-scene{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform}
@@ -727,27 +748,83 @@ footer{background:#fff;padding:60px 0 120px}.ft{display:grid;grid-template-colum
 <article class="bx am" style="--i:6"><div class="bh"><h4>Asset Management Companies (AMCs)</h4></div>
 <div class="mq"><div class="amc-grid"><div class="amc-chip"><img src="amc-logos/360_groww.png" alt="360 ONE Mutual Fund" class="amc-logo-img"><span>360 ONE Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/birla_groww.png" alt="Aditya Birla Sun Life Mutual Fund" class="amc-logo-img"><span>Aditya Birla Sun Life Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/angel_groww.png" alt="Angel One Mutual Fund" class="amc-logo-img"><span>Angel One Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/axis_groww.png" alt="Axis Mutual Fund" class="amc-logo-img"><span>Axis Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/bandhan_groww.png" alt="Bandhan Mutual Fund" class="amc-logo-img"><span>Bandhan Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/baroda_groww.png" alt="Baroda BNP Paribas Mutual Fund" class="amc-logo-img"><span>Baroda BNP Paribas Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/capitalmind_groww.png" alt="Capitalmind Mutual Fund" class="amc-logo-img"><span>Capitalmind Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/choice_groww.png" alt="Choice Mutual Fund" class="amc-logo-img"><span>Choice Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/edelweiss_groww.png" alt="Edelweiss Mutual Fund" class="amc-logo-img"><span>Edelweiss Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/groww_groww.png" alt="Groww Mutual Fund" class="amc-logo-img"><span>Groww Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/helios_groww.png" alt="Helios Mutual Fund" class="amc-logo-img"><span>Helios Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/icici_groww.png" alt="ICICI Prudential Mutual Fund" class="amc-logo-img"><span>ICICI Prudential Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/iti_groww.png" alt="ITI Mutual Fund" class="amc-logo-img"><span>ITI Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/jm_groww.png" alt="JM Financial Mutual Fund" class="amc-logo-img"><span>JM Financial Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/lakshya_groww.png" alt="Lakshya Mutual Fund" class="amc-logo-img"><span>Lakshya Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/mahindra_groww.png" alt="Mahindra Manulife Mutual Fund" class="amc-logo-img"><span>Mahindra Manulife Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/monarch_groww.png" alt="Monarch Mutual Fund" class="amc-logo-img"><span>Monarch Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/navi_groww.png" alt="Navi Mutual Fund" class="amc-logo-img"><span>Navi Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/nj_groww.png" alt="NJ Mutual Fund" class="amc-logo-img"><span>NJ Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/pgim_groww.png" alt="PGIM India Mutual Fund" class="amc-logo-img"><span>PGIM India Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/quant_groww.png" alt="Quant Mutual Fund" class="amc-logo-img"><span>Quant Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/samco_groww.png" alt="Samco Mutual Fund" class="amc-logo-img"><span>Samco Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/shriram_groww.png" alt="Shriram Mutual Fund" class="amc-logo-img"><span>Shriram Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/tata_groww.png" alt="Tata Mutual Fund" class="amc-logo-img"><span>Tata Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/the_groww.png" alt="The Wealth Company Mutual Fund" class="amc-logo-img"><span>The Wealth Company Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/unifi_groww.png" alt="Unifi Mutual Fund" class="amc-logo-img"><span>Unifi Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/uti_groww.png" alt="UTI Mutual Fund" class="amc-logo-img"><span>UTI Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/zerodha_groww.png" alt="Zerodha Mutual Fund" class="amc-logo-img"><span>Zerodha Mutual Fund</span></div></div></div>
 <div class="mq rv" style="margin-top:12px"><div class="amc-grid"><div class="amc-chip"><img src="amc-logos/abakkus_groww.png" alt="Abakkus Mutual Fund" class="amc-logo-img"><span>Abakkus Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/alphagrep_groww.png" alt="AlphaGrep Mutual Fund" class="amc-logo-img"><span>AlphaGrep Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/ask_groww.png" alt="ASK Mutual Fund" class="amc-logo-img"><span>ASK Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/bajaj_groww.png" alt="Bajaj Finserv Mutual Fund" class="amc-logo-img"><span>Bajaj Finserv Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/bank_groww.png" alt="Bank of India Mutual Fund" class="amc-logo-img"><span>Bank of India Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/canara_groww.png" alt="Canara Robeco Mutual Fund" class="amc-logo-img"><span>Canara Robeco Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/carnelian_groww.png" alt="Carnelian Mutual Fund" class="amc-logo-img"><span>Carnelian Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/dsp_groww.png" alt="DSP Mutual Fund" class="amc-logo-img"><span>DSP Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/franklin_groww.png" alt="Franklin Templeton Mutual Fund" class="amc-logo-img"><span>Franklin Templeton Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/hdfc_groww.png" alt="HDFC Mutual Fund" class="amc-logo-img"><span>HDFC Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/hsbc_groww.png" alt="HSBC Mutual Fund" class="amc-logo-img"><span>HSBC Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/invesco_groww.png" alt="Invesco Mutual Fund" class="amc-logo-img"><span>Invesco Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/jioblackrock_groww.png" alt="Jio BlackRock Mutual Fund" class="amc-logo-img"><span>Jio BlackRock Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/kotak_groww.png" alt="Kotak Mahindra Mutual Fund" class="amc-logo-img"><span>Kotak Mahindra Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/lic_groww.png" alt="LIC Mutual Fund" class="amc-logo-img"><span>LIC Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/mirae_groww.png" alt="Mirae Asset Mutual Fund" class="amc-logo-img"><span>Mirae Asset Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/motilal_groww.png" alt="Motilal Oswal Mutual Fund" class="amc-logo-img"><span>Motilal Oswal Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/nippon_groww.png" alt="Nippon India Mutual Fund" class="amc-logo-img"><span>Nippon India Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/old_groww.png" alt="Old Bridge Mutual Fund" class="amc-logo-img"><span>Old Bridge Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/ppfas_groww.png" alt="PPFAS Mutual Fund" class="amc-logo-img"><span>PPFAS Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/quantum_groww.png" alt="Quantum Mutual Fund" class="amc-logo-img"><span>Quantum Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/sbi_groww.png" alt="SBI Mutual Fund" class="amc-logo-img"><span>SBI Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/sundaram_groww.png" alt="Sundaram Mutual Fund" class="amc-logo-img"><span>Sundaram Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/taurus_groww.png" alt="Taurus Mutual Fund" class="amc-logo-img"><span>Taurus Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/trust_groww.png" alt="TRUST Mutual Fund" class="amc-logo-img"><span>TRUST Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/union_groww.png" alt="Union Mutual Fund" class="amc-logo-img"><span>Union Mutual Fund</span></div><div class="amc-chip"><img src="amc-logos/whiteoak_groww.png" alt="WhiteOak Capital Mutual Fund" class="amc-logo-img"><span>WhiteOak Capital Mutual Fund</span></div></div></div></article>
-<article class="bx bullion-card" style="--i:7">
-  <div class="bullion-badge-strip">
-    <span class="bullion-tag">Allied Platform · Precious Metals Desk</span>
-    <span class="bullion-subtag">Live Spot Market Rates &amp; Certified Bullion</span>
+<article class="bx blueprint-card" style="--i:7">
+  <div class="bp-top">
+    <div>
+      <div class="bp-kicker">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="12 6 15 11 12 10 9 11 12 6"/></svg>
+        <span>Interactive Wealth Blueprint</span>
+      </div>
+      <h3 class="bp-title">Where Are You on Your Wealth Journey?</h3>
+      <p class="bp-desc">Select your life stage below to explore personalized asset allocation models, disciplined investment horizons, and mathematical compounding potential.</p>
+    </div>
   </div>
-  <div class="bullion-content">
-    <div class="bullion-text">
-      <h3>All India Bullion (AIB)</h3>
-      <p>Alongside long-term mutual fund asset allocation, monitor real-time spot benchmark rates for 24K and 22K Gold, 999 Silver, and access physical bullion coins &amp; bars with nationwide insured delivery via our allied portal.</p>
-      <div class="bullion-features">
-        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Live 24K &amp; 22K Gold Rates</span>
-        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 999 Silver Spot Tracking</span>
-        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Insured Doorstep Bullion Delivery</span>
+
+  <div class="bp-tabs" role="tablist">
+    <button class="bp-tab active" data-stage="0" role="tab" aria-selected="true">
+      <span class="bp-tab-num">STAGE 01</span>
+      <span class="bp-tab-name">Early Career (22–30)</span>
+    </button>
+    <button class="bp-tab" data-stage="1" role="tab" aria-selected="false">
+      <span class="bp-tab-num">STAGE 02</span>
+      <span class="bp-tab-name">Family Milestones (30–40)</span>
+    </button>
+    <button class="bp-tab" data-stage="2" role="tab" aria-selected="false">
+      <span class="bp-tab-num">STAGE 03</span>
+      <span class="bp-tab-name">Peak Earning (38–50)</span>
+    </button>
+    <button class="bp-tab" data-stage="3" role="tab" aria-selected="false">
+      <span class="bp-tab-num">STAGE 04</span>
+      <span class="bp-tab-name">Golden Years (50+)</span>
+    </button>
+  </div>
+
+  <div class="bp-panel" id="bpPanel">
+    <div class="bp-p-left">
+      <h4 id="bpHeading">First SIP &amp; Early Compounding</h4>
+      <p id="bpDesc">Starting your investment journey early allows the power of compounding to work at its maximum potential. Focus on aggressive equity accumulation with monthly rupee-cost averaging across business cycles.</p>
+      
+      <div class="bp-alloc-box">
+        <div class="bp-alloc-lbl">
+          <span>Target Asset Allocation</span>
+          <span id="bpAllocText">Equity 85% · Debt 15%</span>
+        </div>
+        <div class="bp-alloc-bar">
+          <div class="bp-alloc-eq" id="bpBarEq" style="width:85%"></div>
+          <div class="bp-alloc-deb" id="bpBarDeb" style="width:15%"></div>
+          <div class="bp-alloc-gld" id="bpBarGld" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="bp-p-stats">
+        <div class="bp-stat-item">
+          <small>Ideal Horizon</small>
+          <b id="bpStatHorizon">15 - 25+ Years</b>
+        </div>
+        <div class="bp-stat-item">
+          <small>Primary Vehicle</small>
+          <b id="bpStatVehicle">Monthly Step-Up SIP</b>
+        </div>
+        <div class="bp-stat-item">
+          <small>Wealth Multiplier</small>
+          <b id="bpStatMultiplier" style="color:var(--mint)">3.8x – 5.2x</b>
+        </div>
       </div>
     </div>
-    <div class="bullion-action">
-      <a class="bullion-btn" href="https://www.allindiabullion.com" target="_blank" rel="noopener">
-        <span>Visit allindiabullion.com</span>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-      <small>External Allied Platform · Not a Mutual Fund Scheme</small>
+
+    <div class="bp-p-right">
+      <span class="bp-sim-badge" id="bpSimBadge">Discipline Strategy</span>
+      <div class="bp-sim-headline" id="bpSimHeadline">10% Annual Step-Up</div>
+      <div class="bp-sim-note" id="bpSimNote">Increasing your monthly SIP by just 10% each year can nearly double your final corpus compared to a static flat contribution.</div>
+      <div class="bp-actions">
+        <a class="bp-calc-btn" id="bpCalcBtn" href="calculators.html?tool=sip">
+          <span>Explore SIP Compounding Engine</span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="bp-wa-btn" id="bpWaBtn" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20would%20like%20guidance%20on%20starting%20my%20first%20disciplined%20SIP." target="_blank" rel="noopener">
+          <span>Discuss on WhatsApp</span>
+        </a>
+      </div>
     </div>
   </div>
 </article>
@@ -927,6 +1004,113 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en
   rate.addEventListener('input', calcWiz);
   yr.addEventListener('input', calcWiz);
   calcWiz();
+})();</script>
+
+<!-- Interactive Wealth Blueprint Stage Switcher -->
+<script>(function(){
+  var stages = [
+    {
+      heading: "First SIP & Early Compounding",
+      desc: "Starting your investment journey early allows the power of compounding to work at its maximum potential. Focus on aggressive equity accumulation with monthly rupee-cost averaging across business cycles.",
+      allocText: "Equity 85% · Debt 15%",
+      allocEq: "85%",
+      allocDeb: "15%",
+      allocGld: "0%",
+      horizon: "15 - 25+ Years",
+      vehicle: "Monthly Step-Up SIP",
+      multiplier: "3.8x – 5.2x",
+      simBadge: "Discipline Strategy",
+      simHeadline: "10% Annual Step-Up",
+      simNote: "Increasing your monthly SIP by just 10% each year can nearly double your final corpus compared to a static flat contribution.",
+      calcLink: "calculators.html?tool=sip",
+      calcText: "Explore SIP Compounding Engine",
+      waText: "Hi Vikas, I would like guidance on starting my first disciplined SIP."
+    },
+    {
+      heading: "Child's Higher Education & Family Goals",
+      desc: "Education inflation runs at 10-12% annually. Build an inflation-indexed fund segregated into dedicated folios to fund professional degrees without taking high-interest loans.",
+      allocText: "Equity 70% · Hybrid/Debt 25% · Gold 5%",
+      allocEq: "70%",
+      allocDeb: "25%",
+      allocGld: "5%",
+      horizon: "10 - 15 Years",
+      vehicle: "Goal-Earmarked SIP",
+      multiplier: "2.8x – 3.6x",
+      simBadge: "Inflation Defense",
+      simHeadline: "Target ₹35L - ₹75L Corpus",
+      simNote: "A monthly disciplined investment of ₹12,000 for 12 years compounds to approximately ₹42 Lakhs at realistic historical equity CAGR.",
+      calcLink: "calculators.html?tool=education",
+      calcText: "Calculate Child Education Fees",
+      waText: "Hi Vikas, I would like to plan a mutual fund portfolio for my child's higher education."
+    },
+    {
+      heading: "Peak Earning & Wealth Acceleration",
+      desc: "Maximize surplus cash flow during prime earning decades. Deploy bonus lumpsums strategically, optimize Section 80C ELSS statutory lock-ins, and build multi-cap resilience.",
+      allocText: "Equity 65% · Debt 25% · Multi-Asset 10%",
+      allocEq: "65%",
+      allocDeb: "25%",
+      allocGld: "10%",
+      horizon: "7 - 12 Years",
+      vehicle: "Lumpsum + High SIP",
+      multiplier: "2.4x – 3.1x",
+      simBadge: "Surplus Deployment",
+      simHeadline: "Systematic Step-Up",
+      simNote: "Balancing high-growth equity with disciplined debt allocation shields capital gains while continuing aggressive capital compounding.",
+      calcLink: "calculators.html?tool=lumpsum",
+      calcText: "Simulate Lumpsum Growth",
+      waText: "Hi Vikas, I would like to review my existing portfolio and plan a Step-Up wealth acceleration strategy."
+    },
+    {
+      heading: "Golden Years & Retirement SWP Cashflow",
+      desc: "Transition smoothly from wealth accumulation to systematic capital preservation. Enjoy predictable, tax-efficient monthly income while preserving capital against long-term inflation.",
+      allocText: "Equity 35% · Debt 55% · Liquid/Cash 10%",
+      allocEq: "35%",
+      allocDeb: "55%",
+      allocGld: "10%",
+      horizon: "Lifetime Income",
+      vehicle: "SWP (Systematic Withdrawal)",
+      multiplier: "Inflation-Proof Cashflow",
+      simBadge: "Tax Efficiency",
+      simHeadline: "Predictable Monthly SWP",
+      simNote: "Unlike traditional fixed deposits where entire interest is taxed at slab rate, SWP redemptions tax only the capital gain portion under revised Budget 2024 rules.",
+      calcLink: "calculators.html?tool=retirement",
+      calcText: "Plan Retirement & SWP Cashflow",
+      waText: "Hi Vikas, I would like to structure an inflation-proof retirement corpus with Systematic Withdrawal (SWP)."
+    }
+  ];
+
+  var tabs = document.querySelectorAll('.bp-tab');
+  if(!tabs.length) return;
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      var idx = parseInt(tab.dataset.stage, 10);
+      var s = stages[idx];
+      if(!s) return;
+
+      document.getElementById('bpHeading').innerText = s.heading;
+      document.getElementById('bpDesc').innerText = s.desc;
+      document.getElementById('bpAllocText').innerText = s.allocText;
+      document.getElementById('bpBarEq').style.width = s.allocEq;
+      document.getElementById('bpBarDeb').style.width = s.allocDeb;
+      document.getElementById('bpBarGld').style.width = s.allocGld;
+      document.getElementById('bpStatHorizon').innerText = s.horizon;
+      document.getElementById('bpStatVehicle').innerText = s.vehicle;
+      document.getElementById('bpStatMultiplier').innerText = s.multiplier;
+      document.getElementById('bpSimBadge').innerText = s.simBadge;
+      document.getElementById('bpSimHeadline').innerText = s.simHeadline;
+      document.getElementById('bpSimNote').innerText = s.simNote;
+      
+      var cBtn = document.getElementById('bpCalcBtn');
+      cBtn.href = s.calcLink;
+      cBtn.querySelector('span').innerText = s.calcText;
+
+      document.getElementById('bpWaBtn').href = 'https://wa.me/919967129977?text=' + encodeURIComponent(s.waText);
+    });
+  });
 })();</script>
 <a class="wa-float" href="https://wa.me/919967129977?text=Hi%20Vikas%2C%20I%20am%20interested%20in%20mutual%20fund%20investment%20advisory." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
