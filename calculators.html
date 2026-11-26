@@ -285,7 +285,7 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40
 .wa-float svg{width:18px;height:18px;fill:currentColor}
 
 /* Panels */
-.calc-panel{display:none}
+.calc-panel{display:none;scroll-margin-top:90px}
 .calc-panel.on{display:block;animation:fadePanel .25s ease}
 @keyframes fadePanel{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
@@ -1465,8 +1465,8 @@ function bindSync(inId, rngId, onUpdate){
   });
 }
 
-// Tab Switching + URL Query Sync
-function activateTab(target){
+// Tab Switching + URL Query Sync + Smooth Scroll to Calculator
+function activateTab(target, shouldScroll){
   document.querySelectorAll('.c-tab').forEach(function(t){
     var isTarget = t.dataset.target === target;
     t.classList.toggle('on', isTarget);
@@ -1480,14 +1480,28 @@ function activateTab(target){
     url.searchParams.set('tool', target);
     history.replaceState(null, '', url.toString());
   }
+  if(shouldScroll){
+    var activePanel = document.getElementById('panel-' + target);
+    if(activePanel){
+      activePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
 
 document.querySelectorAll('.c-tab').forEach(function(tab){
-  tab.addEventListener('click', function(){ activateTab(tab.dataset.target); });
+  tab.addEventListener('click', function(){ 
+    activateTab(tab.dataset.target, true); 
+  });
 });
 
 var initTool = new URLSearchParams(window.location.search).get('tool');
-if(initTool && document.getElementById('panel-' + initTool)) activateTab(initTool);
+if(initTool && document.getElementById('panel-' + initTool)){
+  activateTab(initTool, false);
+  setTimeout(function(){
+    var p = document.getElementById('panel-' + initTool);
+    if(p) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 220);
+}
 
 var copiedSummaries = {};
 function copySummary(key){
