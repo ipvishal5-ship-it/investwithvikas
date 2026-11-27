@@ -43,9 +43,10 @@ Official website of **Vikas Pawankumar Agarwal**, AMFI-Registered Mutual Fund Di
 ## Master Reference & Documentation Workbooks
 
 1. `Website_Complete_Documentation.docx` - Master technical architecture, design system, OWASP security, WCAG 2.1 AA accessibility, and regulatory framework documentation.
-2. `Website_Complete_Source_And_Data_Audit.xlsx` - Line-by-line source attribution, circular citations, and API endpoint audit for all 8 pages.
-3. `Financial_Calculators_Master_Formulas.xlsx` - Mathematical formula proofs, compound interest derivations, and Excel validation models for all 6 calculators.
-4. `Indian_Mutual_Fund_AMCs_RTA_Empanelment_List.xlsx` - Complete directory of 55 active Indian Mutual Fund AMCs, Registrar and Transfer Agents (CAMS / KFintech), and specialized investment funds.
+2. `Vikas_Agarwal_Master_Data_Workbook.xlsx` - **Unified Master Workbook (16 Sheets)** consolidating all project data:
+   - **Section 1: Website Data & Audit** (6 Sheets for Homepage, Calculators, MF Tools, KYC Hub, Forms & PDFs, Legal/SEO)
+   - **Section 2: Active AMC & RTA Directory** (4 Sheets covering all 55 AMCs, CAMS 26, KFintech 29, Specialized Funds 15)
+   - **Section 3: Financial Calculator Master Formulas & Live Models** (5 Sheets for Formula reference, SIP model, Step-Up SIP model, Lumpsum model, Retirement model)
 
 ---
 
