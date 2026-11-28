@@ -1,4 +1,4 @@
-# robots.txt for investwithvikas.in
+# robots.txt for vikasacapital.in
 User-agent: *
 Allow: /
 Disallow: /scratch/
@@ -9,4 +9,4 @@ Disallow: /temp/
 Crawl-delay: 1
 
 # XML Sitemap Location
-Sitemap: https://investwithvikas.in/sitemap.xml
+Sitemap: https://vikasacapital.in/sitemap.xml

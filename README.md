@@ -1,4 +1,4 @@
-# Invest with Vikas (investwithvikas.in)
+# Vikasa Capital (vikasacapital.in)
 
 Official website of **Vikas Pawankumar Agarwal**, AMFI-Registered Mutual Fund Distributor.
 
@@ -8,8 +8,8 @@ Official website of **Vikas Pawankumar Agarwal**, AMFI-Registered Mutual Fund Di
 - **Experience:** About 20 years in Indian financial markets
 - **Office Location:** 504 Atlanta Estate, Opp. Oberoi Mall, Western Express Highway, Goregaon East, Mumbai 400063
 - **Phone / Call:** +91 99671 29977
-- **Email:** info@investwithvikas.in
-- **Website:** [https://investwithvikas.in](https://investwithvikas.in)
+- **Email:** vikas@vikasacapital.in
+- **Website:** [https://vikasacapital.in](https://vikasacapital.in)
 
 ---
 
