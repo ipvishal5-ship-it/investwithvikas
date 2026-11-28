@@ -57,7 +57,7 @@ Official website of **Vikas Pawankumar Agarwal**, AMFI-Registered Mutual Fund Di
 - **Security:** 100% of external links use `rel="noopener"`, zero mixed HTTP content, client-side calculator execution (no user financial data transmitted or stored).
 - **SEO & Structured Data:** Schema.org JSON-LD (`FinancialService`, `LocalBusiness`, `Person`, `FAQPage`, `WebApplication`), Open Graph tags, canonical URLs, `robots.txt`, and `sitemap.xml`.
 - **Compliance:** 100% strict AMFI zero-emoji standard, clear Regular Plan distributor disclosure.
-- **Mirror Parity:** Fully synced with `C:\Users\ipvis\Downloads\new-changes\`.
+- **Deployment Package:** Run `.\build-deploy.ps1` to generate a clean production-only `dist\` folder containing only the static site assets.
 
 ---
 
