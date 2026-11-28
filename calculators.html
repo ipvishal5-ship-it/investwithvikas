@@ -1189,7 +1189,7 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40
             <input type="range" id="del-rng-yr" min="5" max="30" step="1" value="15">
           </div>
           <div class="ctrl-card">
-            <div class="ctrl-top"><span class="ctrl-label">Delay Period Before Starting</span><div class="ctrl-box"><input type="number" id="del-in-per" class="ctrl-input" value="3" min="1" max="10" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div></div>
+            <div class="ctrl-top"><span class="ctrl-label">Delay Period Before Starting (Years)</span><div class="ctrl-box"><input type="number" id="del-in-per" class="ctrl-input" value="3" min="1" max="10" step="1"><span class="ctrl-prefix" style="margin-left:4px">Yrs</span></div></div>
             <input type="range" id="del-rng-per" min="1" max="10" step="1" value="3">
           </div>
           <div class="ctrl-card">
@@ -1224,7 +1224,7 @@ footer{background:var(--soft);border-top:1px solid var(--line);padding:64px 0 40
 
             <div class="res-rows" style="border-top:1px solid rgba(255,255,255,.15);padding-top:14px;margin-bottom:18px;display:grid;gap:8px;font-size:14px">
               <div style="display:flex;justify-content:space-between"><span style="color:rgba(255,255,255,.75)">Corpus starting today:</span><b id="del-res-on">₹ 75.69 Lakhs</b></div>
-              <div style="display:flex;justify-content:space-between"><span style="color:rgba(255,255,255,.75)" id="del-lbl-del">Corpus if delayed by 3 yrs:</span><b id="del-res-del" style="color:var(--coral)">₹ 48.34 Lakhs</b></div>
+              <div style="display:flex;justify-content:space-between"><span style="color:rgba(255,255,255,.75)" id="del-lbl-del">Corpus if delayed by 3 years:</span><b id="del-res-del" style="color:var(--coral)">₹ 48.34 Lakhs</b></div>
             </div>
           </div>
           <div class="sum-actions">
@@ -1352,7 +1352,9 @@ var CalcMath = {
     return p * Math.pow(1 + r, years);
   },
   inflationDiscount: function(fv, years, infPct){
-    return fv / Math.pow(1 + (infPct || 6) / 100, years);
+    var ip = parseFloat(infPct);
+    if(isNaN(ip)) ip = 6;
+    return fv / Math.pow(1 + ip / 100, years);
   }
 };
 
@@ -1362,9 +1364,36 @@ function fmtINR(n){
 }
 function fmtLakhCr(n){
   n = Math.round(n || 0);
-  if(n >= 10000000) return '₹ ' + (n / 10000000).toFixed(2) + ' Crores';
-  if(n >= 100000) return '₹ ' + (n / 100000).toFixed(2) + ' Lakhs';
+  if(n >= 10000000) return '₹ ' + (n / 10000000).toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' Crores';
+  if(n >= 100000) return '₹ ' + (n / 100000).toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' Lakhs';
   return '₹ ' + n.toLocaleString('en-IN');
+}
+
+function readNum(inId, rngId, defVal, min, max, isInt){
+  var inp = document.getElementById(inId);
+  var rng = rngId ? document.getElementById(rngId) : null;
+  var raw = inp ? (isInt ? parseInt(inp.value, 10) : parseFloat(inp.value)) : NaN;
+  var v = isNaN(raw) ? defVal : raw;
+  var c = Math.max(min, Math.min(max, v));
+  if(inp && !isNaN(raw) && c !== raw){ inp.value = c; }
+  if(rng){
+    var rMin = rng.min !== '' ? parseFloat(rng.min) : min;
+    var rMax = rng.max !== '' ? parseFloat(rng.max) : max;
+    var rc = Math.max(Math.max(min, rMin), Math.min(Math.min(max, rMax), c));
+    rng.value = rc;
+    paintSlider(rng);
+  }
+  return c;
+}
+function readRng(rngId, defVal, min, max){
+  var rng = document.getElementById(rngId);
+  var raw = rng ? parseFloat(rng.value) : NaN;
+  var v = isNaN(raw) ? defVal : raw;
+  var rMin = rng && rng.min !== '' ? parseFloat(rng.min) : min;
+  var rMax = rng && rng.max !== '' ? parseFloat(rng.max) : max;
+  var c = Math.max(Math.max(min, rMin), Math.min(Math.min(max, rMax), v));
+  if(rng){ rng.value = c; paintSlider(rng); }
+  return c;
 }
 
 function paintSlider(rng){
@@ -1528,9 +1557,9 @@ function copySummary(key){
     });
   }
   function run(){
-    var p = Math.max(0, parseFloat(document.getElementById('sip-in-amt').value) || 0);
-    var ratePct = Math.max(0, parseFloat(document.getElementById('sip-in-rate').value) || 0);
-    var y = Math.max(1, parseInt(document.getElementById('sip-in-yr').value, 10) || 1);
+    var p = readNum('sip-in-amt', 'sip-rng-amt', 0, 0, 100000000, false);
+    var ratePct = readNum('sip-in-rate', 'sip-rng-rate', 0, 0, 30, false);
+    var y = readNum('sip-in-yr', 'sip-rng-yr', 1, 1, 50, true);
 
     var fvRaw = CalcMath.sipFV(p, ratePct, y);
     var fv = infMode ? CalcMath.inflationDiscount(fvRaw, y, 6) : fvRaw;
@@ -1587,11 +1616,11 @@ function copySummary(key){
     });
   }
   function run(){
-    var p = Math.max(0, parseFloat(document.getElementById('su-in-amt').value) || 0);
-    var s = Math.max(0, parseFloat(document.getElementById('su-in-step').value) || 0) / 100;
-    var ratePct = Math.max(0, parseFloat(document.getElementById('su-in-rate').value) || 0);
+    var p = readNum('su-in-amt', 'su-rng-amt', 0, 0, 100000000, false);
+    var s = readNum('su-in-step', 'su-rng-step', 0, 0, 50, false) / 100;
+    var ratePct = readNum('su-in-rate', 'su-rng-rate', 0, 0, 30, false);
     var r = (ratePct / 100) / 12;
-    var y = Math.max(1, parseInt(document.getElementById('su-in-yr').value, 10) || 1);
+    var y = readNum('su-in-yr', 'su-rng-yr', 1, 1, 50, true);
 
     var totalInv = 0, bal = 0, currP = p;
     var seriesStep = [0], seriesReg = [0], rows = '';
@@ -1650,9 +1679,9 @@ function copySummary(key){
     });
   }
   function run(){
-    var p = Math.max(0, parseFloat(document.getElementById('ls-in-amt').value) || 0);
-    var ratePct = Math.max(0, parseFloat(document.getElementById('ls-in-rate').value) || 0);
-    var y = Math.max(1, parseInt(document.getElementById('ls-in-yr').value, 10) || 1);
+    var p = readNum('ls-in-amt', 'ls-rng-amt', 0, 0, 100000000, false);
+    var ratePct = readNum('ls-in-rate', 'ls-rng-rate', 0, 0, 30, false);
+    var y = readNum('ls-in-yr', 'ls-rng-yr', 1, 1, 50, true);
 
     var fvRaw = CalcMath.lumpsumFV(p, ratePct, y);
     var fv = infMode ? CalcMath.inflationDiscount(fvRaw, y, 6) : fvRaw;
@@ -1695,21 +1724,13 @@ function copySummary(key){
 // 4. Retirement Engine
 (function(){
   function run(){
-    var cur = Math.max(18, parseInt(document.getElementById('ret-in-cur').value, 10) || 30);
-    var ret = parseInt(document.getElementById('ret-in-age').value, 10) || 60;
-    if(ret <= cur){
-      ret = cur + 1;
-      document.getElementById('ret-in-age').value = ret;
-      var ageRng = document.getElementById('ret-rng-age');
-      if(ageRng){ ageRng.value = ret; paintSlider(ageRng); }
-    }
-    var exp = Math.max(0, parseFloat(document.getElementById('ret-in-exp').value) || 0);
-    var infPct = parseFloat(document.getElementById('ret-rng-inf').value) || 6;
-    var ratePct = parseFloat(document.getElementById('ret-rng-rate').value) || 12;
+    var cur = readNum('ret-in-cur', 'ret-rng-cur', 30, 18, 60, true);
+    var ret = readNum('ret-in-age', 'ret-rng-age', 60, cur + 1, 75, true);
+    var exp = readNum('ret-in-exp', 'ret-rng-exp', 0, 0, 100000000, false);
+    var infPct = readRng('ret-rng-inf', 6, 0, 15);
+    var ratePct = readRng('ret-rng-rate', 12, 0, 30);
     document.getElementById('ret-inf-lbl').textContent = infPct.toFixed(1) + '%';
     document.getElementById('ret-rate-lbl').textContent = ratePct.toFixed(1) + '%';
-    paintSlider(document.getElementById('ret-rng-inf'));
-    paintSlider(document.getElementById('ret-rng-rate'));
 
     var yrs = ret - cur;
     var futExp = exp * Math.pow(1 + infPct / 100, yrs);
@@ -1744,14 +1765,12 @@ function copySummary(key){
 // 5. Education Engine
 (function(){
   function run(){
-    var p = Math.max(0, parseFloat(document.getElementById('edu-in-amt').value) || 0);
-    var y = Math.max(1, parseInt(document.getElementById('edu-in-yr').value, 10) || 1);
-    var infPct = parseFloat(document.getElementById('edu-rng-inf').value) || 8;
-    var ratePct = parseFloat(document.getElementById('edu-rng-rate').value) || 12;
+    var p = readNum('edu-in-amt', 'edu-rng-amt', 0, 0, 100000000, false);
+    var y = readNum('edu-in-yr', 'edu-rng-yr', 1, 1, 50, true);
+    var infPct = readRng('edu-rng-inf', 8, 0, 15);
+    var ratePct = readRng('edu-rng-rate', 12, 0, 30);
     document.getElementById('edu-inf-lbl').textContent = infPct.toFixed(1) + '%';
     document.getElementById('edu-rate-lbl').textContent = ratePct.toFixed(1) + '%';
-    paintSlider(document.getElementById('edu-rng-inf'));
-    paintSlider(document.getElementById('edu-rng-rate'));
 
     var futCost = p * Math.pow(1 + infPct / 100, y);
     var reqSip = CalcMath.requiredSip(futCost, ratePct, y);
@@ -1783,16 +1802,10 @@ function copySummary(key){
 // 6. Cost of Delay Engine
 (function(){
   function run(){
-    var p = Math.max(0, parseFloat(document.getElementById('del-in-amt').value) || 0);
-    var y = Math.max(2, parseInt(document.getElementById('del-in-yr').value, 10) || 15);
-    var delay = Math.max(1, parseInt(document.getElementById('del-in-per').value, 10) || 1);
-    if(delay >= y){
-      delay = y - 1;
-      document.getElementById('del-in-per').value = delay;
-      var delRng = document.getElementById('del-rng-per');
-      if(delRng){ delRng.value = delay; paintSlider(delRng); }
-    }
-    var ratePct = Math.max(0, parseFloat(document.getElementById('del-in-rate').value) || 12);
+    var p = readNum('del-in-amt', 'del-rng-amt', 0, 0, 100000000, false);
+    var y = readNum('del-in-yr', 'del-rng-yr', 15, 2, 50, true);
+    var delay = readNum('del-in-per', 'del-rng-per', 1, 1, y - 1, true);
+    var ratePct = readNum('del-in-rate', 'del-rng-rate', 12, 0, 30, false);
 
     var fv1 = CalcMath.sipFV(p, ratePct, y);
     var fv2 = CalcMath.sipFV(p, ratePct, y - delay);
@@ -1803,7 +1816,7 @@ function copySummary(key){
     document.getElementById('del-res-sub').textContent = 'Cost of waiting ' + delay + (delay === 1 ? ' year' : ' years');
     document.getElementById('del-res-on').textContent = fmtLakhCr(fv1);
     document.getElementById('del-res-del').textContent = fmtLakhCr(fv2);
-    document.getElementById('del-lbl-del').textContent = 'Corpus if delayed by ' + delay + (delay === 1 ? ' yr:' : ' yrs:');
+    document.getElementById('del-lbl-del').textContent = 'Corpus if delayed by ' + delay + (delay === 1 ? ' year:' : ' years:');
     document.getElementById('del-comp-text').innerHTML = 'By postponing <b>' + fmtLakhCr(skippedInv) + '</b> in initial contributions, you permanently forfeit <b>' + fmtLakhCr(loss) + '</b> in long-term compounding.';
 
     var sOn = [0], sDel = [0];
