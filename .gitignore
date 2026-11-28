@@ -13,3 +13,6 @@ desktop.ini
 
 # Scratch scripts
 scratch/
+
+# Deploy output
+dist/
