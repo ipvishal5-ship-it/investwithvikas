@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'self' https://www.investwell.in https://formprint.printwellonline.com; connect-src 'self' https://api.mfapi.in; base-uri 'self'; form-action 'self';">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mutual Fund Forms Hub · Download Official Common Slips & KYC Forms | Vikas Agarwal</title>
-<meta name="description" content="Download 12 standard AMFI and AMC forms mutual fund transaction slips, CKYC forms, NACH SIP mandates, Bank change, Nomination, and Transmission forms in PDF.">
+<meta name="description" content="Download standard AMFI and AMC mutual fund forms: transaction slips, CKYC forms, NACH mandates, bank change, nomination and transmission forms in PDF.">
 <meta name="keywords" content="Mutual Fund Forms PDF, AMFI Common Transaction Slip, CKYC Individual Form, NACH Mandate Mutual Fund, Change of Bank Mandate Form, Mutual Fund Nomination Form">
 <link rel="canonical" href="https://investwithvikas.in/mf-forms.html">
 
@@ -1162,8 +1162,6 @@ document.addEventListener('DOMContentLoaded', function(){
   var formCards = document.querySelectorAll('.form-card');
   var heroPdfCount = document.getElementById('heroPdfCount');
   if (heroPdfCount) heroPdfCount.innerText = formCards.length + ' PDFs';
-  var metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.setAttribute('content', metaDesc.getAttribute('content').replace(/\b\d+\b/, formCards.length));
   var counterEl = document.getElementById('formCounter');
   var noResults = document.getElementById('noResults');
 
