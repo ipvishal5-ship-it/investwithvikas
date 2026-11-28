@@ -41,37 +41,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://investwithvikas.in/forms/AMFI_CKYC_Individual_Form.pdf</loc>
+    <loc>https://investwithvikas.in/forms/Common_Transaction_Slip.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://investwithvikas.in/forms/AMFI_Code_of_Conduct.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://investwithvikas.in/forms/AMFI_Form_3_Transmission.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://investwithvikas.in/forms/AMFI_Form_T1_Transmission.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://investwithvikas.in/forms/AMFI_Form_T3_Transmission.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://investwithvikas.in/forms/AMFI_Minor_to_Major_MAM_Form.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://investwithvikas.in/forms/AMFI_Nomination_Registration_Cancellation.pdf</loc>
+    <loc>https://investwithvikas.in/forms/KFintech_Common_Transaction_Form.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -86,27 +61,42 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://investwithvikas.in/forms/Change_of_Bank_Mandate_Form.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://investwithvikas.in/forms/HDFC_Common_Transaction_Slip.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://investwithvikas.in/forms/KFintech_Common_Transaction_Form.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://investwithvikas.in/forms/KFintech_FATCA_Declaration.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://investwithvikas.in/forms/AMFI_Minor_to_Major_MAM_Form.pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://investwithvikas.in/forms/KFintech_NACH_Mandate_Form.pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://investwithvikas.in/forms/Change_of_Bank_Mandate_Form.pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://investwithvikas.in/forms/AMFI_Nomination_Registration_Cancellation.pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://investwithvikas.in/forms/AMFI_Form_T3_Transmission.pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://investwithvikas.in/forms/AMFI_Form_T1_Transmission.pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://investwithvikas.in/forms/AMFI_Form_3_Transmission.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

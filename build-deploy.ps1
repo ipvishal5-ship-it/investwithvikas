@@ -29,12 +29,35 @@ foreach ($f in $rootFiles) {
     Copy-Item -Path $src -Destination (Join-Path $dist $f)
 }
 
-foreach ($dir in @("amc-logos", "forms")) {
-    $srcDir = Join-Path $PSScriptRoot $dir
-    if (-not (Test-Path $srcDir)) {
-        throw "Missing required deploy folder: $dir"
+$srcLogos = Join-Path $PSScriptRoot "amc-logos"
+if (-not (Test-Path $srcLogos)) {
+    throw "Missing required deploy folder: amc-logos"
+}
+Copy-Item -Path $srcLogos -Destination (Join-Path $dist "amc-logos") -Recurse
+
+$srcForms = Join-Path $PSScriptRoot "forms"
+if (-not (Test-Path $srcForms)) {
+    throw "Missing required deploy folder: forms"
+}
+$distForms = Join-Path $dist "forms"
+New-Item -ItemType Directory -Path $distForms | Out-Null
+
+# Collect PDFs referenced by any deployed HTML page
+$referencedPdfs = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
+foreach ($f in ($rootFiles | Where-Object { $_ -like "*.html" })) {
+    $htmlContent = Get-Content -Path (Join-Path $PSScriptRoot $f) -Raw
+    foreach ($m in [regex]::Matches($htmlContent, 'forms/([^"''\s<>]+\.pdf)', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)) {
+        [void]$referencedPdfs.Add($m.Groups[1].Value)
     }
-    Copy-Item -Path $srcDir -Destination (Join-Path $dist $dir) -Recurse
+}
+
+Write-Host "=== FORMS FILTER REPORT ==="
+foreach ($pdfFile in (Get-ChildItem -Path $srcForms -File | Sort-Object Name)) {
+    if ($referencedPdfs.Contains($pdfFile.Name)) {
+        Copy-Item -Path $pdfFile.FullName -Destination (Join-Path $distForms $pdfFile.Name)
+    } else {
+        Write-Host ("  EXCLUDED: forms\{0} ({1:N0} bytes) - not referenced by any HTML page" -f $pdfFile.Name, $pdfFile.Length)
+    }
 }
 
 # Verify nothing unexpected ended up in dist\
