@@ -30,10 +30,10 @@ Official website of **Vikas Pawankumar Agarwal**, AMFI-Registered Mutual Fund Di
    - Child Higher Education Calculator (Future college tuition projection)
    - Cost of Delay Calculator (Financial penalty of postponing investing)
 6. `kyc.html` - Central KYC (CKYC) Verification Hub routing investors to all 5 SEBI-registered KRAs (CVL, CAMS, KFintech, NSE, NDML) and Income Tax PAN-Aadhaar verification portal.
-7. `mf-forms.html` - Mutual Fund Forms & Downloads Hub with search and category filtering, in-browser PDF preview modal, and direct downloads for 15 official AMFI/SEBI forms (including universal Common Transaction Slip and Change of Bank Mandate).
+7. `mf-forms.html` - Mutual Fund Forms & Downloads Hub with search and category filtering, in-browser PDF preview modal, and direct downloads for 12 mutual fund servicing forms (including universal Common Transaction Slip and Change of Bank Mandate generic templates).
 8. `mf-tools.html` - Advanced Mutual Fund Research Hub featuring:
    - Real-Time AMFI NAV Tracker with instant live typeahead autocomplete search across 2,500+ mutual fund schemes.
-   - Union Budget 2024-25 Capital Gains Tax Reckoner (Finance (No. 2) Act, 2024 rules).
+   - Illustrative Mutual Fund Capital Gains Tax Estimator.
    - Past SIP Backtester powered by Investwell.
    - SEBI Category Risk-o-meter Matrix.
    - Central Consolidated Account Statement (CAS) Hub.
