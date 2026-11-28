@@ -1120,7 +1120,7 @@ footer{background:var(--navy);color:#fff;padding:64px 0 32px;border-top:1px soli
               Equity-oriented LTCG (&gt; 12 months) is taxed at 12.5% on capital gains exceeding the ₹1,25,000 annual statutory exemption threshold.
             </p>
             <p style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.45;margin-top:8px;border-top:1px solid rgba(255,255,255,.15);padding-top:8px" id="taxDisclaimerLine">
-              Illustrative estimate based on rates as of November 2026. Excludes surcharge and 4% cess. Not tax advice; consult a qualified tax professional.
+              Illustrative estimate only. Tax rules and rates change; confirm current rules with a qualified tax professional before acting. Excludes surcharge and 4% cess.
             </p>
           </div>
 
@@ -2038,7 +2038,7 @@ document.addEventListener('DOMContentLoaded', function(){
   displayScheme("101762");
 
   // 4. Capital Gains Tax Estimator (Illustrative)
-  var TAX_RATES_AS_OF = 'November 2026';
+  var TAX_RATES_AS_OF = '';
   var taxSchemeType = document.getElementById('taxSchemeType');
   var taxHoldingPeriod = document.getElementById('taxHoldingPeriod');
   var taxSlabRate = document.getElementById('taxSlabRate');
@@ -2046,7 +2046,9 @@ document.addEventListener('DOMContentLoaded', function(){
   var taxGainVal = document.getElementById('taxGainVal');
   var taxDisclaimerLine = document.getElementById('taxDisclaimerLine');
   if (taxDisclaimerLine) {
-    taxDisclaimerLine.innerText = 'Illustrative estimate based on rates as of ' + TAX_RATES_AS_OF + '. Excludes surcharge and 4% cess. Not tax advice; consult a qualified tax professional.';
+    taxDisclaimerLine.innerText = TAX_RATES_AS_OF
+      ? 'Illustrative estimate only. Rates as of ' + TAX_RATES_AS_OF + '. Tax rules and rates change; confirm current rules with a qualified tax professional before acting. Excludes surcharge and 4% cess.'
+      : 'Illustrative estimate only. Tax rules and rates change; confirm current rules with a qualified tax professional before acting. Excludes surcharge and 4% cess.';
   }
 
   function syncHoldingOptions(){
