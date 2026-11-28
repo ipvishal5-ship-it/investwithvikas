@@ -1369,13 +1369,14 @@ function fmtLakhCr(n){
   return '₹ ' + n.toLocaleString('en-IN');
 }
 
+var commitInp = null;
 function readNum(inId, rngId, defVal, min, max, isInt){
   var inp = document.getElementById(inId);
   var rng = rngId ? document.getElementById(rngId) : null;
   var raw = inp ? (isInt ? parseInt(inp.value, 10) : parseFloat(inp.value)) : NaN;
   var v = isNaN(raw) ? defVal : raw;
   var c = Math.max(min, Math.min(max, v));
-  if(inp && !isNaN(raw) && c !== raw){ inp.value = c; }
+  if(inp && commitInp === inp && (isNaN(raw) || c !== raw)){ inp.value = c; }
   if(rng){
     var rMin = rng.min !== '' ? parseFloat(rng.min) : min;
     var rMax = rng.max !== '' ? parseFloat(rng.max) : max;
@@ -1486,10 +1487,17 @@ function bindSync(inId, rngId, onUpdate){
     onUpdate();
   });
   inp.addEventListener('input', function(){
-    rng.value = inp.value;
-    paintSlider(rng);
     syncPresets(inId, inp.value);
     onUpdate();
+  });
+  inp.addEventListener('change', function(){
+    commitInp = inp;
+    try {
+      onUpdate();
+    } finally {
+      commitInp = null;
+    }
+    syncPresets(inId, inp.value);
   });
 }
 
